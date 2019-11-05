@@ -12,6 +12,9 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+// import LinkButton from './components/LinkButton'
+
+
 
 function Copyright() {
   return (
@@ -49,7 +52,12 @@ const useStyles = makeStyles(theme => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  // linkbuttons: {
+  //   margin: theme.spacing(3, 0, 2),
+  // },
 }));
+
+
 
 export default function SignIn() {
   const classes = useStyles();
@@ -97,6 +105,7 @@ export default function SignIn() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            href='/Dashboard'
           >
             Sign In
           </Button>
