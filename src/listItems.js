@@ -9,34 +9,35 @@ import PeopleIcon from '@material-ui/icons/People';
 import BarChartIcon from '@material-ui/icons/BarChart';
 import LayersIcon from '@material-ui/icons/Layers';
 import AssignmentIcon from '@material-ui/icons/Assignment';
+import { Link } from "react-router-dom";
 
 export const mainListItems = (
   <div>
-    <ListItem button>
+    <ListItem button component={Link} to="/dashboard">
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
-      <ListItemText primary="Dashboard" />
+      <ListItemText primary="Dashboard"/>
     </ListItem>
-    <ListItem button>
+    <ListItem button component={Link} to="/orders">
       <ListItemIcon>
         <ShoppingCartIcon />
       </ListItemIcon>
-      <ListItemText primary="Orders" />
+      <ListItemText primary="Orders"  />
     </ListItem>
-    <ListItem button>
+    <ListItem button component={Link} to="/customers">
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
       <ListItemText primary="Customers" />
     </ListItem>
-    <ListItem button>
+    <ListItem button component={Link} to="/reports">
       <ListItemIcon>
         <BarChartIcon />
       </ListItemIcon>
       <ListItemText primary="Reports" />
     </ListItem>
-    <ListItem button>
+    <ListItem button component={Link} to="/integrations">
       <ListItemIcon>
         <LayersIcon />
       </ListItemIcon>
@@ -48,19 +49,19 @@ export const mainListItems = (
 export const secondaryListItems = (
   <div>
     <ListSubheader inset>Saved reports</ListSubheader>
-    <ListItem button>
+    <ListItem button component={Link} to="/currentmonth">
       <ListItemIcon>
         <AssignmentIcon />
       </ListItemIcon>
       <ListItemText primary="Current month" />
     </ListItem>
-    <ListItem button>
+    <ListItem button component={Link} to="/lastquarter">
       <ListItemIcon>
         <AssignmentIcon />
       </ListItemIcon>
       <ListItemText primary="Last quarter" />
     </ListItem>
-    <ListItem button>
+    <ListItem button component={Link} to="/yearendsale">
       <ListItemIcon>
         <AssignmentIcon />
       </ListItemIcon>

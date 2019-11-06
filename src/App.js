@@ -1,40 +1,18 @@
 import React from 'react';
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
 
 import SignIn from './SignIn';
-import Dashboard from './Dashboard'
-import Chart from './Chart'
-import Deposits from './Deposits'
-import listItems from './listItems'
-import Orders from './Orders'
-import ProTip from './ProTip'
-import SignUp from './SignUp'
-import theme from './theme'
-import Title from './Title'
+import Dashboard from './Dashboard';
+import SignUp from './SignUp';
+import Orders from './Orders';
+
 
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
-} from "react-router-dom";
+  Route} from "react-router-dom";
 
 
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        ShopStream
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
 
 export default function App() {
   return (
@@ -71,6 +49,9 @@ export default function App() {
           </Route>
           <Route path="/dashboard">
             <Dashboard />
+          </Route>
+          <Route path="/orders">
+            <Orders />
           </Route>
         </Switch>
       </div>
