@@ -12,7 +12,8 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-// import LinkButton from './components/LinkButton'
+import Image from './bill-oxford--fGqsewtsJY-unsplash.png'; 
+import Image1 from './shop_stream_logo.png'; 
 
 
 
@@ -20,7 +21,7 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
+      <Link color="inherit" href="/">
         ShopStream
       </Link>{' '}
       {new Date().getFullYear()}
@@ -32,7 +33,12 @@ function Copyright() {
 const useStyles = makeStyles(theme => ({
   '@global': {
     body: {
-      backgroundColor: theme.palette.common.white,
+      // backgroundColor: theme.palette.common.white,
+      textAlign: 'center',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'cover',
+      backgroundImage: `url(${Image})`,
     },
   },
   paper: {
@@ -40,10 +46,12 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    backgroundColor: theme.palette.common.white,
+    padding: theme.spacing(2),
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.primary.main,
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -52,9 +60,6 @@ const useStyles = makeStyles(theme => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
-  // linkbuttons: {
-  //   margin: theme.spacing(3, 0, 2),
-  // },
 }));
 
 
@@ -66,10 +71,8 @@ export default function SignIn() {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
+      <img src={Image1} style={{ width: "250px" }} />
+        <Typography component="h1" variant="h6">
           Sign in
         </Typography>
         <form className={classes.form} noValidate>
@@ -105,18 +108,18 @@ export default function SignIn() {
             variant="contained"
             color="primary"
             className={classes.submit}
-            href='/Dashboard'
+            href='/dashboard'
           >
             Sign In
           </Button>
           <Grid container>
             <Grid item xs>
-              <Link href="#" variant="body2">
+              <Link href="/forgotpassword" variant="body2">
                 Forgot password?
               </Link>
             </Grid>
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link href="/signup" >
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>
