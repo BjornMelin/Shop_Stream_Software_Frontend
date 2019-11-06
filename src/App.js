@@ -28,7 +28,7 @@ function Copyright() {
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        ShopStream
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -40,6 +40,7 @@ export default function App() {
   return (
     <Router>
       <div>
+      {/* <div>
         <ul>
           <li>
             <Link to="/">SignIn</Link>
@@ -52,7 +53,7 @@ export default function App() {
           </li>
         </ul>
 
-        <hr />
+        <hr /> */}
 
         {/*
           A <Switch> looks through all its children <Route>
