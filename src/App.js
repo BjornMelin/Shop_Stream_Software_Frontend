@@ -1,9 +1,11 @@
 import React from 'react';
-
 import SignIn from './containers/SignIn';
 import Dashboard from './containers/Dashboard';
 import SignUp from './containers/SignUp';
 import Orders from './containers/orders/Orders';
+import OrdersEdit from './containers/orders/OrdersEdit';
+import OrdersPlace from './containers/orders/OrdersPlace';
+import OrdersPrevious from './containers/orders/OrdersPrevious';
 import Customers from './containers/customers/Customers';
 import Inventory from './containers/inventory/Inventory';
 import Production from './containers/production/Production';
@@ -56,8 +58,17 @@ export default function App() {
           <Route path="/dashboard">
             <Dashboard />
           </Route>
-          <Route path="/orders">
+          <Route path="/orders" >
             <Orders />
+          </Route>
+          <Route path="/orders/placeorder" >
+            <OrdersPlace />
+          </Route>
+          <Route path="/orders/editorders" >
+            <OrdersEdit />
+          </Route>
+          <Route path="/orders/previousorders" >
+            <OrdersPrevious />
           </Route>
           <Route path="/customers">
             <Customers />
@@ -76,4 +87,3 @@ export default function App() {
     </Router>
   );
 }
-

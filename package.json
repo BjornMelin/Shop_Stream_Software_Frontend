@@ -12,6 +12,7 @@
     "@material-ui/core": "latest",
     "@material-ui/icons": "^4.5.1",
     "clsx": "latest",
+    "formik-material-ui": "^1.0.0",
     "react": "latest",
     "react-bootstrap": "^0.33.0",
     "react-dom": "latest",
