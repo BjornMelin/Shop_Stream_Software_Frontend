@@ -21,13 +21,15 @@ import { mainListItems, secondaryListItems } from './listItems';
 import Chart from './Chart';
 import Deposits from './Deposits';
 import Orders from './Orders';
+import Button from '@material-ui/core/Button'
+
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="/">
-        Your Website
+        ShopStream
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -142,10 +144,17 @@ export default function Dashboard() {
             <MenuIcon />
           </IconButton>
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-            Dashboard
+            ShopStream Dashboard
           </Typography>
+          <Button 
+            variant="outlined" 
+            color="inherit" 
+            href="/"
+          >
+            Logout
+          </Button>
           <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
+            <Badge badgeContent={0} color="secondary">
               <NotificationsIcon />
             </Badge>
           </IconButton>
