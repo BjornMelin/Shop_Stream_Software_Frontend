@@ -1,9 +1,9 @@
 import React from 'react';
 
-import SignIn from './SignIn';
-import Dashboard from './Dashboard';
-import SignUp from './SignUp';
-import Orders from './Orders';
+import SignIn from './containers/SignIn';
+import Dashboard from './containers/Dashboard';
+import SignUp from './containers/SignUp';
+import Orders from './containers/Orders';
 
 
 import {
