@@ -4,6 +4,12 @@ import SignIn from './containers/SignIn';
 import Dashboard from './containers/Dashboard';
 import SignUp from './containers/SignUp';
 import Orders from './containers/orders/Orders';
+import Customers from './containers/customers/Customers';
+import Inventory from './containers/inventory/Inventory';
+import Production from './containers/production/Production';
+import Projects from './containers/projects/Projects';
+
+
 
 
 import {
@@ -52,6 +58,18 @@ export default function App() {
           </Route>
           <Route path="/orders">
             <Orders />
+          </Route>
+          <Route path="/customers">
+            <Customers />
+          </Route>
+          <Route path="/inventory">
+            <Inventory />
+          </Route>
+          <Route path="/production">
+            <Production />
+          </Route>
+          <Route path="/projects">
+            <Projects />
           </Route>
         </Switch>
       </div>
