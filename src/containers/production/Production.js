@@ -13,7 +13,6 @@ const useStyles = makeStyles(theme => ({
         backgroundHeight:'100%',
         backgroundWidth:"100%",
         textAlign: 'center',
-        backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         backgroundImage: `url(${Image})`,

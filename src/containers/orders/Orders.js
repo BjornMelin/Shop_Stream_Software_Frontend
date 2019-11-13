@@ -4,6 +4,8 @@ import MainAppBar from '../AppBar/MainAppBar'
 import OrdersButtons from './OrdersButtons'
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
 import { makeStyles } from '@material-ui/core/styles';
+import OrdersCardButtons from './OrdersCardButtons'
+
 
 
 const useStyles = makeStyles(theme => ({
@@ -12,7 +14,6 @@ const useStyles = makeStyles(theme => ({
         backgroundHeight:'100%',
         backgroundWidth:"100%",
         textAlign: 'center',
-        backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         backgroundImage: `url(${Image})`,
@@ -32,9 +33,13 @@ export default function Orders() {
         <MainAppBar>
         </MainAppBar>
 
-        <OrdersButtons>
+        <OrdersCardButtons>
 
-        </OrdersButtons>
+        </OrdersCardButtons>
+
+        {/* <OrdersButtons>
+
+        </OrdersButtons> */}
     </div>
     );
 }
