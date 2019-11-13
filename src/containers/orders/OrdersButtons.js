@@ -4,20 +4,22 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 
 
+
+
 const images = [
   {
-    url: '/static/images/grid-list/breakfast.jpg',
-    title: 'Breakfast',
+    url: '../images/karan-bhatia-ib7jwp7m0iA-unsplash.jpg',
+    title: 'Place Order',
     width: '40%',
   },
   {
-    url: '/static/images/grid-list/burgers.jpg',
-    title: 'Burgers',
+    url: '../images/christopher-burns-8KfCR12oeUM-unsplash.jpg',
+    title: 'Previous Orders',
     width: '30%',
   },
   {
-    url: '/static/images/grid-list/camera.jpg',
-    title: 'Camera',
+    url: '../images/ant-rozetsky-SLIFI67jv5k-unsplash.jpg',
+    title: 'Edit Order',
     width: '30%',
   },
 ];
