@@ -6,14 +6,14 @@ import MainAppBar from '../AppBar/MainAppBar'
 
 
 
-export default function Customers() {
+export default function Reviews() {
 
     return (
     <div>
         <MainAppBar>
         </MainAppBar>
         {/* <List>{mainListItems}</List>
-        <Divider />
+        <Divider /> 
         <List>{secondaryListItems}</List> */}
     </div>
     );

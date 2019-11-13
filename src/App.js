@@ -82,6 +82,9 @@ export default function App() {
           <Route path="/projects">
             <Projects />
           </Route>
+          <Route path="/reviews">
+            <Projects />
+          </Route>
         </Switch>
       </div>
     </Router>
