@@ -3,6 +3,7 @@ import React from 'react';
 import MainAppBar from '../AppBar/MainAppBar'
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
 import { makeStyles } from '@material-ui/core/styles';
+import ProjectsCardButtons from '../Buttons/ProjectsCardButtons'
 
 
 const useStyles = makeStyles(theme => ({
@@ -27,9 +28,11 @@ export default function Projects() {
     <div>
         <MainAppBar>
         </MainAppBar>
-        {/* <List>{mainListItems}</List>
-        <Divider />
-        <List>{secondaryListItems}</List> */}
+
+        <ProjectsCardButtons>
+
+        </ProjectsCardButtons>
+
     </div>
     );
 }

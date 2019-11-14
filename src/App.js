@@ -79,6 +79,12 @@ export default function App() {
           <Route path="/production">
             <Production />
           </Route>
+          <Route path="/production/genreport">
+            <Production />
+          </Route>
+          <Route path="/production/assignproject">
+            <Production />
+          </Route>
           <Route path="/projects">
             <Projects />
           </Route>

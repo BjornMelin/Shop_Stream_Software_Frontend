@@ -1,6 +1,7 @@
 /* eslint-disable no-script-url */
 import React from 'react';
 import MainAppBar from '../AppBar/MainAppBar'
+import ProductionCardButtons from '../Buttons/ProductionCardButtons'
 
 
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
@@ -30,6 +31,10 @@ export default function Production() {
     <div>
         <MainAppBar>
         </MainAppBar>
+
+        <ProductionCardButtons>
+
+        </ProductionCardButtons>
 
     </div>
     );

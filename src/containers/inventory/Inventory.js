@@ -3,6 +3,7 @@ import React from 'react';
 import MainAppBar from '../AppBar/MainAppBar'
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
 import { makeStyles } from '@material-ui/core/styles';
+import InventoryCardButtons from '../Buttons/InventoryCardButtons'
 
 
 const useStyles = makeStyles(theme => ({
@@ -29,6 +30,11 @@ export default function Inventory() {
     <div>
         <MainAppBar>
         </MainAppBar>
+
+
+        <InventoryCardButtons>
+
+        </InventoryCardButtons>
         {/* <List>{mainListItems}</List>
         <Divider />
         <List>{secondaryListItems}</List> */}
