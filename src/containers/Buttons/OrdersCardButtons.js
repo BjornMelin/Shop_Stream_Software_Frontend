@@ -18,6 +18,8 @@ import Grid from '@material-ui/core/Grid';
 const useStyles = makeStyles(theme => ({
         root: {
             flexGrow: 1,
+            paddingTop: theme.spacing(4),
+            paddingBottom: theme.spacing(4),
         },
         paper: {
             height: 200,
@@ -33,7 +35,7 @@ const useStyles = makeStyles(theme => ({
             maxWidth: 345,
           },
         media: {
-            height: 145,
+            height: 175,
           },
         
     }),
@@ -68,6 +70,7 @@ export default function ImgMediaCard() {
                     </CardActionArea>
                     <CardActions>
                         <Button size="large" 
+                            variant="contained" 
                             color="primary" 
                             href="/orders/placeorder"
                             fullWidth>
@@ -78,6 +81,7 @@ export default function ImgMediaCard() {
                 </Grid>
                 ))}
             </Grid>
+
 
             <Grid className={classes.gridInBetweenSpacing} container justify="center" spacing={5}>
                         <Grid>
@@ -94,6 +98,7 @@ export default function ImgMediaCard() {
                         </CardActionArea>
                         <CardActions>
                         <Button size="large" 
+                            variant="contained" 
                             color="primary" 
                             href="/orders/editorder"
                             fullWidth>

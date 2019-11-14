@@ -1,10 +1,10 @@
 /* eslint-disable no-script-url */
 import React from 'react';
-import MainAppBar from '../AppBar/MainAppBar';
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
 import { makeStyles } from '@material-ui/core/styles';
 import OrdersCardButtons from '../Buttons/OrdersCardButtons'
 import MenuDropdown from '../AppBar/MenuDropdown'
+import Container from '@material-ui/core/Container';
 
 
 
@@ -31,20 +31,15 @@ export default function Orders() {
     return (
     <div>
         <MenuDropdown>
-          <div>
 
-            <OrdersCardButtons>
-
-            </OrdersCardButtons>
-
-          </div>
         </MenuDropdown>
 
+      <Container >
+        <OrdersCardButtons>
 
+        </OrdersCardButtons>
+        </Container>
 
-        {/* <OrdersButtons>
-
-        </OrdersButtons> */}
     </div>
     );
 }

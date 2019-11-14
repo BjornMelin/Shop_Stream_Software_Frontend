@@ -1,6 +1,6 @@
 /* eslint-disable no-script-url */
 import React from 'react';
-import MainAppBar from '../AppBar/MainAppBar'
+import MenuDropdown from '../AppBar/MenuDropdown'
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -28,11 +28,8 @@ export default function Reviews() {
 
     return (
     <div>
-        <MainAppBar>
-        </MainAppBar>
-        {/* <List>{mainListItems}</List>
-        <Divider /> 
-        <List>{secondaryListItems}</List> */}
+        <MenuDropdown />
+
     </div>
     );
 }

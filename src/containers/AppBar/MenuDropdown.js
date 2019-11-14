@@ -270,9 +270,6 @@ export default function MiniDrawer() {
         <List>{secondaryListItems}</List>
       </Drawer>
       {renderMenu}
-      <main className={classes.content}>
-        <div className={classes.toolbar} />
-        </main>
     </div>
   );
 }

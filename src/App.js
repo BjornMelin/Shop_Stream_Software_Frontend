@@ -1,6 +1,6 @@
 import React from 'react';
 import SignIn from './containers/SignIn';
-import Dashboard from './containers/Dashboard';
+import Dashboard from './containers/Dashboard/Dashboard';
 import SignUp from './containers/SignUp';
 import Orders from './containers/orders/Orders';
 import OrdersEdit from './containers/orders/OrdersEdit';
