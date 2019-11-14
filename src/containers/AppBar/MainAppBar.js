@@ -15,6 +15,10 @@ import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import Button from '@material-ui/core/Button'
+import HomeIcon from '@material-ui/icons/Home';
+import { Link } from "react-router-dom";
+
+
 
 const useStyles = makeStyles(theme => ({
   grow: {
@@ -131,16 +135,16 @@ export default function PrimarySearchAppBar() {
       onClose={handleMobileMenuClose}
     >
       <MenuItem>
-        <IconButton aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="secondary">
+        <IconButton aria-label="show 0 new mails" color="inherit">
+          <Badge badgeContent={0} color="secondary">
             <MailIcon />
           </Badge>
         </IconButton>
         <p>Messages</p>
       </MenuItem>
       <MenuItem>
-        <IconButton aria-label="show 11 new notifications" color="inherit">
-          <Badge badgeContent={11} color="secondary">
+        <IconButton aria-label="show 0 new notifications" color="inherit">
+          <Badge badgeContent={0} color="secondary">
             <NotificationsIcon />
           </Badge>
         </IconButton>
@@ -164,13 +168,13 @@ export default function PrimarySearchAppBar() {
     <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
+          <IconButton button component={Link} to="/dashboard"
             edge="start"
-            className={classes.menuButton}
+            className={classes.HomeIcon}
             color="inherit"
             aria-label="open drawer"
           >
-            <MenuIcon />
+            <HomeIcon />
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
             ShopStream
@@ -230,6 +234,8 @@ export default function PrimarySearchAppBar() {
       {renderMenu}
       
     </div>
+
+    
     
   );
 }

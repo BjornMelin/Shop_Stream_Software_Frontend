@@ -71,7 +71,7 @@ export default function ImgMediaCard() {
                             color="primary" 
                             href="/orders/placeorder"
                             fullWidth>
-                        {value === 0 ? "Place Order" : "Previous Orders"}
+                        {value === 0 ? "Assign Tools" : "Assign Materials"}
                         </Button>
                     </CardActions>
                     </Card>
@@ -97,7 +97,7 @@ export default function ImgMediaCard() {
                             color="primary" 
                             href="/orders/editorder"
                             fullWidth>
-                            Edit An Order
+                            Document Work
                         </Button>
                         </CardActions>
                         </Card>
@@ -108,35 +108,3 @@ export default function ImgMediaCard() {
         </Grid>
     )
 }
-
-
-//     <Grid container className={classes.root} spacing={0} >
-//         <Grid item lg={12}>
-//             <Grid className={classes.gridInBetweenSpacing} container justify="center" spacing={5}>
-//                 {[0, 1].map(value => (
-//                     <Grid key={value} item>
-//                         <Card className={classes.card}>
-//                         <CardActionArea>
-//                         <CardMedia
-//                             component="img2"
-//                             alt="Edit An Order"
-//                             height="100%"
-//                             image={Image2}
-//                             title="Edit An Order"
-//                         />
-//                         <CardContent>
-//                         </CardContent>
-//                         </CardActionArea>
-//                         <CardActions>
-//                         <Button size="large" color="primary" href="/orders/placeorder">
-//                             Edit Order
-//                         </Button>
-//                         </CardActions>
-//                         </Card>
-//                         </Grid>
-//                     ))}
-//                 </Grid>
-//             </Grid>
-//         </Grid>
-//         )};
-// }

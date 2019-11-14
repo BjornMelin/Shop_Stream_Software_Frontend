@@ -1,10 +1,9 @@
 /* eslint-disable no-script-url */
 import React from 'react';
-import MainAppBar from '../AppBar/MainAppBar'
-import OrdersButtons from './OrdersButtons'
+import MainAppBar from '../AppBar/MainAppBar';
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
 import { makeStyles } from '@material-ui/core/styles';
-import OrdersCardButtons from './OrdersCardButtons'
+import OrdersCardButtons from '../Buttons/OrdersCardButtons'
 
 
 
