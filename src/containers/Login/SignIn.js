@@ -10,8 +10,8 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Image from './images/bill-oxford--fGqsewtsJY-unsplash.png'; 
-import Image1 from './images/shop_stream_logo.png'; 
+import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
+import Image1 from '../images/shop_stream_logo.png'; 
 
 
 

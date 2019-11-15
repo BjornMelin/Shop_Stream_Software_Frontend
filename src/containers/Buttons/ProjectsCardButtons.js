@@ -85,7 +85,7 @@ const useStyles = makeStyles(theme => ({
     },
   }));
   
-  export default function OrdersCardButtons() {
+  export default function ProjectsCardButtons() {
     const classes = useStyles();
   
     return (

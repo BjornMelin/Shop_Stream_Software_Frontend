@@ -1,9 +1,9 @@
 /* eslint-disable no-script-url */
 import React from 'react';
-import MenuDropdown from '../AppBar/MenuDropdown'
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
 import { makeStyles } from '@material-ui/core/styles';
-import CustomersCardButtons from '../Buttons/CustomersCardButtons'
+import MenuDropdown from '../AppBar/MenuDropdown'
+
 
 
 const useStyles = makeStyles(theme => ({
@@ -22,15 +22,12 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-
-
-export default function Customers() {
+export default function CustomersList() {
     const classes = useStyles();
 
     return (
-      <div className={classes.root}>
-          <MenuDropdown />
-          <CustomersCardButtons />
-      </div>
+    <div className={classes.root}>
+        <MenuDropdown />
+    </div>
     );
 }

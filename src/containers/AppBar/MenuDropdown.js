@@ -20,7 +20,7 @@ import Menu from '@material-ui/core/Menu';
 import Badge from '@material-ui/core/Badge';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import { mainListItems, secondaryListItems } from '../listItems';
+import { mainListItems } from './listItems';
 
 
 
@@ -266,8 +266,6 @@ export default function MiniDrawer() {
         </div>
         <Divider />
         <List>{mainListItems}</List>
-        <Divider />
-        <List>{secondaryListItems}</List>
       </Drawer>
       {renderMenu}
     </div>

@@ -26,7 +26,7 @@ export default function ProductionGenReport() {
     const classes = useStyles();
 
     return (
-    <div>
+    <div className={classes.root}>
         <MenuDropdown />
     </div>
     );

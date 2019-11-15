@@ -27,11 +27,7 @@ export default function Projects() {
     return (
     <div className={classes.root}>
         <MenuDropdown />
-
-        <ProjectsCardButtons>
-
-        </ProjectsCardButtons>
-
+        <ProjectsCardButtons />
     </div>
     );
 }

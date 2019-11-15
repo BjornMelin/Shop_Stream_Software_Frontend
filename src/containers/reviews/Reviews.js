@@ -3,6 +3,7 @@ import React from 'react';
 import MenuDropdown from '../AppBar/MenuDropdown'
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
 import { makeStyles } from '@material-ui/core/styles';
+import ReviewsCardButtons from '../Buttons/ReviewsCardButtons'
 
 
 const useStyles = makeStyles(theme => ({
@@ -27,9 +28,9 @@ export default function Reviews() {
     const classes = useStyles();
 
     return (
-    <div>
+    <div className={classes.root}>
         <MenuDropdown />
-
+        <ReviewsCardButtons />
     </div>
     );
 }

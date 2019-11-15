@@ -9,6 +9,9 @@ import OrdersPlace from './containers/orders/OrdersPlace';
 import OrdersPrevious from './containers/orders/OrdersPrevious';
 
 import Customers from './containers/customers/Customers';
+import CustomersAdd from './containers/customers/CustomersAdd';
+import CustomersEdit from './containers/customers/CustomersEdit';
+import CustomersList from './containers/customers/CustomersList';
 
 import Inventory from './containers/inventory/Inventory';
 import InventoryGenReport from './containers/inventory/InventoryGenReport';
@@ -20,7 +23,9 @@ import ProjectsAssignTools from './containers/projects/ProjectsAssignTools';
 import ProjectsAssignMaterials from './containers/projects/ProjectsAssignMaterials';
 import ProjectsDocProject from './containers/projects/ProjectsDocProject';
 
-
+import Reviews from './containers/reviews/Reviews';
+import ReviewsViewPrevious from './containers/reviews/ReviewsViewPrevious';
+import ReviewsFile from './containers/reviews/ReviewsFile';
 
 
 import {
@@ -65,8 +70,17 @@ export default function App() {
           <Route exact path="/orders/previousorders" >
             <OrdersPrevious />
           </Route>
-          <Route path="/customers">
+          <Route exact path="/customers">
             <Customers />
+          </Route>
+          <Route exact path="/customers/list-customers">
+            <CustomersList />
+          </Route>
+          <Route exact path="/customers/add-customer">
+            <CustomersAdd />
+          </Route>
+          <Route exact path="/customers/edit-customers">
+            <CustomersEdit />
           </Route>
           <Route exact path="/inventory">
             <Inventory />
@@ -98,8 +112,14 @@ export default function App() {
           <Route exact path="/projects/docproject">
             <ProjectsDocProject />
           </Route>
-          <Route path="/reviews">
-            <Projects />
+          <Route exact path="/reviews">
+            <Reviews />
+          </Route>
+          <Route exact path="/reviews/file-review">
+            <ReviewsFile />
+          </Route>
+          <Route exact path="/reviews/previous-reviews">
+            <ReviewsViewPrevious />
           </Route>
         </Switch>
       </div>
