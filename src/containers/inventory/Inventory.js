@@ -1,6 +1,6 @@
 /* eslint-disable no-script-url */
 import React from 'react';
-import MainAppBar from '../AppBar/MainAppBar'
+import MenuDropdown from '../AppBar/MenuDropdown'
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
 import { makeStyles } from '@material-ui/core/styles';
 import InventoryCardButtons from '../Buttons/InventoryCardButtons'
@@ -27,17 +27,9 @@ export default function Inventory() {
     const classes = useStyles();
 
     return (
-    <div>
-        <MainAppBar>
-        </MainAppBar>
-
-
-        <InventoryCardButtons>
-
-        </InventoryCardButtons>
-        {/* <List>{mainListItems}</List>
-        <Divider />
-        <List>{secondaryListItems}</List> */}
+    <div className={classes.root}>
+        <MenuDropdown />
+        <InventoryCardButtons />
     </div>
     );
 }

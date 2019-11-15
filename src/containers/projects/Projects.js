@@ -1,6 +1,6 @@
 /* eslint-disable no-script-url */
 import React from 'react';
-import MainAppBar from '../AppBar/MainAppBar'
+import MenuDropdown from '../AppBar/MenuDropdown'
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
 import { makeStyles } from '@material-ui/core/styles';
 import ProjectsCardButtons from '../Buttons/ProjectsCardButtons'
@@ -25,14 +25,9 @@ export default function Projects() {
     const classes = useStyles();
 
     return (
-    <div>
-        <MainAppBar>
-        </MainAppBar>
-
-        <ProjectsCardButtons>
-
-        </ProjectsCardButtons>
-
+    <div className={classes.root}>
+        <MenuDropdown />
+        <ProjectsCardButtons />
     </div>
     );
 }

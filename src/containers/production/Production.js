@@ -1,6 +1,6 @@
 /* eslint-disable no-script-url */
 import React from 'react';
-import MainAppBar from '../AppBar/MainAppBar'
+import MenuDropdown from '../AppBar/MenuDropdown'
 import ProductionCardButtons from '../Buttons/ProductionCardButtons'
 
 
@@ -28,9 +28,8 @@ export default function Production() {
     const classes = useStyles();
 
     return (
-    <div>
-        <MainAppBar>
-        </MainAppBar>
+    <div className={classes.root}>
+        <MenuDropdown />
 
         <ProductionCardButtons>
 
