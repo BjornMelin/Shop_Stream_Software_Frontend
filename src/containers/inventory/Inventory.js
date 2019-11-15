@@ -27,16 +27,9 @@ export default function Inventory() {
     const classes = useStyles();
 
     return (
-    <div>
+    <div className={classes.root}>
         <MenuDropdown />
-
-
-        <InventoryCardButtons>
-
-        </InventoryCardButtons>
-        {/* <List>{mainListItems}</List>
-        <Divider />
-        <List>{secondaryListItems}</List> */}
+        <InventoryCardButtons />
     </div>
     );
 }

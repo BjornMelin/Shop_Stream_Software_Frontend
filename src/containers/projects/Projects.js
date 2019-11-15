@@ -25,7 +25,7 @@ export default function Projects() {
     const classes = useStyles();
 
     return (
-    <div>
+    <div className={classes.root}>
         <MenuDropdown />
 
         <ProjectsCardButtons>

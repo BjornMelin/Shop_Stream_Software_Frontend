@@ -3,7 +3,6 @@ import React from 'react';
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
 import { makeStyles } from '@material-ui/core/styles';
 import MenuDropdown from '../AppBar/MenuDropdown'
-import DashboardPanels from './DashboardPanels';
 
 
 
@@ -23,13 +22,12 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export default function Orders() {
+export default function ProductionAssignProject() {
     const classes = useStyles();
 
     return (
-    <div className={classes.root}>
+    <div>
         <MenuDropdown />
-        <DashboardPanels />
     </div>
     );
 }

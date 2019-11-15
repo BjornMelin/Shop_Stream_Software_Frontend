@@ -36,6 +36,7 @@ function Copyright() {
       flexGrow: 1,
       paddingTop: theme.spacing(10),
       paddingBottom: theme.spacing(0),
+      paddingLeft: theme.spacing(15),
     },
     paper: {
       padding: theme.spacing(2),
@@ -56,7 +57,7 @@ export default function DashboardPanels() {
     
     return(
 <div >
-<Container maxWidth="lg" className={classes.container}>
+<Container maxWidth="md" className={classes.container}>
           <Grid container spacing={3}>
             {/* Chart */}
             <Grid item xs={12} md={8} lg={9}>

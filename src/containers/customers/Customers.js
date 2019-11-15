@@ -27,7 +27,7 @@ export default function Customers() {
     const classes = useStyles();
 
     return (
-    <div>
+    <div className={classes.root}>
         <MainAppBar>
         </MainAppBar>
         {/* <List>{mainListItems}</List>

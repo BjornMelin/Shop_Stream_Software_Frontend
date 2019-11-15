@@ -1,15 +1,24 @@
 import React from 'react';
-import SignIn from './containers/SignIn';
+import SignIn from './containers/Login/SignIn';
 import Dashboard from './containers/Dashboard/Dashboard';
-import SignUp from './containers/SignUp';
+import SignUp from './containers/Login/SignUp';
+
 import Orders from './containers/orders/Orders';
 import OrdersEdit from './containers/orders/OrdersEdit';
 import OrdersPlace from './containers/orders/OrdersPlace';
 import OrdersPrevious from './containers/orders/OrdersPrevious';
+
 import Customers from './containers/customers/Customers';
+
 import Inventory from './containers/inventory/Inventory';
+import InventoryGenReport from './containers/inventory/InventoryGenReport';
+import InventoryUpdateInv from './containers/inventory/InventoryUpdateInv';
+
 import Production from './containers/production/Production';
 import Projects from './containers/projects/Projects';
+import ProjectsAssignTools from './containers/projects/ProjectsAssignTools';
+import ProjectsAssignMaterials from './containers/projects/ProjectsAssignMaterials';
+import ProjectsDocProject from './containers/projects/ProjectsDocProject';
 
 
 
@@ -26,20 +35,6 @@ export default function App() {
   return (
     <Router>
       <div>
-      {/* <div>
-        <ul>
-          <li>
-            <Link to="/">SignIn</Link>
-          </li>
-          <li>
-            <Link to="/signup">SignUp</Link>
-          </li>
-          <li>
-            <Link to="/dashboard">Dashboard</Link>
-          </li>
-        </ul>
-
-        <hr /> */}
 
         {/*
           A <Switch> looks through all its children <Route>
@@ -58,35 +53,50 @@ export default function App() {
           <Route path="/dashboard">
             <Dashboard />
           </Route>
-          <Route path="/orders" >
+          <Route exact path="/orders" >
             <Orders />
           </Route>
-          <Route path="/orders/placeorder" >
+          <Route exact path="/orders/placeorder">
             <OrdersPlace />
           </Route>
-          <Route path="/orders/editorders" >
+          <Route exact path="/orders/editorders" >
             <OrdersEdit />
           </Route>
-          <Route path="/orders/previousorders" >
+          <Route exact path="/orders/previousorders" >
             <OrdersPrevious />
           </Route>
           <Route path="/customers">
             <Customers />
           </Route>
-          <Route path="/inventory">
+          <Route exact path="/inventory">
             <Inventory />
           </Route>
-          <Route path="/production">
+          <Route exact path="/inventory/update-mat-inv">
+            <InventoryUpdateInv />
+          </Route>
+          <Route exact path="/inventory/genreport">
+            <InventoryGenReport />
+          </Route>
+          <Route exact path="/production">
             <Production />
           </Route>
-          <Route path="/production/genreport">
+          <Route exact path="/production/genreport">
             <Production />
           </Route>
-          <Route path="/production/assignproject">
+          <Route exact path="/production/assignproject">
             <Production />
           </Route>
-          <Route path="/projects">
+          <Route exact path="/projects">
             <Projects />
+          </Route>
+          <Route exact path="/projects/assigntools">
+            <ProjectsAssignTools />
+          </Route>
+          <Route exact path="/projects/assignmaterials">
+            <ProjectsAssignMaterials />
+          </Route>
+          <Route exact path="/projects/docproject">
+            <ProjectsDocProject />
           </Route>
           <Route path="/reviews">
             <Projects />

@@ -28,7 +28,7 @@ export default function Production() {
     const classes = useStyles();
 
     return (
-    <div>
+    <div className={classes.root}>
         <MenuDropdown />
 
         <ProductionCardButtons>
