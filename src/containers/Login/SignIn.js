@@ -104,6 +104,7 @@ export default function SignIn() {
           <Button
             type="submit"
             fullWidth
+            id="signin"
             variant="contained"
             color="primary"
             className={classes.submit}

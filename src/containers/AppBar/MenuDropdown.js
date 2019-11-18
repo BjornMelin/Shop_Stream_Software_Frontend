@@ -194,6 +194,7 @@ export default function MiniDrawer() {
           <IconButton
             color="inherit"
             aria-label="open drawer"
+            id="openMenuDrawer"
             onClick={handleDrawerOpen}
             edge="start"
             className={clsx(classes.menuButton, {
@@ -223,6 +224,7 @@ export default function MiniDrawer() {
           <Button 
             variant="outlined" 
             color="inherit" 
+            id="logout"
             href="/"
           >
             Logout
@@ -260,7 +262,10 @@ export default function MiniDrawer() {
         open={open}
       >
         <div className={classes.toolbar}>
-          <IconButton onClick={handleDrawerClose}>
+          <IconButton 
+          onClick={handleDrawerClose}
+          id="closeMenuDrawer"
+          >
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
         </div>
