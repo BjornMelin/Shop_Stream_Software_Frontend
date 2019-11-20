@@ -229,7 +229,9 @@ export default function MiniDrawer() {
           >
             Logout
           </Button>
-            <IconButton aria-label="show 0 new notifications" color="inherit">
+            <IconButton 
+              aria-label="show 0 new notifications" 
+              color="inherit">
               <Badge badgeContent={0} color="secondary">
                 <NotificationsIcon />
               </Badge>
@@ -241,6 +243,7 @@ export default function MiniDrawer() {
               aria-haspopup="true"
               onClick={handleProfileMenuOpen}
               color="inherit"
+              id="userActMenuButton"
             >
               <AccountCircle />
             </IconButton>

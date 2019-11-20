@@ -3,6 +3,7 @@ import React from 'react';
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
 import { makeStyles } from '@material-ui/core/styles';
 import MenuDropdown from '../AppBar/MenuDropdown'
+import OrdersPlaceForm from '../forms/OrdersPlaceForm'
 
 
 
@@ -28,6 +29,8 @@ export default function OrdersPlace() {
     return (
     <div className={classes.root}>
         <MenuDropdown />
+        <OrdersPlaceForm />
     </div>
+
     );
 }
