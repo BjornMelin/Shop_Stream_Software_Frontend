@@ -7,7 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Chart from './Chart';
 import Deposits from './Deposits';
-import OrdersGlimpse from '../orders/OrdersGlimpse';
+import JobsGlimpse from '../jobs/JobsGlimpse';
 import Typography from '@material-ui/core/Typography';
 
 
@@ -74,7 +74,7 @@ export default function DashboardPanels() {
             {/* Recent Orders */}
             <Grid item xs={12}>
               <Paper className={classes.paper}>
-                <OrdersGlimpse />
+                <JobsGlimpse />
               </Paper>
             </Grid>
           </Grid>

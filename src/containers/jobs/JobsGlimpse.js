@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Orders() {
+export default function JobsGlimpse() {
   const classes = useStyles();
   return (
     <React.Fragment>
@@ -58,7 +58,7 @@ export default function Orders() {
       </Table>
       <div className={classes.seeMore}>
         <Link color="primary" href="/orders">
-          See more orders
+          See more jobs
         </Link>
       </div>
     </React.Fragment>

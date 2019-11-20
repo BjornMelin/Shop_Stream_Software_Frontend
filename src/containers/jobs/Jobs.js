@@ -2,7 +2,7 @@
 import React from 'react';
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
 import { makeStyles } from '@material-ui/core/styles';
-import OrdersCardButtons from '../Buttons/OrdersCardButtons'
+import JobsCardButtons from '../Buttons/JobsCardButtons'
 import MenuDropdown from '../AppBar/MenuDropdown'
 
 
@@ -24,13 +24,13 @@ const useStyles = makeStyles(theme => ({
 
 
 
-export default function Orders() {
+export default function Jobs() {
     const classes = useStyles();
 
     return (
     <div className={classes.root}>
         <MenuDropdown />
-        <OrdersCardButtons/>
+        <JobsCardButtons/>
     </div>
     );
 }

@@ -20,27 +20,15 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="Dashboard"/>
     </ListItem>
-    <ListItem button component={Link} to="/orders">
+    <ListItem button component={Link} to="/jobs">
       <ListItemIcon>
         <ShoppingCartIcon />
       </ListItemIcon>
-      <ListItemText primary="Orders"  />
-    </ListItem>
-    <ListItem button component={Link} to="/production">
-      <ListItemIcon>
-        <BarChartIcon />
-      </ListItemIcon>
-      <ListItemText primary="Production" />
-    </ListItem>
-    <ListItem button component={Link} to="/projects">
-      <ListItemIcon>
-        <BuildIcon />
-      </ListItemIcon>
-      <ListItemText primary="Projects" />
+      <ListItemText primary="Jobs"  />
     </ListItem>
     <ListItem button component={Link} to="/inventory">
       <ListItemIcon>
-        <LayersIcon />
+        <BarChartIcon />
       </ListItemIcon>
       <ListItemText primary="Inventory" />
     </ListItem>
@@ -50,11 +38,23 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="Customers" />
     </ListItem>
-    <ListItem button component={Link} to="/reviews">
+    <ListItem button component={Link} to="/inspections">
+      <ListItemIcon>
+        <LayersIcon />
+      </ListItemIcon>
+      <ListItemText primary="Inspections" />
+    </ListItem>
+    <ListItem button component={Link} to="/shifts">
+      <ListItemIcon>
+        <BuildIcon />
+      </ListItemIcon>
+      <ListItemText primary="Shifts" />
+    </ListItem>
+    <ListItem button component={Link} to="/part-setup">
       <ListItemIcon>
         <RateReviewIcon />
       </ListItemIcon>
-      <ListItemText primary="Reviews" />
+      <ListItemText primary="Part Setup" />
     </ListItem>
   </div>
 );

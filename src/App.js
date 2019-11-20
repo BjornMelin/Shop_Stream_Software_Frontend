@@ -3,10 +3,10 @@ import SignIn from './containers/Login/SignIn';
 import Dashboard from './containers/Dashboard/Dashboard';
 import SignUp from './containers/Login/SignUp';
 
-import Orders from './containers/orders/Orders';
-import OrdersEdit from './containers/orders/OrdersEdit';
-import OrdersPlace from './containers/orders/OrdersPlace';
-import OrdersPrevious from './containers/orders/OrdersPrevious';
+import Jobs from './containers/jobs/Jobs';
+import JobsEdit from './containers/jobs/JobsEdit';
+import JobsCreate from './containers/jobs/JobsCreate';
+import JobsView from './containers/jobs/JobsView';
 
 import Customers from './containers/customers/Customers';
 import CustomersAdd from './containers/customers/CustomersAdd';
@@ -58,17 +58,17 @@ export default function App() {
           <Route path="/dashboard">
             <Dashboard />
           </Route>
-          <Route exact path="/orders" >
-            <Orders />
+          <Route exact path="/jobs" >
+            <Jobs />
           </Route>
-          <Route exact path="/orders/placeorder">
-            <OrdersPlace />
+          <Route exact path="/jobs/create-job">
+            <JobsCreate />
           </Route>
-          <Route exact path="/orders/editorders" >
-            <OrdersEdit />
+          <Route exact path="/jobs/view-job" >
+            <JobsView />
           </Route>
-          <Route exact path="/orders/previousorders" >
-            <OrdersPrevious />
+          <Route exact path="/jobs/edit-jobs" >
+            <JobsEdit />
           </Route>
           <Route exact path="/customers">
             <Customers />

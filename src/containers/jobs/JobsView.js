@@ -3,9 +3,8 @@ import React from 'react';
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
 import { makeStyles } from '@material-ui/core/styles';
 import MenuDropdown from '../AppBar/MenuDropdown'
-import OrdersGlimpse from '../orders/OrdersGlimpse'
+import JobsGlimpse from './JobsGlimpse'
 import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
 
 
@@ -35,7 +34,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export default function OrdersPrevious() {
+export default function JobsView() {
     const classes = useStyles();
 
     return (
@@ -43,7 +42,7 @@ export default function OrdersPrevious() {
         <MenuDropdown className={classes.root}/>
         <Grid item xs={12} >
           <Paper className={classes.paper}>
-            <OrdersGlimpse />
+            <JobsGlimpse />
           </Paper>
         </Grid>    
     </div>
