@@ -1,33 +1,38 @@
 import React from 'react';
+// Login Page
 import SignIn from './containers/Login/SignIn';
-import Dashboard from './containers/Dashboard/Dashboard';
 import SignUp from './containers/Login/SignUp';
-
+// Dashboard Pages Per User Permissions
+import Dashboard from './containers/Dashboard/Dashboard';
+import CSRDashboard from './containers/Dashboard/CSRDashboard';
+import InspectorDashboard from './containers/Dashboard/InspectorDashboard';
+import OperatorDashboard from './containers/Dashboard/OperatorDashboard';
+// Job Pages
 import Jobs from './containers/jobs/Jobs';
 import JobsEdit from './containers/jobs/JobsEdit';
 import JobsCreate from './containers/jobs/JobsCreate';
 import JobsView from './containers/jobs/JobsView';
-
+// Inventory Pages
 import Inventory from './containers/inventory/Inventory';
 import InventoryAdd from './containers/inventory/InventoryAdd';
 import InventoryEdit from './containers/inventory/InventoryEdit';
 import InventoryView from './containers/inventory/InventoryView';
-
+// Customer Pages
 import Customers from './containers/customers/Customers';
 import CustomersAdd from './containers/customers/CustomersAdd';
 import CustomersEdit from './containers/customers/CustomersEdit';
 import CustomersView from './containers/customers/CustomersView';
-
+// Inspection Pages
 import Inspections from './containers/inspections/Inspections';
 import InspectionsSubmit from './containers/inspections/InspectionSubmit';
 import InspectionsView from './containers/inspections/InspectionsView';
 import InspectionsEdit from './containers/inspections/InspectionsEdit';
-
+// Shifts Pages
 import Shifts from './containers/shifts/Shifts';
 import ShiftsAdd from './containers/shifts/ShiftsAdd';
 import ShiftsView from './containers/shifts/ShiftsView';
 import ShiftsEdit from './containers/shifts/ShiftsEdit';
-
+// Part Setup Pages
 import PartSetup from './containers/partSetup/PartSetup';
 import PartSetupAdd from './containers/partSetup/PartSetupAdd';
 import PartSetupView from './containers/partSetup/PartSetupView';
@@ -47,7 +52,6 @@ export default function App() {
   return (
     <Router>
       <div>
-
         {/*
           A <Switch> looks through all its children <Route>
           elements and renders the first one whose path
@@ -62,9 +66,24 @@ export default function App() {
           <Route path="/signup">
             <SignUp />
           </Route>
+
+
+
           <Route path="/dashboard">
             <Dashboard />
           </Route>
+          <Route path="/csr-dashboard">
+            <CSRDashboard />
+          </Route>
+          <Route path="/inspector-dashboard">
+            <InspectorDashboard />
+          </Route>
+          <Route path="/operator-dashboard">
+            <OperatorDashboard />
+          </Route>
+
+
+
           <Route exact path="/jobs" >
             <Jobs />
           </Route>

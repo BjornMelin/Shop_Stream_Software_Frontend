@@ -1,6 +1,5 @@
 /**
- * Admin Dashboard Screen.
- * This dashboard is also used by those with 'Manager' permission
+ * Inspector Dashboard Screen.
  */
 
 
@@ -8,8 +7,7 @@
 import React from 'react';
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
 import { makeStyles } from '@material-ui/core/styles';
-import MenuDropdown from '../AppBar/MenuDropdown'
-import DashboardPanels from './DashboardPanels';
+import InspectorMenuDropdown from '../AppBar/InspectorMenuDropdown'
 
 
 
@@ -29,13 +27,12 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export default function Dashboard() {
+export default function InspectorDashboard() {
     const classes = useStyles();
 
     return (
     <div className={classes.root}>
-        <MenuDropdown />
-        <DashboardPanels />
+        <InspectorMenuDropdown />
     </div>
     );
 }

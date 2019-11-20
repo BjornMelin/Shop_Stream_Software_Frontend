@@ -1,7 +1,7 @@
 /**
- * Admin and Manager Main Dropdown Menu Which Opens 
- * From Drawer In App Bar.  Displays Options For 
- * Admin and Manager Navigation.
+ * Operator Main Dropdown Menu Which 
+ * Opens From Drawer In App Bar.  
+ * Displays Options For Operator Navigation.
  */
 
 
@@ -69,8 +69,6 @@ const useStyles = makeStyles(theme => ({
           width: 200,
         },
       },
-
-
 
     sectionDesktop: {
     display: 'none',
@@ -143,12 +141,11 @@ const useStyles = makeStyles(theme => ({
 
 
 
-export default function MenuDropdown() {
+export default function OperatorMenuDropdown() {
+
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-
-
   const [anchorEl, setAnchorEl] = React.useState(null);
   const isMenuOpen = Boolean(anchorEl);
 
@@ -159,7 +156,6 @@ export default function MenuDropdown() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-
 
   const handleProfileMenuOpen = event => {
     setAnchorEl(event.currentTarget);
