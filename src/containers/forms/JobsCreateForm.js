@@ -78,7 +78,7 @@ const useStyles = makeStyles(theme => ({
 
 
 
-export default function SignUp() {
+export default function JobsCreateForm() {
   const classes = useStyles();
 
 
@@ -90,7 +90,7 @@ export default function SignUp() {
           <CreateIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Place An Order
+          Create A New Job
         </Typography>
         <form className={classes.form} 
           noValidate 
@@ -335,7 +335,7 @@ export default function SignUp() {
             className={classes.submit}
             id="submitOrder"
           >
-            Submit Order
+            Submit Job
           </Button>
         </form>
       </div>

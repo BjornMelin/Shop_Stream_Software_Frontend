@@ -3,7 +3,7 @@ import React from 'react';
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
 import { makeStyles } from '@material-ui/core/styles';
 import MenuDropdown from '../AppBar/MenuDropdown'
-import OrdersPlaceForm from '../forms/OrdersPlaceForm'
+import JobsCreateForm from '../forms/JobsCreateForm'
 
 
 
@@ -23,13 +23,13 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export default function OrdersPlace() {
+export default function JobsCreate() {
     const classes = useStyles();
 
     return (
     <div className={classes.root}>
         <MenuDropdown />
-        <OrdersPlaceForm />
+        <JobsCreateForm />
     </div>
 
     );

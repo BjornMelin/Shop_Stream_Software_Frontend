@@ -85,13 +85,15 @@ const useStyles = makeStyles(theme => ({
     },
   }));
   
-  export default function OrdersCardButtons() {
+
+
+  export default function JobsCardButtons() {
     const classes = useStyles();
   
     return (
       <div className={classes.root}>
             <ButtonBase
-                href='/orders/placeorder'
+                href='/jobs/create-job'
                 focusRipple
                 key='Image'
                 className={classes.image}
@@ -115,14 +117,14 @@ const useStyles = makeStyles(theme => ({
                     color="inherit"
                     className={classes.imageTitle}
                 >
-                    Place Order
+                    Create Job
                     <span className={classes.imageMarked} />
                 </Typography>
                 </span>
             </ButtonBase>
 
             <ButtonBase
-                href='/orders/previousorders'
+                href='/jobs/view-jobs'
                 focusRipple
                 key='Image1'
                 className={classes.image}
@@ -146,14 +148,14 @@ const useStyles = makeStyles(theme => ({
                     color="inherit"
                     className={classes.imageTitle}
                 >
-                    Previous Orders
+                    View Jobs
                     <span className={classes.imageMarked} />
                 </Typography>
                 </span>
             </ButtonBase>
 
             <ButtonBase
-                href='/orders/editorders'
+                href='/jobs/edit-jobs'
                 focusRipple
                 key='Image2'
                 className={classes.image}
@@ -177,7 +179,7 @@ const useStyles = makeStyles(theme => ({
                     color="inherit"
                     className={classes.imageTitle}
                 >
-                    Edit Order
+                    Edit Jobs
                     <span className={classes.imageMarked} />
                 </Typography>
                 </span>
