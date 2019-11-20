@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export default function InventoryGenReport() {
+export default function PartSetupEdit() {
     const classes = useStyles();
 
     return (

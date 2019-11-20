@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export default function ProjectsDocProject() {
+export default function ShiftsAdd() {
     const classes = useStyles();
 
     return (

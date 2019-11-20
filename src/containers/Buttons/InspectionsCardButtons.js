@@ -4,7 +4,6 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 import Image from '../images/karan-bhatia-ib7jwp7m0iA-unsplash.jpg'
 import Image1 from '../images/christopher-burns-8KfCR12oeUM-unsplash.jpg'
-import Image2 from '../images/ant-rozetsky-SLIFI67jv5k-unsplash.jpg'
 
 
 
@@ -85,13 +84,16 @@ const useStyles = makeStyles(theme => ({
     },
   }));
   
-  export default function ProjectsCardButtons() {
+
+
+
+  export default function InspectionsCardButtons() {
     const classes = useStyles();
   
     return (
       <div className={classes.root}>
             <ButtonBase
-                href='/projects/assigntools'
+                href="/inspections/submit-inspection"
                 focusRipple
                 key='Image'
                 className={classes.image}
@@ -115,14 +117,14 @@ const useStyles = makeStyles(theme => ({
                     color="inherit"
                     className={classes.imageTitle}
                 >
-                    Assign Tools
+                    Submit New Inspection
                     <span className={classes.imageMarked} />
                 </Typography>
                 </span>
             </ButtonBase>
 
             <ButtonBase
-                href='/projects/assignmaterials'
+                href="/inspections/view-inspections"
                 focusRipple
                 key='Image1'
                 className={classes.image}
@@ -146,16 +148,17 @@ const useStyles = makeStyles(theme => ({
                     color="inherit"
                     className={classes.imageTitle}
                 >
-                    Assign Materials
+                    View Inspections
                     <span className={classes.imageMarked} />
                 </Typography>
                 </span>
             </ButtonBase>
 
+
             <ButtonBase
-                href='/projects/docproject'
+                href="/inspections/edit-inspections"
                 focusRipple
-                key='Image2'
+                key='Image1'
                 className={classes.image}
                 focusVisibleClassName={classes.focusVisible}
                 style={{
@@ -166,7 +169,7 @@ const useStyles = makeStyles(theme => ({
                 <span
                 className={classes.imageSrc}
                 style={{
-                    backgroundImage: `url(${Image2})`,
+                    backgroundImage: `url(${Image1})`,
                 }}
                 />
                 <span className={classes.imageBackdrop} />
@@ -177,7 +180,7 @@ const useStyles = makeStyles(theme => ({
                     color="inherit"
                     className={classes.imageTitle}
                 >
-                    Document Project
+                    Edit Inspections
                     <span className={classes.imageMarked} />
                 </Typography>
                 </span>

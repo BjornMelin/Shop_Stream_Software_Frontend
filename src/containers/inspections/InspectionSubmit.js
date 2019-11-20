@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export default function ProjectsAssignTools() {
+export default function InspectionSubmit() {
     const classes = useStyles();
 
     return (

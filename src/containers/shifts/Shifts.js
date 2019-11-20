@@ -1,9 +1,9 @@
 /* eslint-disable no-script-url */
 import React from 'react';
+import MenuDropdown from '../AppBar/MenuDropdown'
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
 import { makeStyles } from '@material-ui/core/styles';
-import MenuDropdown from '../AppBar/MenuDropdown'
-
+import ShiftsCardButtons from '../Buttons/ShiftsCardButtons'
 
 
 const useStyles = makeStyles(theme => ({
@@ -22,12 +22,15 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export default function CustomersList() {
+
+
+export default function Shifts() {
     const classes = useStyles();
 
     return (
     <div className={classes.root}>
         <MenuDropdown />
+        <ShiftsCardButtons />
     </div>
     );
 }

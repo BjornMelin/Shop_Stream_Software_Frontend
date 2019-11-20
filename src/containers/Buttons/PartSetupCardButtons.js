@@ -84,13 +84,13 @@ const useStyles = makeStyles(theme => ({
     },
   }));
   
-  export default function ProductionCardButtons() {
+  export default function PartSetupCardButtons() {
     const classes = useStyles();
   
     return (
       <div className={classes.root}>
             <ButtonBase
-                href="/production/genreport"
+                href="/part-setup/new-part-setup"
                 focusRipple
                 key='Image'
                 className={classes.image}
@@ -114,14 +114,16 @@ const useStyles = makeStyles(theme => ({
                     color="inherit"
                     className={classes.imageTitle}
                 >
-                    Generate Report
+                    Setup New Part
                     <span className={classes.imageMarked} />
                 </Typography>
                 </span>
             </ButtonBase>
 
+
+
             <ButtonBase
-                href="/production/assignproject"
+                href="/part-setup/view-part-setups"
                 focusRipple
                 key='Image1'
                 className={classes.image}
@@ -145,11 +147,45 @@ const useStyles = makeStyles(theme => ({
                     color="inherit"
                     className={classes.imageTitle}
                 >
-                    Assign Employee To Project
+                    View Part Setups
                     <span className={classes.imageMarked} />
                 </Typography>
                 </span>
             </ButtonBase>
+
+
+
+            <ButtonBase
+                href="/part-setup/edit-part-setups"
+                focusRipple
+                key='Image1'
+                className={classes.image}
+                focusVisibleClassName={classes.focusVisible}
+                style={{
+                width: '25%',
+                marginLeft: 75,
+                }}
+            >
+                <span
+                className={classes.imageSrc}
+                style={{
+                    backgroundImage: `url(${Image1})`,
+                }}
+                />
+                <span className={classes.imageBackdrop} />
+                <span className={classes.imageButton}>
+                <Typography
+                    component="span"
+                    variant="subtitle1"
+                    color="inherit"
+                    className={classes.imageTitle}
+                >
+                    Edit Part Setups
+                    <span className={classes.imageMarked} />
+                </Typography>
+                </span>
+            </ButtonBase>
+
       </div>
     );
   }

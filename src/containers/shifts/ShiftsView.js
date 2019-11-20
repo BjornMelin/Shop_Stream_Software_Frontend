@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export default function ReviewsViewPrevious() {
+export default function ShiftsView() {
     const classes = useStyles();
 
     return (

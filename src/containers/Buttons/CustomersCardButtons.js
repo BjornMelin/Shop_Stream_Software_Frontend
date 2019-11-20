@@ -91,37 +91,6 @@ const useStyles = makeStyles(theme => ({
     return (
       <div className={classes.root}>
             <ButtonBase
-                href="/customers/list-customers"
-                focusRipple
-                key='Image'
-                className={classes.image}
-                focusVisibleClassName={classes.focusVisible}
-                style={{
-                width: '25%',
-                marginLeft: 75,
-                }}
-            >
-                <span
-                className={classes.imageSrc}
-                style={{
-                    backgroundImage: `url(${Image})`,
-                }}
-                />
-                <span className={classes.imageBackdrop} />
-                <span className={classes.imageButton}>
-                <Typography
-                    component="span"
-                    variant="subtitle1"
-                    color="inherit"
-                    className={classes.imageTitle}
-                >
-                    View Customers List
-                    <span className={classes.imageMarked} />
-                </Typography>
-                </span>
-            </ButtonBase>
-
-            <ButtonBase
                 href="/customers/add-customer"
                 focusRipple
                 key='Image1'
@@ -147,6 +116,37 @@ const useStyles = makeStyles(theme => ({
                     className={classes.imageTitle}
                 >
                     Add New Customer
+                    <span className={classes.imageMarked} />
+                </Typography>
+                </span>
+            </ButtonBase>
+
+            <ButtonBase
+                href="/customers/list-customers"
+                focusRipple
+                key='Image'
+                className={classes.image}
+                focusVisibleClassName={classes.focusVisible}
+                style={{
+                width: '25%',
+                marginLeft: 75,
+                }}
+            >
+                <span
+                className={classes.imageSrc}
+                style={{
+                    backgroundImage: `url(${Image})`,
+                }}
+                />
+                <span className={classes.imageBackdrop} />
+                <span className={classes.imageButton}>
+                <Typography
+                    component="span"
+                    variant="subtitle1"
+                    color="inherit"
+                    className={classes.imageTitle}
+                >
+                    View Customers List
                     <span className={classes.imageMarked} />
                 </Typography>
                 </span>

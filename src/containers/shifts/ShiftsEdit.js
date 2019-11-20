@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export default function ProductionGenReport() {
+export default function ShiftsEdit() {
     const classes = useStyles();
 
     return (

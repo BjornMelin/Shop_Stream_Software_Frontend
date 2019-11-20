@@ -84,13 +84,16 @@ const useStyles = makeStyles(theme => ({
     },
   }));
   
+
+
+
   export default function InventoryCardButtons() {
     const classes = useStyles();
   
     return (
       <div className={classes.root}>
             <ButtonBase
-                href="/inventory/genreport"
+                href="/inventory/add-inventory"
                 focusRipple
                 key='Image'
                 className={classes.image}
@@ -114,14 +117,14 @@ const useStyles = makeStyles(theme => ({
                     color="inherit"
                     className={classes.imageTitle}
                 >
-                    Generate Report
+                    Add New Material/Tool
                     <span className={classes.imageMarked} />
                 </Typography>
                 </span>
             </ButtonBase>
 
             <ButtonBase
-                href="/inventory/update-mat-inv"
+                href="/inventory/view-inventory"
                 focusRipple
                 key='Image1'
                 className={classes.image}
@@ -145,7 +148,39 @@ const useStyles = makeStyles(theme => ({
                     color="inherit"
                     className={classes.imageTitle}
                 >
-                    Update Material Inventory
+                    View Material/Tool Inventory
+                    <span className={classes.imageMarked} />
+                </Typography>
+                </span>
+            </ButtonBase>
+
+
+            <ButtonBase
+                href="/inventory/update-inventory"
+                focusRipple
+                key='Image1'
+                className={classes.image}
+                focusVisibleClassName={classes.focusVisible}
+                style={{
+                width: '25%',
+                marginLeft: 75,
+                }}
+            >
+                <span
+                className={classes.imageSrc}
+                style={{
+                    backgroundImage: `url(${Image1})`,
+                }}
+                />
+                <span className={classes.imageBackdrop} />
+                <span className={classes.imageButton}>
+                <Typography
+                    component="span"
+                    variant="subtitle1"
+                    color="inherit"
+                    className={classes.imageTitle}
+                >
+                    Edit Material/Tool Inventory
                     <span className={classes.imageMarked} />
                 </Typography>
                 </span>
