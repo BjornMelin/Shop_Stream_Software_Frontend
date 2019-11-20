@@ -1,11 +1,9 @@
 /* eslint-disable no-script-url */
 import React from 'react';
-import MenuDropdown from '../AppBar/MenuDropdown'
-import ProductionCardButtons from '../Buttons/ProductionCardButtons'
-
-
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
 import { makeStyles } from '@material-ui/core/styles';
+import MenuDropdown from '../AppBar/MenuDropdown'
+
 
 
 const useStyles = makeStyles(theme => ({
@@ -24,17 +22,12 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export default function Production() {
+export default function InventoryAdd() {
     const classes = useStyles();
 
     return (
     <div className={classes.root}>
         <MenuDropdown />
-
-        <ProductionCardButtons>
-
-        </ProductionCardButtons>
-
     </div>
     );
 }

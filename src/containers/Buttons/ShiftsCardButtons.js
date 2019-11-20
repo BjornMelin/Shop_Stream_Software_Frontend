@@ -84,13 +84,13 @@ const useStyles = makeStyles(theme => ({
     },
   }));
   
-  export default function ReviewsCardButtons() {
+  export default function ShiftsCardButtons() {
     const classes = useStyles();
   
     return (
       <div className={classes.root}>
             <ButtonBase
-                href='/reviews/file-review'
+                href='/shifts/add-shift'
                 focusRipple
                 key='Image'
                 className={classes.image}
@@ -114,14 +114,14 @@ const useStyles = makeStyles(theme => ({
                     color="inherit"
                     className={classes.imageTitle}
                 >
-                    File Review
+                    Add New Shift
                     <span className={classes.imageMarked} />
                 </Typography>
                 </span>
             </ButtonBase>
 
             <ButtonBase
-                href='/reviews/previous-reviews'
+                href='/shifts/view-shifts'
                 focusRipple
                 key='Image1'
                 className={classes.image}
@@ -145,7 +145,38 @@ const useStyles = makeStyles(theme => ({
                     color="inherit"
                     className={classes.imageTitle}
                 >
-                    View Previous Reviews
+                    View Shifts
+                    <span className={classes.imageMarked} />
+                </Typography>
+                </span>
+            </ButtonBase>
+
+            <ButtonBase
+                href='/shifts/edit-shifts'
+                focusRipple
+                key='Image1'
+                className={classes.image}
+                focusVisibleClassName={classes.focusVisible}
+                style={{
+                width: '25%',
+                marginLeft: 75,
+                }}
+            >
+                <span
+                className={classes.imageSrc}
+                style={{
+                    backgroundImage: `url(${Image1})`,
+                }}
+                />
+                <span className={classes.imageBackdrop} />
+                <span className={classes.imageButton}>
+                <Typography
+                    component="span"
+                    variant="subtitle1"
+                    color="inherit"
+                    className={classes.imageTitle}
+                >
+                    Edit Shifts
                     <span className={classes.imageMarked} />
                 </Typography>
                 </span>

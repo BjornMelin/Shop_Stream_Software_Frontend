@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export default function ProjectsAssignMaterials() {
+export default function InventoryEdit() {
     const classes = useStyles();
 
     return (

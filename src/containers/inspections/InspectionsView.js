@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export default function ReviewsFile() {
+export default function InspectionsView() {
     const classes = useStyles();
 
     return (

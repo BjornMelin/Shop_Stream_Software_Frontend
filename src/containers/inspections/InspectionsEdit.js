@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export default function ProductionAssignProject() {
+export default function InspectionEdit() {
     const classes = useStyles();
 
     return (

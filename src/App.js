@@ -8,24 +8,31 @@ import JobsEdit from './containers/jobs/JobsEdit';
 import JobsCreate from './containers/jobs/JobsCreate';
 import JobsView from './containers/jobs/JobsView';
 
+import Inventory from './containers/inventory/Inventory';
+import InventoryAdd from './containers/inventory/InventoryAdd';
+import InventoryEdit from './containers/inventory/InventoryEdit';
+import InventoryView from './containers/inventory/InventoryView';
+
 import Customers from './containers/customers/Customers';
 import CustomersAdd from './containers/customers/CustomersAdd';
 import CustomersEdit from './containers/customers/CustomersEdit';
-import CustomersList from './containers/customers/CustomersList';
+import CustomersView from './containers/customers/CustomersView';
 
-import Inventory from './containers/inventory/Inventory';
-import InventoryGenReport from './containers/inventory/InventoryGenReport';
-import InventoryUpdateInv from './containers/inventory/InventoryUpdateInv';
+import Inspections from './containers/inspections/Inspections';
+import InspectionsSubmit from './containers/inspections/InspectionSubmit';
+import InspectionsView from './containers/inspections/InspectionsView';
+import InspectionsEdit from './containers/inspections/InspectionsEdit';
 
-import Production from './containers/production/Production';
-import Projects from './containers/projects/Projects';
-import ProjectsAssignTools from './containers/projects/ProjectsAssignTools';
-import ProjectsAssignMaterials from './containers/projects/ProjectsAssignMaterials';
-import ProjectsDocProject from './containers/projects/ProjectsDocProject';
+import Shifts from './containers/shifts/Shifts';
+import ShiftsAdd from './containers/shifts/ShiftsAdd';
+import ShiftsView from './containers/shifts/ShiftsView';
+import ShiftsEdit from './containers/shifts/ShiftsEdit';
 
-import Reviews from './containers/reviews/Reviews';
-import ReviewsViewPrevious from './containers/reviews/ReviewsViewPrevious';
-import ReviewsFile from './containers/reviews/ReviewsFile';
+import PartSetup from './containers/partSetup/PartSetup';
+import PartSetupAdd from './containers/partSetup/PartSetupAdd';
+import PartSetupView from './containers/partSetup/PartSetupView';
+import PartSetupEdit from './containers/partSetup/PartSetupEdit';
+
 
 
 import {
@@ -70,11 +77,29 @@ export default function App() {
           <Route exact path="/jobs/edit-jobs" >
             <JobsEdit />
           </Route>
+
+
+
+          <Route exact path="/inventory">
+            <Inventory />
+          </Route>
+          <Route exact path="/inventory/add-inventory">
+            <InventoryAdd />
+          </Route>
+          <Route exact path="/inventory/update-inventory">
+            <InventoryEdit />
+          </Route>
+          <Route exact path="/inventory/view-inventory">
+            <InventoryView />
+          </Route>
+
+
+
           <Route exact path="/customers">
             <Customers />
           </Route>
           <Route exact path="/customers/list-customers">
-            <CustomersList />
+            <CustomersView />
           </Route>
           <Route exact path="/customers/add-customer">
             <CustomersAdd />
@@ -82,45 +107,53 @@ export default function App() {
           <Route exact path="/customers/edit-customers">
             <CustomersEdit />
           </Route>
-          <Route exact path="/inventory">
-            <Inventory />
+
+
+
+          <Route exact path="/inspections">
+            <Inspections />
           </Route>
-          <Route exact path="/inventory/update-mat-inv">
-            <InventoryUpdateInv />
+          <Route exact path="/inspections/submit-inspection">
+            <InspectionsSubmit />
           </Route>
-          <Route exact path="/inventory/genreport">
-            <InventoryGenReport />
+          <Route exact path="/inspections/view-inspections">
+            <InspectionsView />
           </Route>
-          <Route exact path="/production">
-            <Production />
+          <Route exact path="/inspections/edit-inspections">
+            <InspectionsEdit />
           </Route>
-          <Route exact path="/production/genreport">
-            <Production />
+
+
+
+          <Route exact path="/shifts">
+            <Shifts />
           </Route>
-          <Route exact path="/production/assignproject">
-            <Production />
+          <Route exact path="/shifts/add-shift">
+            <ShiftsAdd />
           </Route>
-          <Route exact path="/projects">
-            <Projects />
+          <Route exact path="/shifts/view-shifts">
+            <ShiftsView />
           </Route>
-          <Route exact path="/projects/assigntools">
-            <ProjectsAssignTools />
+          <Route exact path="/shifts/edit-shifts">
+            <ShiftsEdit />
           </Route>
-          <Route exact path="/projects/assignmaterials">
-            <ProjectsAssignMaterials />
+
+
+
+          <Route exact path="/part-setup">
+            <PartSetup />
           </Route>
-          <Route exact path="/projects/docproject">
-            <ProjectsDocProject />
+          <Route exact path="/part-setup/new-part-setup">
+            <PartSetupAdd />
           </Route>
-          <Route exact path="/reviews">
-            <Reviews />
+          <Route exact path="/part-setup/view-part-setups">
+            <PartSetupView />
           </Route>
-          <Route exact path="/reviews/file-review">
-            <ReviewsFile />
+          <Route exact path="/part-setup/edit-part-setups">
+            <PartSetupEdit />
           </Route>
-          <Route exact path="/reviews/previous-reviews">
-            <ReviewsViewPrevious />
-          </Route>
+
+      
         </Switch>
       </div>
     </Router>
