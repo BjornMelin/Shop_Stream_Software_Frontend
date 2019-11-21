@@ -15,43 +15,43 @@ import { Link } from "react-router-dom";
 
 export const mainListItems = (
   <div>
-    <ListItem button component={Link} to="/dashboard">
+    <ListItem button component={Link} to="/dashboard" id="dashButton">
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
       <ListItemText primary="Dashboard"/>
     </ListItem>
-    <ListItem button component={Link} to="/jobs">
+    <ListItem button component={Link} to="/jobs" id="jobsButton">
       <ListItemIcon>
         <ShoppingCartIcon />
       </ListItemIcon>
       <ListItemText primary="Jobs"  />
     </ListItem>
-    <ListItem button component={Link} to="/inventory">
+    <ListItem button component={Link} to="/inventory" id="invButton">
       <ListItemIcon>
         <BarChartIcon />
       </ListItemIcon>
       <ListItemText primary="Inventory" />
     </ListItem>
-    <ListItem button component={Link} to="/customers">
+    <ListItem button component={Link} to="/customers" id="custButton">
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
       <ListItemText primary="Customers" />
     </ListItem>
-    <ListItem button component={Link} to="/inspections">
+    <ListItem button component={Link} to="/inspections" id="inspectButton">
       <ListItemIcon>
         <LayersIcon />
       </ListItemIcon>
       <ListItemText primary="Inspections" />
     </ListItem>
-    <ListItem button component={Link} to="/shifts">
+    <ListItem button component={Link} to="/shifts" id="shiftsButton">
       <ListItemIcon>
         <BuildIcon />
       </ListItemIcon>
       <ListItemText primary="Shifts" />
     </ListItem>
-    <ListItem button component={Link} to="/part-setup">
+    <ListItem button component={Link} to="/part-setup" id="partSetupButton">
       <ListItemIcon>
         <RateReviewIcon />
       </ListItemIcon>
