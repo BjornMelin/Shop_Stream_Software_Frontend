@@ -59,23 +59,6 @@ const useStyles = makeStyles(theme => ({
 
 
 
-// function handleSubmit(event) {
-//   event.preventDefault();
-//   alert("submitted");
-//   console.log(
-//       'Order Date: ', orderDateInput, 'Due Date: ', dueDateInput,
-//       'P.O. Number: ', poNumInput, 'Job Number: ', jobNumInput, 
-//       'Part Number: ', partNumInput, 'Order Quantity: ', orderQuantInput,
-//       'Recieved Quantity: ', recievedQuantInput, 'Remaining Quantity: ',
-//       remainingQuantInput, 'Cycle Time: ', cycleTimeInput,
-//       'Run Hours: ', runHoursInput, 'Run Days: ', runDaysInput,
-//       'Amount Total: ', amountTotalInput, 'Amount Total Per Hour: ',
-//       amountPerHourInput, 'Amount Total Per Unit: ', amountPerUnitInput,);
-//  // You should see email and password in console.
-//  // ..code to submit form to backend here...
-
-// }
-
 
 
 export default function JobsCreateForm() {

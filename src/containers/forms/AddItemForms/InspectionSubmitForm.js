@@ -252,7 +252,7 @@ export default function InspectionSubmitForm() {
             className={classes.submit}
             id="submitOrder"
           >
-            Submit Job
+            Submit Inspection
           </Button>
         </form>
       </div>
