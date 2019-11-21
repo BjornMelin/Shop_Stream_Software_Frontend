@@ -3,6 +3,7 @@ import React from 'react';
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
 import { makeStyles } from '@material-ui/core/styles';
 import MenuDropdown from '../AppBar/MenuDropdown'
+import InventoryAddForm from '../forms/AddItemForms/InventoryAddForm'
 
 
 
@@ -28,6 +29,7 @@ export default function InventoryAdd() {
     return (
     <div className={classes.root}>
         <MenuDropdown />
+        <InventoryAddForm />
     </div>
     );
 }

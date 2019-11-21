@@ -3,6 +3,7 @@ import React from 'react';
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
 import { makeStyles } from '@material-ui/core/styles';
 import MenuDropdown from '../AppBar/MenuDropdown'
+import InspectionSubmitForm from '../forms/AddItemForms/InspectionSubmitForm'
 
 
 
@@ -28,6 +29,7 @@ export default function InspectionSubmit() {
     return (
     <div className={classes.root}>
         <MenuDropdown />
+        <InspectionSubmitForm />
     </div>
     );
 }
