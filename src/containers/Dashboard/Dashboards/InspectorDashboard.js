@@ -1,13 +1,13 @@
 /**
- * Operator Dashboard Screen.
+ * Inspector Dashboard Screen.
  */
 
 
 /* eslint-disable no-script-url */
 import React from 'react';
-import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
+import Image from '../../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
 import { makeStyles } from '@material-ui/core/styles';
-import OperatorMenuDropdown from '../AppBar/OperatorMenuDropdown'
+import InspectorMenuDropdown from '../../AppBar/InspectorMenuDropdown'
 
 
 
@@ -27,12 +27,12 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export default function OperatorDashboard() {
+export default function InspectorDashboard() {
     const classes = useStyles();
 
     return (
     <div className={classes.root}>
-        <OperatorMenuDropdown />
+        <InspectorMenuDropdown />
     </div>
     );
 }

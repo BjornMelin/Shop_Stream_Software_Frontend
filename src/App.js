@@ -3,10 +3,10 @@ import React from 'react';
 import SignIn from './containers/Login/SignIn';
 import SignUp from './containers/Login/SignUp';
 // Dashboard Pages Per User Permissions
-import Dashboard from './containers/Dashboard/Dashboard';
-import CSRDashboard from './containers/Dashboard/CSRDashboard';
-import InspectorDashboard from './containers/Dashboard/InspectorDashboard';
-import OperatorDashboard from './containers/Dashboard/OperatorDashboard';
+import Dashboard from './containers/Dashboard/Dashboards/Dashboard';
+import CSRDashboard from './containers/Dashboard/Dashboards/CSRDashboard';
+import InspectorDashboard from './containers/Dashboard/Dashboards/InspectorDashboard';
+import OperatorDashboard from './containers/Dashboard/Dashboards/OperatorDashboard';
 // Job Pages
 import Jobs from './containers/jobs/Jobs';
 import JobsEdit from './containers/jobs/JobsEdit';
@@ -90,7 +90,7 @@ export default function App() {
           <Route exact path="/jobs/create-job">
             <JobsCreate />
           </Route>
-          <Route exact path="/jobs/view-job" >
+          <Route exact path="/jobs/view-jobs" >
             <JobsView />
           </Route>
           <Route exact path="/jobs/edit-jobs" >

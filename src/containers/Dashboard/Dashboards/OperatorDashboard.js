@@ -1,13 +1,13 @@
 /**
- * Customer Service Representative Dashboard Screen.
+ * Operator Dashboard Screen.
  */
 
 
 /* eslint-disable no-script-url */
 import React from 'react';
-import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
+import Image from '../../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
 import { makeStyles } from '@material-ui/core/styles';
-import CSRMenuDropdown from '../AppBar/CSRMenuDropdown'
+import OperatorMenuDropdown from '../../AppBar/OperatorMenuDropdown'
 
 
 
@@ -27,12 +27,12 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export default function CSRDashboard() {
+export default function OperatorDashboard() {
     const classes = useStyles();
 
     return (
     <div className={classes.root}>
-        <CSRMenuDropdown />
+        <OperatorMenuDropdown />
     </div>
     );
 }

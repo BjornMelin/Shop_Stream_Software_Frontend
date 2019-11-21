@@ -1,13 +1,13 @@
 /**
- * Inspector Dashboard Screen.
+ * Customer Service Representative Dashboard Screen.
  */
 
 
 /* eslint-disable no-script-url */
 import React from 'react';
-import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
+import Image from '../../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
 import { makeStyles } from '@material-ui/core/styles';
-import InspectorMenuDropdown from '../AppBar/InspectorMenuDropdown'
+import CSRMenuDropdown from '../../AppBar/CSRMenuDropdown'
 
 
 
@@ -27,12 +27,12 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export default function InspectorDashboard() {
+export default function CSRDashboard() {
     const classes = useStyles();
 
     return (
     <div className={classes.root}>
-        <InspectorMenuDropdown />
+        <CSRMenuDropdown />
     </div>
     );
 }

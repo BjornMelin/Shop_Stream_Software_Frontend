@@ -6,10 +6,10 @@
 
 /* eslint-disable no-script-url */
 import React from 'react';
-import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
+import Image from '../../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
 import { makeStyles } from '@material-ui/core/styles';
-import MenuDropdown from '../AppBar/MenuDropdown'
-import DashboardPanels from './DashboardPanels';
+import MenuDropdown from '../../AppBar/MenuDropdown'
+import DashboardPanels from '../DashboardItems/DashboardPanels';
 
 
 
