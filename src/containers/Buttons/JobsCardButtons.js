@@ -93,6 +93,7 @@ const useStyles = makeStyles(theme => ({
     return (
       <div className={classes.root}>
             <ButtonBase
+                id="createJob"
                 href='/jobs/create-job'
                 focusRipple
                 key='Image'
@@ -124,6 +125,7 @@ const useStyles = makeStyles(theme => ({
             </ButtonBase>
 
             <ButtonBase
+                id="viewJobs"
                 href='/jobs/view-jobs'
                 focusRipple
                 key='Image1'
@@ -155,6 +157,7 @@ const useStyles = makeStyles(theme => ({
             </ButtonBase>
 
             <ButtonBase
+                id="editJobs"
                 href='/jobs/edit-jobs'
                 focusRipple
                 key='Image2'
