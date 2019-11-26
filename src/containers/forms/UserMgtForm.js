@@ -10,6 +10,12 @@ import CreateIcon from '@material-ui/icons/Create';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+// import Select from '@material-ui/core/Select';
+// import InputLabel from '@material-ui/core/InputLabel';
+// import MenuItem from '@material-ui/core/MenuItem';
+// import FormControl from '@material-ui/core/FormControl';
+
+
 import superagent from 'superagent';
 
 
@@ -55,6 +61,9 @@ const useStyles = makeStyles(theme => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+  },
+  formControl: {
+    width: "100%",
   },
 }));
 
@@ -103,7 +112,7 @@ export default function CustomersAddForm() {
           <CreateIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Add A New Customer
+          Create A New User Account
         </Typography>
         <form className={classes.form} 
           noValidate 
@@ -144,6 +153,32 @@ export default function CustomersAddForm() {
                 autoFocus
                 />
             </Grid> 
+
+            {/* <Grid item xs={12} sm={4}>
+            <FormControl className={classes.formControl} >
+              <InputLabel id="permissionName" >Select Permission</InputLabel>
+                <Select
+                  labelId="permissionName"
+                  id="permission"
+                  // label="Permission"
+                  name="permission"
+                  variant="outlined"
+                  fullWidth
+                  onChange={handleChange}
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  autoFocus
+                >
+                  <MenuItem value="admin">Admin</MenuItem>
+                  <MenuItem value="inspector">Inspector</MenuItem>
+                  <MenuItem value="manager">Manager</MenuItem>
+                  <MenuItem value="customer">Customer</MenuItem>
+                  <MenuItem value="csr">CSR</MenuItem>
+                  <MenuItem value="operator">Operator</MenuItem>
+                </Select>
+                </FormControl>
+              </Grid> */}
 
 
             <Grid item xs={12} sm={4}>
@@ -209,7 +244,6 @@ export default function CustomersAddForm() {
                 autoFocus
                 />
             </Grid>
-
 
           </Grid>
           <Button
