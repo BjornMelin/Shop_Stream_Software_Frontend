@@ -10,7 +10,7 @@ import CreateIcon from '@material-ui/icons/Create';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-
+import superagent from 'superagent';
 
 
 function Copyright() {
@@ -25,8 +25,6 @@ function Copyright() {
     </Typography>
   );
 }
-
-
 
 
 
@@ -68,15 +66,33 @@ export default function CustomersAddForm() {
   const classes = useStyles();
 
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    const data = new FormData(event.target);
-    
-    fetch('/api/form-submit-url', {
-      method: 'POST',
-      body: data,
+  const values = {
+    username: "",
+    password: "",
+    permission: "",
+    firstName: "",
+    lastName: "",
+    email: ""
+  };
+
+  function handleChange(e) {
+    const { id, value } = e.target;
+    values[id] = value;
+  };
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    alert("SUCCESS: " + JSON.stringify(values));
+    // console.log(values);
+    superagent.post('http://127.0.0.1:9000/api/putData')
+      .send({ username: values.username, password: values.password, 
+              permission: values.permission, firstName: values.firstName, 
+              lastName: values.lastName, email: values.email }) // sends a JSON post body
+      .set('accept', 'json')
+      .end((err, res) => {
+        // Calling the end function will send the request
     });
-  }
+  };
 
 
   return (
@@ -91,12 +107,96 @@ export default function CustomersAddForm() {
         </Typography>
         <form className={classes.form} 
           noValidate 
-          onSubmit={handleSubmit}>
+          onSubmit={handleSubmit}
+          >
 
-          {/* Row 1 Of Form Input */}
+          
           <Grid container spacing={2}>
             <Grid item xs={12} sm={4}>
               <TextField
+                onChange={handleChange}
+                name="username"
+                variant="outlined"
+                required
+                fullWidth
+                id="username"
+                label="username"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                autoFocus
+                />
+            </Grid>
+
+
+            <Grid item xs={12} sm={4}>
+              <TextField
+                onChange={handleChange}
+                name="password"
+                variant="outlined"
+                required
+                fullWidth
+                id="password"
+                label="Password"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                autoFocus
+                />
+            </Grid> 
+
+
+            <Grid item xs={12} sm={4}>
+              <TextField
+                onChange={handleChange}
+                name="permission"
+                variant="outlined"
+                required
+                fullWidth
+                id="permission"
+                label="Permission"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                autoFocus
+                />
+            </Grid> 
+
+            <Grid item xs={12} sm={4}>
+              <TextField
+                onChange={handleChange}
+                name="firstName"
+                variant="outlined"
+                required
+                fullWidth
+                id="firstName"
+                label="First Name"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                autoFocus
+                />
+            </Grid> 
+
+            <Grid item xs={12} sm={4}>
+              <TextField
+                onChange={handleChange}
+                name="lastName"
+                variant="outlined"
+                required
+                fullWidth
+                id="lastName"
+                label="Last Name"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                autoFocus
+                />
+            </Grid> 
+
+            <Grid item xs={12} sm={4}>
+              <TextField
+                onChange={handleChange}
                 name="email"
                 variant="outlined"
                 required
@@ -110,26 +210,10 @@ export default function CustomersAddForm() {
                 />
             </Grid>
 
-            <Grid item xs={12} sm={4}>
-              <TextField
-                name="password"
-                variant="outlined"
-                required
-                fullWidth
-                id="password"
-                label="Password"
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                autoFocus
-                />
-            </Grid>
-
-
-
 
           </Grid>
           <Button
+            // onSubmit={handleSubmit}
             type="submit"
             fullWidth
             variant="contained"
@@ -137,8 +221,9 @@ export default function CustomersAddForm() {
             className={classes.submit}
             id="submitNewCust"
           >
-            Add New Customer
+            Create User
           </Button>
+
         </form>
       </div>
       <Box mt={5}>
@@ -148,3 +233,20 @@ export default function CustomersAddForm() {
   );
 }
 
+
+
+
+
+        /* <form
+          onSubmit={handleSubmit}
+        >
+          <label>
+            Email:
+            <input type="text" name="email" id="email" onChange={handleChange}/>
+          </label>
+          <label>
+            Password:
+            <input type="text" name="password" id="password" onChange={handleChange}/>
+          </label>
+          <input type="submit" value="Submit" />
+        </form> */

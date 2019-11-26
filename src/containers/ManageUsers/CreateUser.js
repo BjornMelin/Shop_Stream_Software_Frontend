@@ -31,6 +31,7 @@ export default function CreateUser() {
         <MenuDropdown />
         <UserMgtForm />
     </div>
+    
 
     );
 }
