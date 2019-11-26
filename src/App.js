@@ -37,7 +37,11 @@ import PartSetup from './containers/partSetup/PartSetup';
 import PartSetupAdd from './containers/partSetup/PartSetupAdd';
 import PartSetupView from './containers/partSetup/PartSetupView';
 import PartSetupEdit from './containers/partSetup/PartSetupEdit';
-
+// Admin User Management
+import AdminUserMgt from './containers/ManageUsers/AdminUserMgt'
+import CreateUser from './containers/ManageUsers/CreateUser'
+import ViewUsers from './containers/ManageUsers/ViewUsers'
+import EditUsers from './containers/ManageUsers/EditUsers'
 
 
 import {
@@ -170,6 +174,20 @@ export default function App() {
           </Route>
           <Route exact path="/part-setup/edit-part-setups">
             <PartSetupEdit />
+          </Route>
+
+
+          <Route exact path="/user-mgt">
+            <AdminUserMgt />
+          </Route>
+          <Route exact path="/user-mgt/create-user">
+            <CreateUser />
+          </Route>
+          <Route exact path="/user-mgt/view-users">
+            <ViewUsers />
+          </Route>
+          <Route exact path="/user-mgt/edit-users">
+            <EditUsers />
           </Route>
 
       

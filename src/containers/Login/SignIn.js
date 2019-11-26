@@ -12,7 +12,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
 import Image1 from '../images/shop_stream_logo.png'; 
-
+// import { useState } from 'react';
 
 
 
@@ -63,8 +63,52 @@ const useStyles = makeStyles(theme => ({
 
 
 
+
+
 export default function SignIn() {
   const classes = useStyles();
+
+
+  // function handleSubmit(event) {
+  //   event.preventDefault();
+  //   const data = new FormData(event.target);
+
+  //   fetch('http://127.0.0.1:9000/api/putData', {
+  //     method: 'POST',
+  //     body: JSON.stringify({
+  //       username: data.get('email'),
+  //       password: data.get('password'),
+  //     }),
+  //     headers:{
+  //       'Content-Type': 'application/json'
+  //     }
+  //   });
+  //   console.log("here");
+  //   // fetch('http://127.0.0.1:9000/api/putData', {
+  //   //   method: 'POST',
+  //   //   body: data,
+  //   // });
+  // }
+
+  const values = {
+    email: "",
+    password: ""
+  };
+
+  function handleChange(e) {
+    const { id, value } = e.target;
+    values[id] = value;
+  };
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    alert("SUCCESS: " + JSON.stringify(values));
+    fetch('http://127.0.0.1:9000/api/putData', {
+      method: 'POST',
+      body: JSON.stringify(values),
+    });
+  };
+
 
   return (
     <Container component="main" maxWidth="xs">
@@ -74,19 +118,22 @@ export default function SignIn() {
         <Typography component="h1" variant="h6">
           Sign in
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} onChange={handleChange} onSubmit={handleSubmit}>
           <TextField
+            onChange={handleChange}
             variant="outlined"
             margin="normal"
             required
             fullWidth
             id="email"
+            type="email"
             label="Email Address"
             name="email"
             autoComplete="email"
             autoFocus
           />
           <TextField
+            onChange={handleChange}
             variant="outlined"
             margin="normal"
             required
@@ -102,13 +149,14 @@ export default function SignIn() {
             label="Remember me"
           />
           <Button
+            onSubmit={handleSubmit}
             type="submit"
             fullWidth
             id="signin"
             variant="contained"
             color="primary"
             className={classes.submit}
-            href='/dashboard'
+            // href='/dashboard'
           >
             Sign In
           </Button>

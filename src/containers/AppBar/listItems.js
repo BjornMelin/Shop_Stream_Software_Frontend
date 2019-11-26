@@ -12,6 +12,8 @@ import RateReviewIcon from '@material-ui/icons/RateReview';
 import { Link } from "react-router-dom";
 
 
+// Need to make this page so that it will only show certain 
+// buttons in the list based on a users permissions.
 
 export const mainListItems = (
   <div>
@@ -56,6 +58,12 @@ export const mainListItems = (
         <RateReviewIcon />
       </ListItemIcon>
       <ListItemText primary="Part Setup" />
+    </ListItem>
+    <ListItem button component={Link} to="/user-mgt" id="adminUserMgtButton">
+      <ListItemIcon>
+        <RateReviewIcon />
+      </ListItemIcon>
+      <ListItemText primary="User Management" />
     </ListItem>
   </div>
 );
