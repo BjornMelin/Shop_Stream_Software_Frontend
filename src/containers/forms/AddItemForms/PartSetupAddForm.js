@@ -87,10 +87,10 @@ export default function PartSetupAddForm() {
     scrapTypes: "",
   };
 
-  function handleChange(e) {
-    const { id, value } = e.target;
-    values[id] = value;
-  };
+  // function handleChange(e) {
+  //   const { id, value } = e.target;
+  //   values[id] = value;
+  // };
 
   function handleSubmit(e) {
     e.preventDefault();
