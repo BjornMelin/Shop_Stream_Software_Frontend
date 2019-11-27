@@ -11,6 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import InputAdornment from '@material-ui/core/InputAdornment';
+import superagent from 'superagent';
 
 
 
@@ -65,6 +66,48 @@ export default function JobsCreateForm() {
   const classes = useStyles();
 
 
+  const values = {
+    orderDate: "",
+    dueDate: "",
+    poNum: "",
+    jobNum: "",
+    partNum: "",
+    orderQuant: "",
+    recievedQuant: "",
+    remainingQuant: "",
+    cycleTime: "",
+    runHours: "",
+    runDays: "",
+    amountTotal: "",
+    amountPerHour: "",
+    amountPerUnit: "",
+  };
+
+  function handleChange(e) {
+    const { id, value } = e.target;
+    values[id] = value;
+  };
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    alert("SUCCESS: " + JSON.stringify(values));
+    // console.log(values);
+    superagent.post('http://127.0.0.1:4000/api/postJobData')
+      .send({ orderDate: values.orderDate, dueDate: values.dueDate, 
+              poNum: values.poNum, jobNum: values.jobNum, partNum: values.partNum,
+              orderQuant: values.orderQuant, recievedQuant: values.recievedQuant, 
+              remainingQuant: values.remainingQuant, cycleTime: values.cycleTime, 
+              runHours: values.runHours, runDays: values.runDays, 
+              amountTotal: values.amountTotal, amountPerHour: values.amountPerHour, 
+              amountPerUnit: values.amountPerUnit }) // sends a JSON post body
+      .set('accept', 'json')
+      .end((err, res) => {
+        // Calling the end function will send the request
+    });
+  };
+
+
+
   return (
     <Container component="main" maxWidth="s">
       <CssBaseline />
@@ -77,18 +120,19 @@ export default function JobsCreateForm() {
         </Typography>
         <form className={classes.form} 
           noValidate 
-          onSubmit={() => {alert("submitted");}}>
+          onSubmit={handleSubmit}>
 
           {/* Row 1 Of Form Input */}
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
-                name="orderDateInput"
+                onChange={handleChange}
+                name="orderDate"
                 variant="outlined"
-                type="datetime-local"
+                type="date"
                 required
                 fullWidth
-                id="orderDateInput"
+                id="orderDate"
                 label="Order Date"
                 InputLabelProps={{
                   shrink: true,
@@ -98,12 +142,13 @@ export default function JobsCreateForm() {
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
-                name="dueDateInput"
+                onChange={handleChange}
+                name="dueDate"
                 variant="outlined"
-                type="datetime-local"
+                type="date"
                 required
                 fullWidth
-                id="dueDateInput"
+                id="dueDate"
                 label="Due Date"
                 InputLabelProps={{
                   shrink: true,
@@ -113,11 +158,12 @@ export default function JobsCreateForm() {
             </Grid>
             <Grid item xs={12} sm={3}>
               <TextField
-                name="poNumInput"
+                onChange={handleChange}
+                name="poNum"
                 variant="outlined"
                 required
                 fullWidth
-                id="poNumInput"
+                id="poNum"
                 label="P.O. Number"
                 InputLabelProps={{
                   shrink: true,
@@ -130,11 +176,12 @@ export default function JobsCreateForm() {
 
             <Grid item xs={12} sm={3}>
               <TextField
-                name="jobNumInput"
+                onChange={handleChange}
+                name="jobNum"
                 variant="outlined"
                 required
                 fullWidth
-                id="jobNumInput"
+                id="jobNum"
                 label="Job Number"
                 InputLabelProps={{
                   shrink: true,
@@ -147,11 +194,12 @@ export default function JobsCreateForm() {
             {/* Row 2 Of Form Input */}
             <Grid item xs={12} sm={3}>
               <TextField
-                name="partNumInput"
+                onChange={handleChange}
+                name="partNum"
                 variant="outlined"
                 required
                 fullWidth
-                id="partNumInput"
+                id="partNum"
                 label="Part Number"
                 InputLabelProps={{
                   shrink: true,
@@ -161,11 +209,12 @@ export default function JobsCreateForm() {
             </Grid>
             <Grid item xs={12} sm={3}>
               <TextField
-                name="orderQuantInput"
+                onChange={handleChange}
+                name="orderQuant"
                 variant="outlined"
                 required
                 fullWidth
-                id="orderQuantInput"
+                id="orderQuant"
                 label="Order Quantity"
                 InputLabelProps={{
                   shrink: true,
@@ -175,11 +224,12 @@ export default function JobsCreateForm() {
             </Grid>
             <Grid item xs={12} sm={3}>
               <TextField
-                name="recievedQuantInput"
+                onChange={handleChange}
+                name="recievedQuant"
                 variant="outlined"
                 required
                 fullWidth
-                id="recievedQuantInput"
+                id="recievedQuant"
                 label="Recieved Quantity"
                 InputLabelProps={{
                   shrink: true,
@@ -192,11 +242,12 @@ export default function JobsCreateForm() {
             {/* Row 3 Of Form Input */}
             <Grid item xs={12} sm={3}>
               <TextField
-                name="remainingQuantInput"
+                onChange={handleChange}
+                name="remainingQuant"
                 variant="outlined"
                 required
                 fullWidth
-                id="remainingQuantInput"
+                id="remainingQuant"
                 label="Remaining Quantity"
                 InputLabelProps={{
                   shrink: true,
@@ -206,11 +257,12 @@ export default function JobsCreateForm() {
             </Grid>
             <Grid item xs={12} sm={3}>
               <TextField
-                name="cycleTimeInput"
+                onChange={handleChange}
+                name="cycleTime"
                 variant="outlined"
                 required
                 fullWidth
-                id="cycleTimeInput"
+                id="cycleTime"
                 label="Cycle Time"
                 InputLabelProps={{
                   shrink: true,
@@ -220,11 +272,12 @@ export default function JobsCreateForm() {
             </Grid>
             <Grid item xs={12} sm={3}>
               <TextField
-                name="runHoursInput"
+                onChange={handleChange}
+                name="runHours"
                 variant="outlined"
                 required
                 fullWidth
-                id="runHoursInput"
+                id="runHours"
                 label="Run Hours"
                 InputProps={{
                   endAdornment: <InputAdornment position="end">Hrs</InputAdornment>,
@@ -239,11 +292,12 @@ export default function JobsCreateForm() {
 
             <Grid item xs={12} sm={3}>
               <TextField
-                name="runDaysInput"
+                onChange={handleChange}
+                name="runDays"
                 variant="outlined"
                 required
                 fullWidth
-                id="runDaysInput"
+                id="runDays"
                 label="Run Days"
                 InputProps={{
                   endAdornment: <InputAdornment position="end">Days</InputAdornment>,
@@ -256,11 +310,12 @@ export default function JobsCreateForm() {
             </Grid>
             <Grid item xs={12} sm={3}>
               <TextField
-                name="amountTotalInput"
+                onChange={handleChange}
+                name="amountTotal"
                 variant="outlined"
                 required
                 fullWidth
-                id="amountTotalInput"
+                id="amountTotal"
                 label="Amount - Total"
                 InputProps={{
                   startAdornment: <InputAdornment position="start">$</InputAdornment>,
@@ -273,11 +328,12 @@ export default function JobsCreateForm() {
             </Grid>
             <Grid item xs={12} sm={3}>
               <TextField
-                name="amountPerHourInput"
+                onChange={handleChange}
+                name="amountPerHour"
                 variant="outlined"
                 required
                 fullWidth
-                id="amountPerHourInput"
+                id="amountPerHour"
                 label="Amount - Per Hour"
                 InputProps={{
                   startAdornment: <InputAdornment position="start">$</InputAdornment>,
@@ -290,11 +346,12 @@ export default function JobsCreateForm() {
             </Grid>
             <Grid item xs={12} sm={3}>
               <TextField
-                name="amountPerUnitInput"
+                onChange={handleChange}
+                name="amountPerUnit"
                 variant="outlined"
                 required
                 fullWidth
-                id="amountPerUnitInput"
+                id="amountPerUnit"
                 label="Amount - Per Unit"
                 InputProps={{
                   startAdornment: <InputAdornment position="start">$</InputAdornment>,

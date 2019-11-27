@@ -85,7 +85,7 @@ export default function CustomersAddForm() {
     e.preventDefault();
     alert("SUCCESS: " + JSON.stringify(values));
     // console.log(values);
-    superagent.post('http://127.0.0.1:4000/api/putCustData')
+    superagent.post('http://127.0.0.1:4000/api/postCustData')
       .send({ nameFirst: values.nameFirst, nameLast: values.nameLast,
               companyName: values.companyName, email: values.email,
               phoneNum: values.phoneNum}) // sends a JSON post body
