@@ -12,6 +12,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import superagent from 'superagent';
 
 
 
@@ -65,15 +66,50 @@ const useStyles = makeStyles(theme => ({
 export default function InspectionSubmitForm() {
   const classes = useStyles();
 
-  const [state, setState] = React.useState({
-    checkedQualGood: false,
-    checkedQualOkay: false,
-    checkedQualPoor: false,
-  });
+  // const [state, setState] = React.useState({
+  //   checkedQualGood: false,
+  //   checkedQualOkay: false,
+  //   checkedQualPoor: false,
+  // });
 
  
-  const handleChange = name => event => {
-    setState({ ...state, [name]: event.target.checked });
+  // const handleChange = name => event => {
+  //   setState({ ...state, [name]: event.target.checked });
+  // };
+
+
+  const values = {
+    inspectDate: "",
+    inspectDueDate: "",
+    inspectDesc: "",
+    jobNum: "",
+    quantToShip: "",
+    checkedQualGood: "",
+    checkedQualOkay: "",
+    checkedQualPoor: "",
+
+  };
+
+  function handleChange(e) {
+    const { id, value } = e.target;
+    values[id] = value;
+  };
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    alert("SUCCESS: " + JSON.stringify(values));
+    // console.log(values);
+    superagent.post('http://127.0.0.1:4000/api/postInspectData')
+      .send({ inspectDate: values.inspectDate, inspectDueDate: values.inspectDueDate,
+              inspectDesc: values.inspectDesc, jobNum: values.jobNum,
+              quantToShip: values.quantToShip, 
+              checkedQualGood: values.checkedQualGood,
+              checkedQualOkay: values.checkedQualOkay,
+              checkedQualPoor: values.checkedQualPoor }) // sends a JSON post body
+      .set('accept', 'json')
+      .end((err, res) => {
+        // Calling the end function will send the request
+    });
   };
 
 
@@ -89,15 +125,16 @@ export default function InspectionSubmitForm() {
         </Typography>
         <form className={classes.form} 
           noValidate 
-          onSubmit={() => {alert("submitted");}}>
+          onSubmit={handleSubmit}>
 
           {/* Row 1 Of Form Input */}
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
+                onChange={handleChange}
                 name="inspectDate"
                 variant="outlined"
-                type="datetime-local"
+                type="date"
                 required
                 fullWidth
                 id="inspectDate"
@@ -110,9 +147,10 @@ export default function InspectionSubmitForm() {
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
+                onChange={handleChange}
                 name="inspectDueDate"
                 variant="outlined"
-                type="datetime-local"
+                type="date"
                 required
                 fullWidth
                 id="inspectDueDate"
@@ -125,7 +163,8 @@ export default function InspectionSubmitForm() {
             </Grid>
             <Grid item xs={12} sm={24}>
               <TextField
-                name="inspectDosc"
+                onChange={handleChange}
+                name="inspectDesc"
                 variant="outlined"
                 required
                 fullWidth
@@ -143,11 +182,12 @@ export default function InspectionSubmitForm() {
 
             <Grid item xs={12} sm={3}>
               <TextField
-                name="inspectJobNum"
+                onChange={handleChange}
+                name="jobNum"
                 variant="outlined"
                 required
                 fullWidth
-                id="inspectJobNum"
+                id="jobNum"
                 label="Inspection Job Number"
                 InputLabelProps={{
                   shrink: true,
@@ -160,6 +200,7 @@ export default function InspectionSubmitForm() {
             {/* Row 2 Of Form Input */}
             <Grid item xs={12} sm={3}>
               <TextField
+                onChange={handleChange}
                 name="quantToShip"
                 variant="outlined"
                 required
@@ -193,8 +234,9 @@ export default function InspectionSubmitForm() {
             <FormControlLabel
                 control={
                 <Checkbox
-                    checked={state.checkedMaterial}
-                    onChange={handleChange('checkedQualGood')}
+                    // checked={state.checkedMaterial}
+                    // onChange={handleChange('checkedQualGood')}
+                    onChange={handleChange}
                     value="checkedQualGood"
                     color="primary"
                 />
@@ -211,8 +253,9 @@ export default function InspectionSubmitForm() {
             <FormControlLabel
                 control={
                     <Checkbox
-                    checked={state.checkedMaterial}
-                    onChange={handleChange('checkedQualOkay')}
+                    // checked={state.checkedMaterial}
+                    // onChange={handleChange('checkedQualOkay')}
+                    onChange={handleChange}
                     value="checkedQualOkay"
                     color="primary"
                     />
@@ -228,8 +271,9 @@ export default function InspectionSubmitForm() {
             <FormControlLabel
                 control={
                     <Checkbox
-                    checked={state.checkedMaterial}
-                    onChange={handleChange('checkedQualPoor')}
+                    // checked={state.checkedMaterial}
+                    // onChange={handleChange('checkedQualPoor')}
+                    onChange={handleChange}
                     value="checkedQualPoor"
                     color="primary"
                     />
