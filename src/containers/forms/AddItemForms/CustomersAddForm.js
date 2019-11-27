@@ -10,7 +10,7 @@ import CreateIcon from '@material-ui/icons/Create';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-
+import superagent from 'superagent';
 
 
 function Copyright() {
@@ -68,6 +68,34 @@ export default function CustomersAddForm() {
   const classes = useStyles();
 
 
+  const values = {
+    nameFirst: "",
+    nameLast: "",
+    companyName: "",
+    email: "",
+    phoneNum: "",
+  };
+
+  function handleChange(e) {
+    const { id, value } = e.target;
+    values[id] = value;
+  };
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    alert("SUCCESS: " + JSON.stringify(values));
+    // console.log(values);
+    superagent.post('http://127.0.0.1:9000/api/putCustData')
+      .send({ nameFirst: values.nameFirst, nameLast: values.nameLast,
+              companyName: values.companyName, email: values.email,
+              phoneNum: values.phoneNum}) // sends a JSON post body
+      .set('accept', 'json')
+      .end((err, res) => {
+        // Calling the end function will send the request
+    });
+  };
+
+
   return (
     <Container component="main" maxWidth="s">
       <CssBaseline />
@@ -80,17 +108,18 @@ export default function CustomersAddForm() {
         </Typography>
         <form className={classes.form} 
           noValidate 
-          onSubmit={() => {alert("submitted");}}>
+          onSubmit={handleSubmit}>
 
           {/* Row 1 Of Form Input */}
           <Grid container spacing={2}>
             <Grid item xs={12} sm={4}>
               <TextField
-                name="custNameFirst"
+                onChange={handleChange}
+                name="nameFirst"
                 variant="outlined"
                 required
                 fullWidth
-                id="custNameFirst"
+                id="nameFirst"
                 label="First Name"
                 InputLabelProps={{
                   shrink: true,
@@ -101,11 +130,12 @@ export default function CustomersAddForm() {
 
             <Grid item xs={12} sm={4}>
               <TextField
-                name="custNameLast"
+                onChange={handleChange}
+                name="nameLast"
                 variant="outlined"
                 required
                 fullWidth
-                id="custNameLast"
+                id="nameLast"
                 label="Last Name"
                 InputLabelProps={{
                   shrink: true,
@@ -116,11 +146,12 @@ export default function CustomersAddForm() {
 
             <Grid item xs={12} sm={4}>
               <TextField
-                name="custCompany"
+                onChange={handleChange}
+                name="companyName"
                 variant="outlined"
                 required
                 fullWidth
-                id="custCompany"
+                id="companyName"
                 label="Company Name"
                 InputLabelProps={{
                   shrink: true,
@@ -131,12 +162,13 @@ export default function CustomersAddForm() {
 
             <Grid item xs={12} sm={4}>
               <TextField
-                name="custEmail"
+                onChange={handleChange}
+                name="email"
                 variant="outlined"
                 type="email"
                 required
                 fullWidth
-                id="custEmail"
+                id="email"
                 label="Email"
                 InputLabelProps={{
                   shrink: true,
@@ -147,11 +179,12 @@ export default function CustomersAddForm() {
 
             <Grid item xs={12} sm={4}>
               <TextField
-                name="custPhoneNum"
+                onChange={handleChange}
+                name="phoneNum"
                 variant="outlined"
                 required
                 fullWidth
-                id="custPhoneNum"
+                id="phoneNum"
                 label="Phone Number"
                 InputLabelProps={{
                   shrink: true,
