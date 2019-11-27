@@ -96,7 +96,7 @@ export default function PartSetupAddForm() {
     e.preventDefault();
     alert("SUCCESS: " + JSON.stringify(values));
     // console.log(values);
-    superagent.post('http://127.0.0.1:4000/api/postPartData')
+    superagent.post('http://127.0.0.1:4000/api/postPartSetupData')
       .send({ buttonToButtonTime: values.buttonToButtonTime,
               partDesc: values.partDesc, machineTime: values.machineTime,
               toolNotes: values.toolNotes, viceNotes: values.viceNotes,

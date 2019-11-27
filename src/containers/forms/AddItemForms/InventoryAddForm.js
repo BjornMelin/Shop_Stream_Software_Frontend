@@ -13,6 +13,7 @@ import Container from '@material-ui/core/Container';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import superagent from 'superagent';
 
 
 
@@ -66,13 +67,52 @@ const useStyles = makeStyles(theme => ({
 export default function InventoryAddForm() {
   const classes = useStyles();
 
-  const [state, setState] = React.useState({
-    checkedMaterial: false,
-    checkedTool: false,
-  });
+  // const [state, setState] = React.useState({
+  //   checkedMaterial: false,
+  //   checkedTool: false,
+  // });
 
-  const handleChange = name => event => {
-    setState({ ...state, [name]: event.target.checked });
+  // const handleChange = name => event => {
+  //   setState({ ...state, [name]: event.target.checked });
+  // };
+
+  const values = {
+    materialName: "",
+    materialType: "",
+    checkedMaterial: "",
+    checkedTool: "",
+    matQuantity: "",
+    amtPerItem: "",
+    itemLenFeet: "",
+    itemLenInch: "",
+    itemWidthFeet: "",
+    itemWidthInch: "",
+    itemHtFeet: "",
+    itemHtInch: "",
+    mmeNotes: "",
+  };
+
+  function handleChange(e) {
+    const { id, value } = e.target;
+    values[id] = value;
+  };
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    alert("SUCCESS: " + JSON.stringify(values));
+    // console.log(values);
+    superagent.post('http://127.0.0.1:4000/api/postInvMaterialData')
+      .send({ materialName: values.materialName, materialType: values.materialType,
+              checkedMaterial: values.checkedMaterial,
+              checkedTool: values.checkedTool, matQuantity: values.matQuantity,
+              amtPerItem: values.amtPerItem, itemLenFeet: values.itemLenFeet,
+              itemLenInch: values.itemLenInch, itemWidthFeet: values.itemWidthFeet,
+              itemWidthInch: values.itemWidthInch, itemHtFeet: values.itemHtFeet,
+              itemHtInch: values.itemHtInch, mmeNotes: values.mmeNotes }) // sends a JSON post body
+      .set('accept', 'json')
+      .end((err, res) => {
+        // Calling the end function will send the request
+    });
   };
 
 
@@ -88,12 +128,13 @@ export default function InventoryAddForm() {
         </Typography>
         <form className={classes.form} 
           noValidate 
-          onSubmit={() => {alert("submitted");}}>
+          onSubmit={handleSubmit}>
 
           {/* Row 1 Of Form Input */}
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
+                onChange={handleChange}
                 name="materialName"
                 variant="outlined"
                 required
@@ -108,6 +149,7 @@ export default function InventoryAddForm() {
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
+                onChange={handleChange}
                 name="materialType"
                 variant="outlined"
                 required
@@ -127,8 +169,9 @@ export default function InventoryAddForm() {
             <FormControlLabel
                 control={
                 <Checkbox
-                    checked={state.checkedMaterial}
-                    onChange={handleChange('checkedMaterial')}
+                    // checked={state.checkedMaterial}
+                    // onChange={handleChange('checkedMaterial')}
+                    onChange={handleChange}
                     value="checkedMaterial"
                     color="primary"
                 />
@@ -143,8 +186,9 @@ export default function InventoryAddForm() {
             <FormControlLabel
                 control={
                 <Checkbox
-                    checked={state.checkedTool}
-                    onChange={handleChange('checkedTool')}
+                    // checked={state.checkedTool}
+                    // onChange={handleChange('checkedTool')}
+                    onChange={handleChange}
                     value="checkedTool"
                     color="primary"
                 />
@@ -159,6 +203,7 @@ export default function InventoryAddForm() {
 
             <Grid item xs={12} sm={2}>
               <TextField
+                onChange={handleChange}
                 name="matQuantity"
                 variant="outlined"
                 required
@@ -169,11 +214,11 @@ export default function InventoryAddForm() {
                   shrink: true,
                 }}
                 autoFocus
-                onChange="event.target.value"
               />
             </Grid>
             <Grid item xs={12} sm={4}>
               <TextField
+                onChange={handleChange}
                 name="amtPerItem"
                 variant="outlined"
                 required
@@ -194,6 +239,7 @@ export default function InventoryAddForm() {
 
             <Grid item xs={12} sm={2}>
               <TextField
+                onChange={handleChange}
                 name="itemLenFeet"
                 variant="outlined"
                 required
@@ -211,6 +257,7 @@ export default function InventoryAddForm() {
             </Grid>
             <Grid item xs={12} sm={2}>
               <TextField
+                onChange={handleChange}
                 name="itemLenInch"
                 variant="outlined"
                 required
@@ -231,6 +278,7 @@ export default function InventoryAddForm() {
             {/* Row 2 Of Form Input */}
             <Grid item xs={12} sm={2}>
               <TextField
+                onChange={handleChange}
                 name="itemWidthFeet"
                 variant="outlined"
                 required
@@ -248,6 +296,7 @@ export default function InventoryAddForm() {
             </Grid>
             <Grid item xs={12} sm={2}>
               <TextField
+                onChange={handleChange}
                 name="itemWidthInch"
                 variant="outlined"
                 required
@@ -267,6 +316,7 @@ export default function InventoryAddForm() {
 
             <Grid item xs={12} sm={2}>
               <TextField
+                onChange={handleChange}
                 name="itemHtFeet"
                 variant="outlined"
                 required
@@ -284,6 +334,7 @@ export default function InventoryAddForm() {
             </Grid>
             <Grid item xs={12} sm={2}>
               <TextField
+                onChange={handleChange}
                 name="itemHtInch"
                 variant="outlined"
                 required
