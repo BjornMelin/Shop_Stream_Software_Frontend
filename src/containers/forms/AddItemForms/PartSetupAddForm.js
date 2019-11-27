@@ -67,13 +67,13 @@ const useStyles = makeStyles(theme => ({
 export default function PartSetupAddForm() {
   const classes = useStyles();
 
-  const [state, setState] = React.useState({
-    checkedScrap: false,
-  });
+  // const [state, setState] = React.useState({
+  //   checkedScrap: false,
+  // });
 
-  const handleChange = name => event => {
-    setState({ ...state, [name]: event.target.checked });
-  };
+  // const handleChange = name => event => {
+  //   setState({ ...state, [name]: event.target.checked });
+  // };
 
 
   const values = {
@@ -87,10 +87,10 @@ export default function PartSetupAddForm() {
     scrapTypes: "",
   };
 
-  // function handleChange(e) {
-  //   const { id, value } = e.target;
-  //   values[id] = value;
-  // };
+  function handleChange(e) {
+    const { id, value } = e.target;
+    values[id] = value;
+  };
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -216,8 +216,8 @@ export default function PartSetupAddForm() {
             <FormControlLabel
                 control={
                 <Checkbox
-                    checked={state.checkedMaterial}
-                    onChange={handleChange('checkedScrap')}
+                    // checked={state.checkedMaterial}
+                    onChange={handleChange}
                     value="checkedScrap"
                     color="primary"
                 />
@@ -258,7 +258,6 @@ export default function PartSetupAddForm() {
                   shrink: true,
                 }}
                 autoFocus
-                onChange="event.target.value"
               />
             </Grid>
 
