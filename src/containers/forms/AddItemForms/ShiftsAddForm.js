@@ -10,6 +10,7 @@ import CreateIcon from '@material-ui/icons/Create';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import superagent from 'superagent';
 
 
 
@@ -65,6 +66,33 @@ export default function ShiftsAddForm() {
   const classes = useStyles();
 
 
+  const values = {
+    jobNum: "",
+    buttonToButtonTime: "",
+    partsSampled: "",
+    orderDate: "",
+    shiftNotes: "",
+  };
+
+  function handleChange(e) {
+    const { id, value } = e.target;
+    values[id] = value;
+  };
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    alert("SUCCESS: " + JSON.stringify(values));
+    // console.log(values);
+    superagent.post('http://127.0.0.1:4000/api/postShiftData')
+      .send({ jobNum: values.jobNum, buttonToButtonTime: values.buttonToButtonTime,
+              partsSampled: values.partsSampled, orderDate: values.orderDate,
+              shiftNotes: values.shiftNotes }) // sends a JSON post body
+      .set('accept', 'json')
+      .end((err, res) => {
+        // Calling the end function will send the request
+    });
+  };
+
 
   return (
     <Container component="main" maxWidth="s">
@@ -78,17 +106,18 @@ export default function ShiftsAddForm() {
           </Typography>
           <form className={classes.form} 
             noValidate 
-            onSubmit={() => {alert("submitted");}}>
+            onSubmit={handleSubmit}>
 
           {/* Row 1 Of Form Input */}
           <Grid container spacing={2}>
             <Grid item xs={12} sm={4}>
               <TextField
-                name="shiftJobNum"
+                onChange={handleChange}
+                name="jobNum"
                 variant="outlined"
                 required
                 fullWidth
-                id="shiftJobNum"
+                id="jobNum"
                 label="Job Number"
                 InputLabelProps={{
                   shrink: true,
@@ -99,11 +128,12 @@ export default function ShiftsAddForm() {
 
             <Grid item xs={12} sm={4}>
               <TextField
-                name="shiftButtonToButtonTime"
+                onChange={handleChange}
+                name="buttonToButtonTime"
                 variant="outlined"
                 required
                 fullWidth
-                id="shiftButtonToButtonTime"
+                id="buttonToButtonTime"
                 label="Button To Button Time"
                 InputLabelProps={{
                   shrink: true,
@@ -114,6 +144,7 @@ export default function ShiftsAddForm() {
 
             <Grid item xs={12} sm={4}>
               <TextField
+                onChange={handleChange}
                 name="partsSampled"
                 variant="outlined"
                 required
@@ -129,12 +160,13 @@ export default function ShiftsAddForm() {
 
             <Grid item xs={12} sm={6}>
               <TextField
-                name="orderDateInput"
+                onChange={handleChange}
+                name="orderDate"
                 variant="outlined"
-                type="datetime-local"
+                type="date"
                 required
                 fullWidth
-                id="orderDateInput"
+                id="orderDate"
                 label="Order Date"
                 InputLabelProps={{
                   shrink: true,
@@ -145,6 +177,7 @@ export default function ShiftsAddForm() {
 
             <Grid item xs={12} sm={4}>
               <TextField
+                onChange={handleChange}
                 name="shiftNotes"
                 variant="outlined"
                 required
