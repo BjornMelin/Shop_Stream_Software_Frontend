@@ -12,6 +12,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import superagent from 'superagent';
 
 
 
@@ -75,6 +76,39 @@ export default function PartSetupAddForm() {
   };
 
 
+  const values = {
+    buttonToButtonTime: "",
+    partDesc: "",
+    machineTime: "",
+    toolNotes: "",
+    viceNotes: "",
+    Scrap: "",
+    scrapQuant: "",
+    scrapTypes: "",
+  };
+
+  function handleChange(e) {
+    const { id, value } = e.target;
+    values[id] = value;
+  };
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    alert("SUCCESS: " + JSON.stringify(values));
+    // console.log(values);
+    superagent.post('http://127.0.0.1:4000/api/postPartData')
+      .send({ buttonToButtonTime: values.buttonToButtonTime,
+              partDesc: values.partDesc, machineTime: values.machineTime,
+              toolNotes: values.toolNotes, viceNotes: values.viceNotes,
+              Scrap: values.Scrap, scrapQuant: values.scrapQuant,
+              scrapTypes: values.scrapTypes}) // sends a JSON post body
+      .set('accept', 'json')
+      .end((err, res) => {
+        // Calling the end function will send the request
+    });
+  };
+
+
   return (
     <Container component="main" maxWidth="s">
       <CssBaseline />
@@ -87,12 +121,13 @@ export default function PartSetupAddForm() {
         </Typography>
         <form className={classes.form} 
           noValidate 
-          onSubmit={() => {alert("submitted");}}>
+          onSubmit={handleSubmit}>
 
           {/* Row 1 Of Form Input */}
           <Grid container spacing={2}>
             <Grid item xs={12} sm={4}>
               <TextField
+                onChange={handleChange}
                 name="buttonToButtonTime"
                 variant="outlined"
                 required
@@ -108,6 +143,7 @@ export default function PartSetupAddForm() {
 
             <Grid item xs={12} sm={4}>
               <TextField
+                onChange={handleChange}
                 name="partDesc"
                 variant="outlined"
                 required
@@ -125,6 +161,7 @@ export default function PartSetupAddForm() {
 
             <Grid item xs={12} sm={4}>
               <TextField
+                onChange={handleChange}
                 name="machineTime"
                 variant="outlined"
                 required
@@ -140,6 +177,7 @@ export default function PartSetupAddForm() {
 
             <Grid item xs={12} sm={4}>
               <TextField
+                onChange={handleChange}
                 name="toolNotes"
                 variant="outlined"
                 required
@@ -157,6 +195,7 @@ export default function PartSetupAddForm() {
 
             <Grid item xs={12} sm={4}>
               <TextField
+                onChange={handleChange}
                 name="viceNotes"
                 variant="outlined"
                 required
@@ -193,6 +232,7 @@ export default function PartSetupAddForm() {
 
             <Grid item xs={12} sm={4}>
               <TextField
+                onChange={handleChange}
                 name="scrapQuant"
                 variant="outlined"
                 fullWidth
@@ -208,6 +248,7 @@ export default function PartSetupAddForm() {
 
             <Grid item xs={12} sm={6}>
               <TextField
+                onChange={handleChange}
                 name="scrapTypes"
                 variant="outlined"
                 fullWidth
