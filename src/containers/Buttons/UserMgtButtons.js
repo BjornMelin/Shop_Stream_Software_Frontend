@@ -90,6 +90,7 @@ const useStyles = makeStyles(theme => ({
     return (
       <div className={classes.root}>
             <ButtonBase
+                id="addUser"
                 href='/user-mgt/create-user'
                 focusRipple
                 key='Image'
@@ -121,6 +122,7 @@ const useStyles = makeStyles(theme => ({
             </ButtonBase>
 
             <ButtonBase
+                id="viewUsers"
                 href='/user-mgt/view-users'
                 focusRipple
                 key='Image1'
@@ -152,6 +154,7 @@ const useStyles = makeStyles(theme => ({
             </ButtonBase>
 
             <ButtonBase
+                id="editUsers"
                 href='/user-mgt/edit-users'
                 focusRipple
                 key='Image1'

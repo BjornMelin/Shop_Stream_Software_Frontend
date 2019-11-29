@@ -90,6 +90,7 @@ const useStyles = makeStyles(theme => ({
     return (
       <div className={classes.root}>
             <ButtonBase
+                id="addPart"
                 href="/part-setup/new-part-setup"
                 focusRipple
                 key='Image'
@@ -123,6 +124,7 @@ const useStyles = makeStyles(theme => ({
 
 
             <ButtonBase
+                id="viewPartSetups"
                 href="/part-setup/view-part-setups"
                 focusRipple
                 key='Image1'
@@ -156,6 +158,7 @@ const useStyles = makeStyles(theme => ({
 
 
             <ButtonBase
+                id="editPartSetups"
                 href="/part-setup/edit-part-setups"
                 focusRipple
                 key='Image1'
