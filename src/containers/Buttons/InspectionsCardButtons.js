@@ -93,6 +93,7 @@ const useStyles = makeStyles(theme => ({
     return (
       <div className={classes.root}>
             <ButtonBase
+                id="submitInsp"
                 href="/inspections/submit-inspection"
                 focusRipple
                 key='Image'
@@ -124,6 +125,7 @@ const useStyles = makeStyles(theme => ({
             </ButtonBase>
 
             <ButtonBase
+                id="viewInsp"
                 href="/inspections/view-inspections"
                 focusRipple
                 key='Image1'
@@ -156,6 +158,7 @@ const useStyles = makeStyles(theme => ({
 
 
             <ButtonBase
+                id="updateInsp"
                 href="/inspections/edit-inspections"
                 focusRipple
                 key='Image1'
