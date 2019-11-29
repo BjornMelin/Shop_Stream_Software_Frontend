@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -12,7 +12,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
 import Image1 from '../images/shop_stream_logo.png'; 
-// import { useState } from 'react';
+const API = require('axios');
+// import superagent from 'superagent';
 
 
 
@@ -68,46 +69,43 @@ const useStyles = makeStyles(theme => ({
 export default function SignIn() {
   const classes = useStyles();
 
+  const [email, setemail] = useState('');
+  const [password, setPassword] = useState('');
+  const [token, setToken] = useState(null);
 
-  // function handleSubmit(event) {
-  //   event.preventDefault();
-  //   const data = new FormData(event.target);
 
-  //   fetch('http://127.0.0.1:9000/api/putData', {
-  //     method: 'POST',
-  //     body: JSON.stringify({
-  //       username: data.get('email'),
-  //       password: data.get('password'),
-  //     }),
-  //     headers:{
-  //       'Content-Type': 'application/json'
-  //     }
-  //   });
-  //   console.log("here");
-  //   // fetch('http://127.0.0.1:9000/api/putData', {
-  //   //   method: 'POST',
-  //   //   body: data,
-  //   // });
-  // }
 
-  const values = {
-    email: "",
-    password: ""
-  };
+  function handleEmailChange(event) {
+    setemail(event.target.value);
+  }
 
-  function handleChange(e) {
-    const { id, value } = e.target;
-    values[id] = value;
-  };
+  function handlePasswordChange(event) {
+    setPassword(event.target.value);
+  }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    alert("SUCCESS: " + JSON.stringify(values));
-    fetch('http://127.0.0.1:9000/api/putData', {
-      method: 'POST',
-      body: JSON.stringify(values),
+  function handleSubmit(event) {
+    alert("SUCCESS: " + JSON.stringify({email, password}));
+    console.log('hit');
+    return API.get('http://127.0.0.1:9000/api/authenticate', {
+      params: {
+        email: email,
+        password: password
+      },
+      timeout: 20000000
+    }).then(function(response) {
+      alert(console.log(response));
+      return;
+    }).catch(function(error) {
+      console.error(error);
     });
-  };
+    // console.log(token)
+    // return '/dashboard'
+    // if () {
+    //   return '/dashboard';
+    // }
+  }
+
+
 
 
   return (
@@ -118,9 +116,9 @@ export default function SignIn() {
         <Typography component="h1" variant="h6">
           Sign in
         </Typography>
-        <form className={classes.form} onChange={handleChange} onSubmit={handleSubmit}>
+        <form className={classes.form} onSubmit={handleSubmit}>
           <TextField
-            onChange={handleChange}
+            onChange={handleEmailChange}
             variant="outlined"
             margin="normal"
             required
@@ -133,7 +131,7 @@ export default function SignIn() {
             autoFocus
           />
           <TextField
-            onChange={handleChange}
+            onChange={handlePasswordChange}
             variant="outlined"
             margin="normal"
             required
@@ -149,7 +147,7 @@ export default function SignIn() {
             label="Remember me"
           />
           <Button
-            onSubmit={handleSubmit}
+            // onSubmit={handleSubmit}
             type="submit"
             fullWidth
             id="signin"
@@ -180,3 +178,80 @@ export default function SignIn() {
     </Container>
   );
 }
+
+
+
+
+
+
+  // const values = {
+  //   email: "",
+  //   password: ""
+  // };
+
+  // function handleChange(e) {
+  //   const { id, value } = e.target;
+  //   values[id] = value;
+  // };
+
+
+// function handleSubmit(event) {
+  //   event.preventDefault();
+  //   const data = new FormData(event.target);
+
+  //   fetch('http://127.0.0.1:9000/api/putData', {
+  //     method: 'POST',
+  //     body: JSON.stringify({
+  //       email: data.get('email'),
+  //       password: data.get('password'),
+  //     }),
+  //     headers:{
+  //       'Content-Type': 'application/json'
+  //     }
+  //   });
+  //   console.log("here");
+  //   // fetch('http://127.0.0.1:9000/api/putData', {
+  //   //   method: 'POST',
+  //   //   body: data,
+  //   // });
+  // }
+
+
+
+
+  // function handleSubmit(e) {
+  //   e.preventDefault();
+  //   alert("SUCCESS: " + JSON.stringify(values));
+  //   fetch('http://127.0.0.1:9000/api/putData', {
+  //     method: 'POST',
+  //     body: JSON.stringify(values),
+  //   });
+  // };
+
+  // function handleSubmit(e) {
+  //   e.preventDefault();
+  //   alert("SUCCESS: " + JSON.stringify(values));
+
+  //   superagent.get('http://127.0.0.1:9000/api/getUserData')
+  //   .query({ email: values.email, password: values.password }) // query string
+  //   // .use(prefix) // Prefixes *only* this request
+  //   // .use(nocache) // Prevents caching of *only* this request
+  //   .end((err, res) => {
+  //     // Do something
+  //   });
+  // };
+
+
+  // function handleSubmit(e) {
+  //   e.preventDefault();
+  //   alert("SUCCESS: " + JSON.stringify(values));
+  //   // console.log(values);
+  //   superagent.post('http://127.0.0.1:9000/api/putData')
+  //     .send({ email: values.email, password: values.password, 
+  //             permission: values.permission, firstName: values.firstName, 
+  //             lastName: values.lastName, email: values.email }) // sends a JSON post body
+  //     .set('accept', 'json')
+  //     .end((err, res) => {
+  //       // Calling the end function will send the request
+  //   });
+  // };
