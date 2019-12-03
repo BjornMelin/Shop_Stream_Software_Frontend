@@ -22,7 +22,8 @@
     "react-scripts": "latest",
     "react-text-mask": "^5.4.3",
     "recharts": "^1.8.5",
-    "superagent": "^5.1.1"
+    "superagent": "^5.1.1",
+    "tubular-react": "^3.0.2"
   },
   "browserslist": {
     "production": [
