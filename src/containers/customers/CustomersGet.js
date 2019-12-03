@@ -1,16 +1,17 @@
 /* eslint-disable no-script-url */
-import React from 'react';
+import React, { useState } from 'react';
 // import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
 import { makeStyles } from '@material-ui/core/styles';
 // import MenuDropdown from '../AppBar/MenuDropdown'
 import superagent from 'superagent';
 import Button from '@material-ui/core/Button';
-// import CustTable from './CustTable';
+import CustTable from './CustTable';
 import Table from '@material-ui/core/Table';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
+import ReactJson from 'react-json-view'
 
 
 
@@ -64,64 +65,83 @@ export default function CustomersView() {
 
     const classes = useStyles();
 
+    // const [customers, setCustomers] = useState([null]);
     const values = {
-        customers: [],
-    };
+      customers: []
+    }
     
     async function getCustData() {
 
         const result = await superagent.get('http://127.0.0.1:4000/api/getData');
-        // alert("SUCCESS: " + (JSON.parse(result.text)));
+        alert("SUCCESS: " + (JSON.parse(result.text)));
+
+        const data = JSON.parse(result.text);
+        var i;
+        for (i = 0; i < data.length; i++)
+        {
+          values.customers.push((data[i]))
+        }
 
         // var allCustomers = [];
         // allCustomers.push(JSON.stringify(result.body));
         // alert("Here: " + allCustomers);
 
+        // const customersAll = 
+        // values.customers.push(JSON.stringify(result.body));
+       
+        // alert("Customers: " + customersAll);
+        // alert("Customers: " + values.customers);
+        
 
-        values.customers.push(JSON.stringify(result.body));
-        alert("Customers: " + values.customers);
-
-      //   for(var i=0; i<result.length;i++) {
-      //     delete result[i].__v;
-      //     delete result[i]._id;
-      //     allCustomers.push(result[i]);
-      //  }
-      //  alert(allCustomers);
-
-        // values.customers.push(result.body);
-        // alert(JSON.stringify(values.customers));
     }
 
 
     return (
-        <div marginTop={15}>
-            <Grid container spacing={2}>
-                <Grid item xs={12} sm={12} md={12}>
-                  <Button color="primary" onClick={getCustData}>View Customers</Button>
-                  {/* <Card> */}
-                    {/* <CardHeader color="primary">
-                      <h4 className={classes.cardTitleWhite}>Customers List</h4>
-                      <p className={classes.cardCategoryWhite}>
-                        {/*Here is a subtitle for this table*/}
-                      {/* </p> */}
-                    {/* </CardHeader> */} 
-                    {/* <CardContent>
-                      <Table
-                        tableHeaderColor="primary"
-                        tableHead={["First Name", "Last Name", "Company Name",
-                                    "Email", "Phone Number"]}
-                        tableData={result.body}
-                      />
-                    </CardContent> */}
-                    {/* <Card> */}
-                      {/* <Button color="primary">Update Customer</Button> */}
-                    {/* </Card> */}
-                  {/* </Card> */}
-                </Grid>
-              </Grid>
-        </div>
-    );
+      <div marginTop={15}>
+      <Grid container spacing={2}>
+      <Grid item xs={12} sm={12} md={12}>
+        <Button onClick={getCustData}>
+          View Customers
+        </Button>
+        <ReactJson src={values.customers} onEdit={true}/>
+        </Grid>
+      </Grid>
+      </div>
+    )
 }
+        // <div marginTop={15}>
+        //     <Grid container spacing={2}>
+        //         <Grid item xs={12} sm={12} md={12}>
+        //           {/* <Button color="primary" onClick={getCustData}>View Customers</Button> */}
+        //           <Table {customers.map((data, i) =>  {
+        //             return (
+
+        //             )
+        //           })}
+                  // {/* <Card> */}
+                    // {/* <CardHeader color="primary">
+                      // <h4 className={classes.cardTitleWhite}>Customers List</h4>
+                      // <p className={classes.cardCategoryWhite}>
+                        // {/*Here is a subtitle for this table*/}
+                      // {/* </p> */}
+                    // {/* </CardHeader> */} 
+                    // {/* <CardContent>
+                      // <Table
+                      //   tableHeaderColor="primary"
+                      //   tableHead={["First Name", "Last Name", "Company Name",
+                      //               "Email", "Phone Number"]}
+                      //   tableData={result.body}
+                      // />
+                    // </CardContent> */}
+                    // {/* <Card> */}
+                      // {/* <Button color="primary">Update Customer</Button> */}
+                    // {/* </Card> */}
+                  // {/* </Card> */}
+        //         </Grid>
+        //       </Grid>
+        // </div>
+    // );
+// }
 
         // <span>
         //     {this.state.result.map(function(object) {
