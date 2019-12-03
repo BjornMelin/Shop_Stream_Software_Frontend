@@ -58,7 +58,7 @@ export default function CustomersView() {
     <div className={classes.root}>
         <MenuDropdown />
 
-        <Grid item xs={12} >
+        <Grid item xs={24} >
           <Paper className={classes.paper}>
             <CustomersGet />
           </Paper>
