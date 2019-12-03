@@ -7,6 +7,7 @@ import superagent from 'superagent';
 import CustomersGet from './CustomersGet'
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
+import CustTable from './CustTable';
 
 
 

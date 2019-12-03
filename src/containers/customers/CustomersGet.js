@@ -69,15 +69,27 @@ export default function CustomersView() {
     };
     
     async function getCustData() {
-        // const values = {
-        //     customers: [],
-        // };
 
         const result = await superagent.get('http://127.0.0.1:4000/api/getData');
-        alert("SUCCESS: " + JSON.stringify(result.body));
+        // alert("SUCCESS: " + (JSON.parse(result.text)));
 
-        values.customers.push(result.body);
-        alert(JSON.stringify(values.customers));
+        // var allCustomers = [];
+        // allCustomers.push(JSON.stringify(result.body));
+        // alert("Here: " + allCustomers);
+
+
+        values.customers.push(JSON.stringify(result.body));
+        alert("Customers: " + values.customers);
+
+      //   for(var i=0; i<result.length;i++) {
+      //     delete result[i].__v;
+      //     delete result[i]._id;
+      //     allCustomers.push(result[i]);
+      //  }
+      //  alert(allCustomers);
+
+        // values.customers.push(result.body);
+        // alert(JSON.stringify(values.customers));
     }
 
 
@@ -86,25 +98,25 @@ export default function CustomersView() {
             <Grid container spacing={2}>
                 <Grid item xs={12} sm={12} md={12}>
                   <Button color="primary" onClick={getCustData}>View Customers</Button>
-                  <Card>
-                    <CardHeader color="primary">
+                  {/* <Card> */}
+                    {/* <CardHeader color="primary">
                       <h4 className={classes.cardTitleWhite}>Customers List</h4>
                       <p className={classes.cardCategoryWhite}>
                         {/*Here is a subtitle for this table*/}
-                      </p>
-                    </CardHeader>
-                    <CardContent>
+                      {/* </p> */}
+                    {/* </CardHeader> */} 
+                    {/* <CardContent>
                       <Table
                         tableHeaderColor="primary"
                         tableHead={["First Name", "Last Name", "Company Name",
                                     "Email", "Phone Number"]}
-                        // tableData={result.body}
+                        tableData={result.body}
                       />
-                    </CardContent>
-                    <Card>
-                      <Button color="primary">Update Customer</Button>
-                    </Card>
-                  </Card>
+                    </CardContent> */}
+                    {/* <Card> */}
+                      {/* <Button color="primary">Update Customer</Button> */}
+                    {/* </Card> */}
+                  {/* </Card> */}
                 </Grid>
               </Grid>
         </div>
