@@ -4,23 +4,60 @@ import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png';
 import { makeStyles } from '@material-ui/core/styles';
 import MenuDropdown from '../AppBar/MenuDropdown'
 import superagent from 'superagent';
+import Button from '@material-ui/core/Button';
 
 
 
-export default async function CustomersView() {
+async function getCustData() {
+    const values = {
+        customers: [],
+    };
+
+    const result = await superagent.get('http://127.0.0.1:4000/api/getData');
+    alert("SUCCESS: " + JSON.stringify(result.body));
+
+    values.customers.push(result.body);
+    alert(JSON.stringify(values.customers));
+
+
+    // const finalRes = values.customers.map(function(customers) {
+    //     return (
+    //         <li key={customers.id} data={customers} />
+    //     );
+    // });
+    // alert(finalRes);
+}
+
+
+
+
+// export default async function CustomersView() {
+export default function CustomersView() {
 
     // const classes = useStyles();
 
-    const result = await superagent.get('http://127.0.0.1:4000/api/getData');
+    // const result = await superagent.get('http://127.0.0.1:4000/api/getData');
+    // alert("SUCCESS: " + JSON.stringify(result));
+
+
+
 
     return (
-        <span>
-            {this.state.result.map(function(object) {
-              return (
-                <li key={object.id} data={object} />
-              );
-            })}
-            </span>
+        <div marginTop={15}>
+            <Button onClick={getCustData}>
+                Click To View Customers
+            </Button>
+
+        </div>
+        
+
+        // <span>
+        //     {this.state.result.map(function(object) {
+        //       return (
+        //         <li key={object.id} data={object} />
+        //       );
+        //     })}
+        //     </span>
     );
 
     /*
