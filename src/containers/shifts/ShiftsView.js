@@ -2,7 +2,8 @@
 import React from 'react';
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
 import { makeStyles } from '@material-ui/core/styles';
-import MenuDropdown from '../AppBar/MenuDropdown'
+import MenuDropdown from '../AppBar/MenuDropdown';
+import ShiftsGet from './ShiftsGet';
 
 
 
@@ -28,6 +29,7 @@ export default function ShiftsView() {
     return (
     <div className={classes.root}>
         <MenuDropdown />
+        <ShiftsGet />
     </div>
     );
 }
