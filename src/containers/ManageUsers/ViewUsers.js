@@ -2,7 +2,8 @@
 import React from 'react';
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
 import { makeStyles } from '@material-ui/core/styles';
-import MenuDropdown from '../AppBar/MenuDropdown'
+import MenuDropdown from '../AppBar/MenuDropdown';
+import GetUsers from './GetUsers';
 
 
 
@@ -37,6 +38,7 @@ export default function ViewUsers() {
     return (
     <div >
         <MenuDropdown className={classes.root}/> 
+        <GetUsers/>
     </div>
 
     );
