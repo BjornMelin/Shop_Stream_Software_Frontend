@@ -35,30 +35,30 @@ const useStyles = makeStyles(theme => ({
 
 
 
-export default function CustomersGet() {
+export default function InspectionsGet() {
 
     const classes = useStyles();
-    // const theme = useTheme();
 
-    // const [customers, setCustomers] = useState([null]);
     const values = {
-      customers: []
+      inspections: []
     }
 
     const columns = [
-      new ColumnModel('nameFirst'),
-      new ColumnModel('nameLast'),
-      new ColumnModel('companyName'),
-      new ColumnModel('email'),
-      new ColumnModel('phoneNum')
+      new ColumnModel('inspectDate'),
+      new ColumnModel('inspectDueDate'),
+      new ColumnModel('inspectDesc'),
+      new ColumnModel('jobNum'),
+      new ColumnModel('quantToShip'),
+      new ColumnModel('checkedQualGood'),
+      new ColumnModel('checkedQualOkay'),
+      new ColumnModel('checkedQualPoor')
     ];
 
 
     
-    async function getCustData() {
+    async function getInspData() {
 
-        const result = await superagent.get('http://127.0.0.1:4000/api/getCustomers');
-        // alert("SUCCESS: " + (JSON.parse(result.text)));
+        const result = await superagent.get('http://127.0.0.1:4000/api/getInspections');
 
         const data = JSON.parse(result.text);
         var i;
@@ -66,7 +66,7 @@ export default function CustomersGet() {
         {
           delete(data[i]._id);
           delete(data[i].__v);
-          values.customers.push((data[i]));
+          values.inspections.push((data[i]));
         }
     }
 
@@ -80,15 +80,15 @@ export default function CustomersGet() {
             type="submit"      
             variant="outlined"
             color="inherit"
-            onClick={getCustData} 
+            onClick={getInspData} 
             className="submit"
             > 
-        Click Here Then Select Any Option In Grid To Load Customers
+        Click Here Then Select Any Option In Grid To Load Inspections
         </Button>
       <Grid container >
         <DataGrid 
             columns={columns}
-            dataSource={values.customers}
+            dataSource={values.inspections}
             gridName='Grid'
             />
       </Grid>
