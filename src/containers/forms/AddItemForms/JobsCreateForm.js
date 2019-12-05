@@ -81,6 +81,7 @@ export default function JobsCreateForm() {
     amountTotal: "",
     amountPerHour: "",
     amountPerUnit: "",
+    mmeNotes: "",
   };
 
   function handleChange(e) {
@@ -99,7 +100,7 @@ export default function JobsCreateForm() {
               remainingQuant: values.remainingQuant, cycleTime: values.cycleTime, 
               runHours: values.runHours, runDays: values.runDays, 
               amountTotal: values.amountTotal, amountPerHour: values.amountPerHour, 
-              amountPerUnit: values.amountPerUnit }) // sends a JSON post body
+              amountPerUnit: values.amountPerUnit, mmeNotes: values.mmeNotes }) // sends a JSON post body
       .set('accept', 'json')
       .end((err, res) => {
         // Calling the end function will send the request
@@ -356,6 +357,23 @@ export default function JobsCreateForm() {
                 InputProps={{
                   startAdornment: <InputAdornment position="start">$</InputAdornment>,
                 }}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                autoFocus
+              />
+            </Grid>
+            <Grid item xs={12} sm={24}>
+              <TextField
+                onChange={handleChange}
+                name="mmeNotes"
+                variant="outlined"
+                required
+                fullWidth
+                multiline
+                rowsMax="4"
+                id="mmeNotes"
+                label="MME Notes"
                 InputLabelProps={{
                   shrink: true,
                 }}

@@ -107,28 +107,6 @@ export default function SignIn() {
     });
   }
 
-  // function handleSubmit(event) {
-  //   alert("SUCCESS: " + JSON.stringify({email, password}));
-  //   console.log('hit');
-  //   return API.get('http://127.0.0.1:9000/api/authenticate', {
-  //     params: {
-  //       email: email,
-  //       password: password
-  //     },
-  //     timeout: 20000000
-  //   }).then(function(response) {
-  //     alert(console.log(response));
-  //     return;
-  //   }).catch(function(error) {
-  //     console.error(error);
-  //   });
-  //   // console.log(token)
-  //   // return '/dashboard'
-  //   // if () {
-  //   //   return '/dashboard';
-  //   // }
-  // }
-
 
 
   return (
