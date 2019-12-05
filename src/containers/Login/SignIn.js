@@ -69,42 +69,66 @@ const useStyles = makeStyles(theme => ({
 export default function SignIn() {
   const classes = useStyles();
 
-  const [email, setemail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [token, setToken] = useState(null);
 
 
+  // const [email, setemail] = useState('');
+  // const [password, setPassword] = useState('');
+  // const [token, setToken] = useState(null);
 
-  function handleEmailChange(event) {
-    setemail(event.target.value);
+
+
+  function handleUsernameChange(event) {
+    setUsername(event.target.value);
   }
 
   function handlePasswordChange(event) {
     setPassword(event.target.value);
   }
 
+
   function handleSubmit(event) {
-    alert("SUCCESS: " + JSON.stringify({email, password}));
-    console.log('hit');
     return API.get('http://127.0.0.1:9000/api/authenticate', {
       params: {
-        email: email,
+        username: username,
         password: password
-      },
-      timeout: 20000000
+      }
     }).then(function(response) {
-      alert(console.log(response));
+      if (response.data && response.data.token) {
+        setToken(response.token);
+        document.location.href = '/dashboard';
+      } else {
+        document.location.href = '/';
+      }
       return;
     }).catch(function(error) {
       console.error(error);
     });
-    // console.log(token)
-    // return '/dashboard'
-    // if () {
-    //   return '/dashboard';
-    // }
   }
 
+  // function handleSubmit(event) {
+  //   alert("SUCCESS: " + JSON.stringify({email, password}));
+  //   console.log('hit');
+  //   return API.get('http://127.0.0.1:9000/api/authenticate', {
+  //     params: {
+  //       email: email,
+  //       password: password
+  //     },
+  //     timeout: 20000000
+  //   }).then(function(response) {
+  //     alert(console.log(response));
+  //     return;
+  //   }).catch(function(error) {
+  //     console.error(error);
+  //   });
+  //   // console.log(token)
+  //   // return '/dashboard'
+  //   // if () {
+  //   //   return '/dashboard';
+  //   // }
+  // }
 
 
 
@@ -112,22 +136,22 @@ export default function SignIn() {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-      <img src={Image1} style={{ width: "250px" }} />
+      <img alt='' src={Image1} style={{ width: "250px" }} />
         <Typography component="h1" variant="h6">
           Sign in
         </Typography>
-        <form className={classes.form} onSubmit={handleSubmit}>
+        <form className={classes.form}>
           <TextField
-            onChange={handleEmailChange}
+            onChange={handleUsernameChange}
             variant="outlined"
             margin="normal"
             required
             fullWidth
-            id="email"
-            type="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
+            id="username"
+            //type="email"
+            label="Username"
+            name="username"
+            autoComplete="username"
             autoFocus
           />
           <TextField
@@ -141,20 +165,20 @@ export default function SignIn() {
             type="password"
             id="password"
             autoComplete="current-password"
+
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
+            id="rememberUserCheck"
           />
           <Button
-            // onSubmit={handleSubmit}
-            type="submit"
+            onClick={handleSubmit}
             fullWidth
             id="signin"
             variant="contained"
             color="primary"
             className={classes.submit}
-            href='/dashboard'
           >
             Sign In
           </Button>
@@ -162,11 +186,6 @@ export default function SignIn() {
             <Grid item xs>
               <Link href="/forgotpassword" variant="body2">
                 Forgot password?
-              </Link>
-            </Grid>
-            <Grid item>
-              <Link href="/signup" >
-                {"Don't have an account? Sign Up"}
               </Link>
             </Grid>
           </Grid>
@@ -178,80 +197,3 @@ export default function SignIn() {
     </Container>
   );
 }
-
-
-
-
-
-
-  // const values = {
-  //   email: "",
-  //   password: ""
-  // };
-
-  // function handleChange(e) {
-  //   const { id, value } = e.target;
-  //   values[id] = value;
-  // };
-
-
-// function handleSubmit(event) {
-  //   event.preventDefault();
-  //   const data = new FormData(event.target);
-
-  //   fetch('http://127.0.0.1:9000/api/putData', {
-  //     method: 'POST',
-  //     body: JSON.stringify({
-  //       email: data.get('email'),
-  //       password: data.get('password'),
-  //     }),
-  //     headers:{
-  //       'Content-Type': 'application/json'
-  //     }
-  //   });
-  //   console.log("here");
-  //   // fetch('http://127.0.0.1:9000/api/putData', {
-  //   //   method: 'POST',
-  //   //   body: data,
-  //   // });
-  // }
-
-
-
-
-  // function handleSubmit(e) {
-  //   e.preventDefault();
-  //   alert("SUCCESS: " + JSON.stringify(values));
-  //   fetch('http://127.0.0.1:9000/api/putData', {
-  //     method: 'POST',
-  //     body: JSON.stringify(values),
-  //   });
-  // };
-
-  // function handleSubmit(e) {
-  //   e.preventDefault();
-  //   alert("SUCCESS: " + JSON.stringify(values));
-
-  //   superagent.get('http://127.0.0.1:9000/api/getUserData')
-  //   .query({ email: values.email, password: values.password }) // query string
-  //   // .use(prefix) // Prefixes *only* this request
-  //   // .use(nocache) // Prevents caching of *only* this request
-  //   .end((err, res) => {
-  //     // Do something
-  //   });
-  // };
-
-
-  // function handleSubmit(e) {
-  //   e.preventDefault();
-  //   alert("SUCCESS: " + JSON.stringify(values));
-  //   // console.log(values);
-  //   superagent.post('http://127.0.0.1:9000/api/putData')
-  //     .send({ email: values.email, password: values.password, 
-  //             permission: values.permission, firstName: values.firstName, 
-  //             lastName: values.lastName, email: values.email }) // sends a JSON post body
-  //     .set('accept', 'json')
-  //     .end((err, res) => {
-  //       // Calling the end function will send the request
-  //   });
-  // };

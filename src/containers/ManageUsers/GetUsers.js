@@ -1,5 +1,5 @@
 /* eslint-disable no-script-url */
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import superagent from 'superagent';
 import Button from '@material-ui/core/Button';
@@ -34,7 +34,9 @@ export default function GetUsers() {
 
     const classes = useStyles();
 
-    const users = [];
+    const [users, setUsers] = useState([]);
+
+    // const users = [];
 
 
     const columns = [
@@ -51,14 +53,16 @@ export default function GetUsers() {
         .then((result) => {
           console.log(result.text);
           const data = JSON.parse(result.text).users;
+          var userArray = [];
           console.log(data);
           for (var i = 0; i < data.length; i++)
           {
             delete(data[i]._id);
             delete(data[i].__v);
-            users.push((data[i]));
+            userArray.push((data[i]));
           }
-          console.log(users)
+          setUsers(userArray);
+          // console.log(users)
         });
     })
 
