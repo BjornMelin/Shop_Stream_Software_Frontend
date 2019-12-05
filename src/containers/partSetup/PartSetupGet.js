@@ -1,9 +1,7 @@
 /* eslint-disable no-script-url */
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import superagent from 'superagent';
-import Button from '@material-ui/core/Button';
-import Grid from '@material-ui/core/Grid';
 import { DataGrid } from 'tubular-react';
 import { ColumnModel } from 'tubular-common';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -37,9 +35,7 @@ export default function PartSetupGet() {
 
     const classes = useStyles();
 
-    const values = {
-      partSetups: []
-    }
+    const [partSetups, setPartSetups] = useState([]);
 
     const columns = [
       new ColumnModel('buttonToButtonTime'),
@@ -53,20 +49,23 @@ export default function PartSetupGet() {
     ];
 
 
-    
-    async function getPartSetupsData() {
+    useEffect(() => {
+      superagent.get('http://127.0.0.1:4000/api/getPartSetups')
+        .then((result) => {
+          console.log(result.text);
+          const data = JSON.parse(result.text).partSetups;
+          var partSetupsArray = [];
+          console.log(data);
+          for (var i = 0; i < data.length; i++)
+          {
+            delete(data[i]._id);
+            delete(data[i].__v);
+            partSetupsArray.push((data[i]));
+          }
+          setPartSetups(partSetupsArray);
+        });
+    }, [])
 
-        const result = await superagent.get('http://127.0.0.1:4000/api/getPartSetups');
-
-        const data = JSON.parse(result.text);
-        var i;
-        for (i = 0; i < data.length; i++)
-        {
-          delete(data[i]._id);
-          delete(data[i].__v);
-          values.partSetups.push((data[i]));
-        }
-    }
 
 
     return (
@@ -74,22 +73,11 @@ export default function PartSetupGet() {
 
       <CssBaseline />
       <div className={classes.paper}>
-        <Button     
-            type="submit"      
-            variant="outlined"
-            color="inherit"
-            onClick={getPartSetupsData} 
-            className="submit"
-            > 
-        Click Here Then Select Any Option In Grid To Load Part Setups
-        </Button>
-      <Grid container >
         <DataGrid 
             columns={columns}
-            dataSource={values.partSetups}
-            gridName='Grid'
+            dataSource={partSetups}
+            gridName='Part Setups List'
             />
-      </Grid>
       </div>
       </Container>
     )

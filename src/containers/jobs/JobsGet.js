@@ -81,7 +81,7 @@ export default function JobsGet() {
         <DataGrid 
             columns={columns}
             dataSource={jobs}
-            gridName='Grid'
+            gridName='Jobs List'
             />
       </div>
       </Container>

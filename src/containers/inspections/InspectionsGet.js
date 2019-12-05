@@ -1,11 +1,9 @@
 /* eslint-disable no-script-url */
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 // import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
 import { makeStyles } from '@material-ui/core/styles';
 // import MenuDropdown from '../AppBar/MenuDropdown'
 import superagent from 'superagent';
-import Button from '@material-ui/core/Button';
-import Grid from '@material-ui/core/Grid';
 import { DataGrid } from 'tubular-react';
 import { ColumnModel } from 'tubular-common';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -39,9 +37,8 @@ export default function InspectionsGet() {
 
     const classes = useStyles();
 
-    const values = {
-      inspections: []
-    }
+    const [inspections, setInspections] = useState([]);
+
 
     const columns = [
       new ColumnModel('inspectDate'),
@@ -56,42 +53,33 @@ export default function InspectionsGet() {
 
 
     
-    async function getInspData() {
-
-        const result = await superagent.get('http://127.0.0.1:4000/api/getInspections');
-
-        const data = JSON.parse(result.text);
-        var i;
-        for (i = 0; i < data.length; i++)
-        {
-          delete(data[i]._id);
-          delete(data[i].__v);
-          values.inspections.push((data[i]));
-        }
-    }
+    useEffect(() => {
+      superagent.get('http://127.0.0.1:4000/api/getInspections')
+        .then((result) => {
+          console.log(result.text);
+          const data = JSON.parse(result.text).inspections;
+          var inspectionsArray = [];
+          console.log(data);
+          for (var i = 0; i < data.length; i++)
+          {
+            delete(data[i]._id);
+            delete(data[i].__v);
+            inspectionsArray.push((data[i]));
+          }
+          setInspections(inspectionsArray);
+        });
+    }, [])
 
 
     return (
       <Container component="main" maxWidth="s">
-
       <CssBaseline />
       <div className={classes.paper}>
-        <Button     
-            type="submit"      
-            variant="outlined"
-            color="inherit"
-            onClick={getInspData} 
-            className="submit"
-            > 
-        Click Here Then Select Any Option In Grid To Load Inspections
-        </Button>
-      <Grid container >
         <DataGrid 
             columns={columns}
-            dataSource={values.inspections}
+            dataSource={inspections}
             gridName='Grid'
             />
-      </Grid>
       </div>
       </Container>
     )

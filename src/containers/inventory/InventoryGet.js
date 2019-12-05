@@ -81,7 +81,7 @@ export default function InventoryGet() {
         <DataGrid 
             columns={columns}
             dataSource={inventory}
-            gridName='Grid'
+            gridName='Inventory List'
             />
       </div>
       </Container>

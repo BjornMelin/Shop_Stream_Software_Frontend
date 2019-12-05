@@ -1,9 +1,7 @@
 /* eslint-disable no-script-url */
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import superagent from 'superagent';
-import Button from '@material-ui/core/Button';
-import Grid from '@material-ui/core/Grid';
 import { DataGrid } from 'tubular-react';
 import { ColumnModel } from 'tubular-common';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -37,9 +35,7 @@ export default function ShiftsGet() {
 
     const classes = useStyles();
 
-    const values = {
-      shifts: []
-    }
+    const [shifts, setShifts] = useState([]);
 
     const columns = [
       new ColumnModel('jobNum'),
@@ -50,43 +46,34 @@ export default function ShiftsGet() {
     ];
 
 
+    useEffect(() => {
+      superagent.get('http://127.0.0.1:4000/api/getShifts')
+        .then((result) => {
+          console.log(result.text);
+          const data = JSON.parse(result.text).shifts;
+          var shiftsArray = [];
+          console.log(data);
+          for (var i = 0; i < data.length; i++)
+          {
+            delete(data[i]._id);
+            delete(data[i].__v);
+            shiftsArray.push((data[i]));
+          }
+          setShifts(shiftsArray);
+        });
+    }, [])
     
-    async function getShiftData() {
-
-        const result = await superagent.get('http://127.0.0.1:4000/api/getShifts');
-
-        const data = JSON.parse(result.text);
-        var i;
-        for (i = 0; i < data.length; i++)
-        {
-          delete(data[i]._id);
-          delete(data[i].__v);
-          values.shifts.push((data[i]));
-        }
-    }
 
 
     return (
       <Container component="main" maxWidth="s">
-
       <CssBaseline />
       <div className={classes.paper}>
-        <Button     
-            type="submit"      
-            variant="outlined"
-            color="inherit"
-            onClick={getShiftData} 
-            className="submit"
-            > 
-        Click Here Then Select Any Option In Grid To Load Shifts
-        </Button>
-      <Grid container >
         <DataGrid 
             columns={columns}
-            dataSource={values.shifts}
-            gridName='Grid'
+            dataSource={shifts}
+            gridName='Shifts List'
             />
-      </Grid>
       </div>
       </Container>
     )

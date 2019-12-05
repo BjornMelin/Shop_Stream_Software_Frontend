@@ -71,12 +71,11 @@ export default function SignIn() {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  // eslint-disable-next-line
   const [token, setToken] = useState(null);
 
 
-  // const [email, setemail] = useState('');
-  // const [password, setPassword] = useState('');
-  // const [token, setToken] = useState(null);
+
 
 
 

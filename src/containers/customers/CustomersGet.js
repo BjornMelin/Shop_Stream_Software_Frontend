@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import superagent from 'superagent';
-import Grid from '@material-ui/core/Grid';
 import { DataGrid } from 'tubular-react';
 import { ColumnModel } from 'tubular-common';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -73,13 +72,11 @@ export default function CustomersGet() {
 
       <CssBaseline />
       <div className={classes.paper}>
-      <Grid container >
         <DataGrid 
             columns={columns}
             dataSource={customers}
             gridName='Grid'
             />
-      </Grid>
       </div>
       </Container>
     )
