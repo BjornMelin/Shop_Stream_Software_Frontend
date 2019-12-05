@@ -42,7 +42,6 @@ import AdminUserMgt from './containers/ManageUsers/AdminUserMgt';
 import CreateUser from './containers/ManageUsers/CreateUser';
 import ViewUsers from './containers/ManageUsers/ViewUsers';
 import EditUsers from './containers/ManageUsers/EditUsers';
-import GetUsers from './containers/ManageUsers/GetUsers';
 
 
 import {

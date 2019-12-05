@@ -36,10 +36,9 @@ export default function ViewUsers() {
     const classes = useStyles();
 
     return (
-    <div >
-        <MenuDropdown className={classes.root}/> 
+    <div className={classes.root}>
+        <MenuDropdown /> 
         <GetUsers/>
     </div>
-
     );
 }

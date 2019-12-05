@@ -34,9 +34,7 @@ export default function GetUsers() {
 
     const classes = useStyles();
 
-    const values = {
-      users: []
-    }
+    const users = [];
 
 
     const columns = [
@@ -58,9 +56,9 @@ export default function GetUsers() {
           {
             delete(data[i]._id);
             delete(data[i].__v);
-            values.users.push((data[i]));
+            users.push((data[i]));
           }
-          console.log(values.users)
+          console.log(users)
         });
     })
 
@@ -84,16 +82,13 @@ export default function GetUsers() {
 
     return (
       <Container component="main" maxWidth="s">
-
       <CssBaseline />
       <div className={classes.paper}>
-
-        <DataGrid 
+        <DataGrid
             columns={columns}
-            dataSource={values.users}
+            dataSource={users}
             gridName='Grid'
             />
-      {/* </Grid> */}
       </div>
       </Container>
     )
