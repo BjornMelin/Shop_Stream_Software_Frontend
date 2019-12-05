@@ -2,8 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import superagent from 'superagent';
-import Button from '@material-ui/core/Button';
-import Grid from '@material-ui/core/Grid';
 import { DataGrid } from 'tubular-react';
 import { ColumnModel } from 'tubular-common';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -62,9 +60,24 @@ export default function GetUsers() {
             userArray.push((data[i]));
           }
           setUsers(userArray);
-          // console.log(users)
         });
-    })
+    }, [])
+
+
+    return (
+      <Container component="main" maxWidth="s">
+      <CssBaseline />
+      <div className={classes.paper}>
+        <DataGrid
+            columns={columns}
+            dataSource={users}
+            gridName='Users List'
+            />
+      </div>
+      </Container>
+    )
+}
+      
 
 
     
@@ -82,19 +95,3 @@ export default function GetUsers() {
     //     }
             // console.log(values)
     // }
-
-
-    return (
-      <Container component="main" maxWidth="s">
-      <CssBaseline />
-      <div className={classes.paper}>
-        <DataGrid
-            columns={columns}
-            dataSource={users}
-            gridName='Grid'
-            />
-      </div>
-      </Container>
-    )
-}
-      
