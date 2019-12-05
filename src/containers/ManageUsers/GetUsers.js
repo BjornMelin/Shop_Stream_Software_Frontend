@@ -1,5 +1,5 @@
 /* eslint-disable no-script-url */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import superagent from 'superagent';
 import Button from '@material-ui/core/Button';
@@ -8,7 +8,6 @@ import { DataGrid } from 'tubular-react';
 import { ColumnModel } from 'tubular-common';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
-
 
 
 
@@ -39,6 +38,7 @@ export default function GetUsers() {
       users: []
     }
 
+
     const columns = [
       new ColumnModel('username'),
       new ColumnModel('permission'),
@@ -47,20 +47,39 @@ export default function GetUsers() {
       new ColumnModel('email')
     ];
 
+
+    useEffect(() => {
+      superagent.get('http://127.0.0.1:9000/api/getUsers')
+        .then((result) => {
+          console.log(result.text);
+          const data = JSON.parse(result.text).users;
+          console.log(data);
+          for (var i = 0; i < data.length; i++)
+          {
+            delete(data[i]._id);
+            delete(data[i].__v);
+            values.users.push((data[i]));
+          }
+          console.log(values.users)
+        });
+    })
+
+
     
-    async function getUsersData() {
+    // async function getUsersData() {
 
-        const result = await superagent.get('http://127.0.0.1:9000/api/getUsers');
+    //     const result = await superagent.get('http://127.0.0.1:9000/api/getUsers');
 
-        const data = JSON.parse(result.text);
-        var i;
-        for (i = 0; i < data.length; i++)
-        {
-          delete(data[i]._id);
-          delete(data[i].__v);
-          values.users.push((data[i]));
-        }
-    }
+    //     const data = JSON.parse(result.text);
+    //     var i;
+    //     for (i = 0; i < data.length; i++)
+    //     {
+    //       delete(data[i]._id);
+    //       delete(data[i].__v);
+    //       values.users.push((data[i]));
+    //     }
+            // console.log(values)
+    // }
 
 
     return (
@@ -68,22 +87,13 @@ export default function GetUsers() {
 
       <CssBaseline />
       <div className={classes.paper}>
-        <Button     
-            type="submit"      
-            variant="outlined"
-            color="inherit"
-            onClick={getUsersData} 
-            className="submit"
-            > 
-        Click Here Then Select Any Option In Grid To Load Users
-        </Button>
-      <Grid container >
+
         <DataGrid 
             columns={columns}
             dataSource={values.users}
             gridName='Grid'
             />
-      </Grid>
+      {/* </Grid> */}
       </div>
       </Container>
     )
