@@ -1,9 +1,7 @@
 /* eslint-disable no-script-url */
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import superagent from 'superagent';
-import Button from '@material-ui/core/Button';
-import Grid from '@material-ui/core/Grid';
 import { DataGrid } from 'tubular-react';
 import { ColumnModel } from 'tubular-common';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -37,9 +35,7 @@ export default function JobsGet() {
 
     const classes = useStyles();
 
-    const values = {
-      jobs: []
-    }
+    const [jobs, setJobs] = useState([]);
 
     const columns = [
       new ColumnModel('orderDate'),
@@ -59,43 +55,34 @@ export default function JobsGet() {
     ];
 
 
+    useEffect(() => {
+      superagent.get('http://127.0.0.1:4000/api/getJobs')
+        .then((result) => {
+          console.log(result.text);
+          const data = JSON.parse(result.text).jobs;
+          var jobsArray = [];
+          console.log(data);
+          for (var i = 0; i < data.length; i++)
+          {
+            delete(data[i]._id);
+            delete(data[i].__v);
+            jobsArray.push((data[i]));
+          }
+          setJobs(jobsArray);
+        });
+    }, [])
     
-    async function getJobData() {
-
-        const result = await superagent.get('http://127.0.0.1:4000/api/getJobs');
-
-        const data = JSON.parse(result.text);
-        var i;
-        for (i = 0; i < data.length; i++)
-        {
-          delete(data[i]._id);
-          delete(data[i].__v);
-          values.jobs.push((data[i]));
-        }
-    }
 
 
     return (
       <Container component="main" maxWidth="s">
-
       <CssBaseline />
       <div className={classes.paper}>
-        <Button     
-            type="submit"      
-            variant="outlined"
-            color="inherit"
-            onClick={getJobData} 
-            className="submit"
-            > 
-        Click Here Then Select Any Option In Grid To Load Jobs
-        </Button>
-      <Grid container >
         <DataGrid 
             columns={columns}
-            dataSource={values.jobs}
+            dataSource={jobs}
             gridName='Grid'
             />
-      </Grid>
       </div>
       </Container>
     )
