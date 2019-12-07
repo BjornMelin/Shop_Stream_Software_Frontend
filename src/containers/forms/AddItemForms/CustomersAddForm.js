@@ -67,7 +67,10 @@ const useStyles = makeStyles(theme => ({
 export default function CustomersAddForm() {
   const classes = useStyles();
 
-
+  /**
+   * Const which stores all values of customer variables.
+   * Values of vars update as a user enters input into the form
+   */
   const values = {
     nameFirst: "",
     nameLast: "",
@@ -76,15 +79,32 @@ export default function CustomersAddForm() {
     phoneNum: "",
   };
 
+
+  /**
+   * Handles what occurs when a user enters text into each text box
+   * in the form.  This function changes the corresponding customer
+   * value to the value entered by the user.
+   * @param {event} e denotes an event, a user entering text
+   */
   function handleChange(e) {
     const { id, value } = e.target;
     values[id] = value;
   };
 
+
+  /**
+   * Note: In the future we need to configure this so it sends 
+   * a response to the user if a new customer already exists in the DB
+   * or there is an error in adding the customer.
+   * @param {event} e 
+   */
   function handleSubmit(e) {
     e.preventDefault();
-    alert("SUCCESS: " + JSON.stringify(values));
-    // console.log(values);
+    alert("SUCCESS: " + JSON.stringify(values)); // print cust values to screen
+    /**
+     * POST request to the App API which creates a new customer according to the 
+     * users input into the text fields.
+     */
     superagent.post('http://127.0.0.1:4000/api/postCustData')
       .send({ nameFirst: values.nameFirst, nameLast: values.nameLast,
               companyName: values.companyName, email: values.email,
@@ -96,6 +116,9 @@ export default function CustomersAddForm() {
   };
 
 
+  /**
+   * 
+   */
   return (
     <Container component="main" maxWidth="s">
       <CssBaseline />
@@ -103,15 +126,19 @@ export default function CustomersAddForm() {
         <Avatar className={classes.avatar}>
           <CreateIcon />
         </Avatar>
+        
+        {/* On screen text denoting form title */}
         <Typography component="h1" variant="h5">
           Add A New Customer
         </Typography>
+
+        {/* Form for creating a new customer */}
         <form className={classes.form} 
           noValidate 
           onSubmit={handleSubmit}>
-
-          {/* Row 1 Of Form Input */}
           <Grid container spacing={2}>
+
+            {/* First Name text field */}
             <Grid item xs={12} sm={4}>
               <TextField
                 onChange={handleChange}
@@ -128,6 +155,7 @@ export default function CustomersAddForm() {
                 />
             </Grid>
 
+            {/* Last Name text field */}
             <Grid item xs={12} sm={4}>
               <TextField
                 onChange={handleChange}
@@ -144,6 +172,7 @@ export default function CustomersAddForm() {
                 />
             </Grid>
 
+            {/* Company Name text field */}
             <Grid item xs={12} sm={4}>
               <TextField
                 onChange={handleChange}
@@ -160,6 +189,7 @@ export default function CustomersAddForm() {
               />
             </Grid>
 
+            {/* Email text field */}
             <Grid item xs={12} sm={4}>
               <TextField
                 onChange={handleChange}
@@ -177,6 +207,7 @@ export default function CustomersAddForm() {
               />
             </Grid>
 
+            {/* Phone Number text field */}
             <Grid item xs={12} sm={4}>
               <TextField
                 onChange={handleChange}
@@ -192,9 +223,9 @@ export default function CustomersAddForm() {
                 autoFocus
               />
             </Grid>
-
-
           </Grid>
+
+          {/* Submit button for form which creates a new user onSubmit */}
           <Button
             type="submit"
             fullWidth
