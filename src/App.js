@@ -1,7 +1,6 @@
 import React from 'react';
 // Login Page
 import SignIn from './containers/Login/SignIn';
-import SignUp from './containers/Login/SignUp';
 // Dashboard Pages Per User Permissions
 import Dashboard from './containers/Dashboard/Dashboards/Dashboard';
 import CSRDashboard from './containers/Dashboard/Dashboards/CSRDashboard';
@@ -66,9 +65,6 @@ export default function App() {
         <Switch>
           <Route exact path="/">
             <SignIn />
-          </Route>
-          <Route path="/signup">
-            <SignUp />
           </Route>
 
 

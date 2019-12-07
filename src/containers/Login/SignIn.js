@@ -2,10 +2,7 @@ import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -13,7 +10,6 @@ import Container from '@material-ui/core/Container';
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
 import Image1 from '../images/shop_stream_logo.png'; 
 const API = require('axios');
-// import superagent from 'superagent';
 
 
 
@@ -71,11 +67,6 @@ export default function SignIn() {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  // eslint-disable-next-line
-  const [token, setToken] = useState(null);
-
-
-
 
 
 
@@ -89,14 +80,14 @@ export default function SignIn() {
 
 
   function handleSubmit(event) {
-    return API.get('http://127.0.0.1:9000/api/authenticate', {
+    return API.get('http://127.0.0.1:9000/api/signIn', {
       params: {
         username: username,
         password: password
       }
     }).then(function(response) {
       if (response.data && response.data.token) {
-        setToken(response.token);
+        window.sessionStorage.setItem('token', response.data.token);
         document.location.href = '/dashboard';
       } else {
         document.location.href = '/';
@@ -144,11 +135,11 @@ export default function SignIn() {
             autoComplete="current-password"
 
           />
-          <FormControlLabel
+          {/* <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
             id="rememberUserCheck"
-          />
+          /> */}
           <Button
             onClick={handleSubmit}
             fullWidth
@@ -159,13 +150,13 @@ export default function SignIn() {
           >
             Sign In
           </Button>
-          <Grid container>
+          {/* <Grid container>
             <Grid item xs>
               <Link href="/forgotpassword" variant="body2">
                 Forgot password?
               </Link>
             </Grid>
-          </Grid>
+          </Grid> */}
         </form>
       </div>
       <Box mt={8}>
