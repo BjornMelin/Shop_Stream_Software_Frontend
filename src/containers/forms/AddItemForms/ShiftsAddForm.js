@@ -1,3 +1,8 @@
+/**
+ * Add Shift Form.
+ * Form which allows a user to enter input and
+ * add a shift to the DB.
+ */
 import React from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -13,7 +18,9 @@ import Container from '@material-ui/core/Container';
 import superagent from 'superagent';
 
 
-
+/**
+ * ShopStream Copyright 
+ */
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -28,6 +35,9 @@ function Copyright() {
 }
 
 
+/**
+ * Styles and formatting for this pages components
+ */
 const useStyles = makeStyles(theme => ({
   '@global': {
     body: {

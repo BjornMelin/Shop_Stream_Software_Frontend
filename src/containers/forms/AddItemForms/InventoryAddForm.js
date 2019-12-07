@@ -1,3 +1,8 @@
+/**
+ * Add New Inventory Form.
+ * Form which allows a user to enter input and
+ * add new inventory items.
+ */
 import React from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -16,7 +21,9 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import superagent from 'superagent';
 
 
-
+/**
+ * ShopStream Copyright 
+ */
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -30,6 +37,10 @@ function Copyright() {
   );
 }
 
+
+/**
+ * Styles and formatting for this pages components
+ */
 const useStyles = makeStyles(theme => ({
   '@global': {
     body: {
@@ -61,21 +72,17 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-
-
-
+/**
+ * Add New Inventory Functional Component.
+ * Called on from the InventoryAdd.js page to add new inventory.
+ */
 export default function InventoryAddForm() {
   const classes = useStyles();
 
-  // const [state, setState] = React.useState({
-  //   checkedMaterial: false,
-  //   checkedTool: false,
-  // });
-
-  // const handleChange = name => event => {
-  //   setState({ ...state, [name]: event.target.checked });
-  // };
-
+  /**
+   * Const which stores all values of inventory variables.
+   * Values of vars update as a user enters input into the form
+   */
   const values = {
     materialName: "",
     materialType: "",
@@ -92,15 +99,30 @@ export default function InventoryAddForm() {
     mmeNotes: "",
   };
 
+  /**
+   * Handles what occurs when a user enters text into each text box
+   * in the form.  This function changes the corresponding inventory
+   * value to the value entered by the user.
+   * @param {event} e denotes an event, a user entering text
+   */
   function handleChange(e) {
     const { id, value } = e.target;
     values[id] = value;
   };
 
+
+  /**
+   * Function which handles submission of the form sending a 
+   * POST request with the forms contents to the app API.
+   * @param {event} e denotes an event, a submission of the form
+   */
   function handleSubmit(e) {
     e.preventDefault();
-    alert("SUCCESS: " + JSON.stringify(values));
-    // console.log(values);
+    alert("SUCCESS: " + JSON.stringify(values)); // print inv data to the screen
+    /**
+     * POST request to the App API which adds new inventory according to the 
+     * users input into the text fields.
+     */
     superagent.post('http://127.0.0.1:4000/api/postInvMaterialData')
       .send({ materialName: values.materialName, materialType: values.materialType,
               checkedMaterial: values.checkedMaterial,
@@ -116,6 +138,11 @@ export default function InventoryAddForm() {
   };
 
 
+  /**
+   * Returns a form which allows a user to add new inventory
+   * in the DB.  This is what is returned when this
+   * component is used in another component or class.
+   */
   return (
     <Container component="main" maxWidth="s">
       <CssBaseline />
@@ -123,15 +150,19 @@ export default function InventoryAddForm() {
         <Avatar className={classes.avatar}>
           <CreateIcon />
         </Avatar>
+
+        {/* On screen text denoting form title */}
         <Typography component="h1" variant="h5">
           Add New Material Or Tool
         </Typography>
+
+        {/* Form for adding new inventory */}
         <form className={classes.form} 
           noValidate 
           onSubmit={handleSubmit}>
-
-          {/* Row 1 Of Form Input */}
           <Grid container spacing={2}>
+
+            {/* Material Name text field */}
             <Grid item xs={12} sm={6}>
               <TextField
                 onChange={handleChange}
@@ -147,6 +178,8 @@ export default function InventoryAddForm() {
                 autoFocus
                 />
             </Grid>
+
+            {/* Material Type text field */}
             <Grid item xs={12} sm={6}>
               <TextField
                 onChange={handleChange}
@@ -163,14 +196,11 @@ export default function InventoryAddForm() {
               />
             </Grid>
 
-
-
+            {/* Is A Material checkbox */}
             <Grid item xs={12} sm={3} alignContent="flex-start">
             <FormControlLabel
                 control={
                 <Checkbox
-                    // checked={state.checkedMaterial}
-                    // onChange={handleChange('checkedMaterial')}
                     onChange={handleChange}
                     value="checkedMaterial"
                     color="primary"
@@ -182,12 +212,12 @@ export default function InventoryAddForm() {
                 label="Material"
             />
             </Grid>
+
+            {/* Is A Tool checkbox */}
             <Grid item xs={12} sm={3} alignContent="flex-start">
             <FormControlLabel
                 control={
                 <Checkbox
-                    // checked={state.checkedTool}
-                    // onChange={handleChange('checkedTool')}
                     onChange={handleChange}
                     value="checkedTool"
                     color="primary"
@@ -200,7 +230,7 @@ export default function InventoryAddForm() {
             />
             </Grid>
 
-
+            {/* Material Quantity text field */}
             <Grid item xs={12} sm={2}>
               <TextField
                 onChange={handleChange}
@@ -216,6 +246,8 @@ export default function InventoryAddForm() {
                 autoFocus
               />
             </Grid>
+
+            {/* Amount Per Item ($) text field */}
             <Grid item xs={12} sm={4}>
               <TextField
                 onChange={handleChange}
@@ -235,8 +267,7 @@ export default function InventoryAddForm() {
               />
             </Grid>
 
-
-
+            {/* Item Length (ft) text field */}
             <Grid item xs={12} sm={2}>
               <TextField
                 onChange={handleChange}
@@ -255,6 +286,8 @@ export default function InventoryAddForm() {
                 autoFocus
                 />
             </Grid>
+
+            {/* Item Length (in) text field */}
             <Grid item xs={12} sm={2}>
               <TextField
                 onChange={handleChange}
@@ -275,7 +308,7 @@ export default function InventoryAddForm() {
             </Grid>
 
 
-            {/* Row 2 Of Form Input */}
+            {/* Item Width (ft) text field */}
             <Grid item xs={12} sm={2}>
               <TextField
                 onChange={handleChange}
@@ -294,6 +327,8 @@ export default function InventoryAddForm() {
                 autoFocus
               />
             </Grid>
+
+            {/* Item Width (in) text field */}
             <Grid item xs={12} sm={2}>
               <TextField
                 onChange={handleChange}
@@ -313,7 +348,7 @@ export default function InventoryAddForm() {
               />
             </Grid>
 
-
+            {/* Item Height (ft) text field */}
             <Grid item xs={12} sm={2}>
               <TextField
                 onChange={handleChange}
@@ -332,6 +367,8 @@ export default function InventoryAddForm() {
                 autoFocus
               />
             </Grid>
+
+            {/* Item Height (in) text field */}
             <Grid item xs={12} sm={2}>
               <TextField
                 onChange={handleChange}
@@ -351,11 +388,27 @@ export default function InventoryAddForm() {
               />
             </Grid>
 
-
-            {/* Add MME Notes Section at the bottom */}
-
-
+            {/* MME Notes text field */}
+            <Grid item xs={12} sm={24}>
+              <TextField
+                onChange={handleChange}
+                name="mmeNotes"
+                variant="outlined"
+                required
+                fullWidth
+                multiline
+                rowsMax="4"
+                id="mmeNotes"
+                label="MME Notes"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                autoFocus
+              />
+            </Grid>
           </Grid>
+
+          {/* Submit button for form which creates a new Inventory item onSubmit */}
           <Button
             type="submit"
             fullWidth
@@ -368,6 +421,8 @@ export default function InventoryAddForm() {
           </Button>
         </form>
       </div>
+
+      {/* Displays the ShopStream Copyright */}
       <Box mt={5}>
         <Copyright />
       </Box>

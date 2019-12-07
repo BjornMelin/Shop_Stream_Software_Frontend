@@ -1,3 +1,8 @@
+/**
+ * Customer Add Form.
+ * Form which allows a user to enter input and create a 
+ * new customer.
+ */
 import React from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -13,6 +18,10 @@ import Container from '@material-ui/core/Container';
 import superagent from 'superagent';
 
 
+
+/**
+ * ShopStream Copyright 
+ */
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -27,9 +36,9 @@ function Copyright() {
 }
 
 
-
-
-
+/**
+ * Styles and formatting for this pages components
+ */
 const useStyles = makeStyles(theme => ({
   '@global': {
     body: {
@@ -63,7 +72,10 @@ const useStyles = makeStyles(theme => ({
 
 
 
-
+/**
+ * Customer Form Functional Component.
+ * Called on from the CustomersAdd.js page to create a new customer
+ */
 export default function CustomersAddForm() {
   const classes = useStyles();
 
@@ -117,7 +129,9 @@ export default function CustomersAddForm() {
 
 
   /**
-   * 
+   * Returns a form which allows a user to create a new 
+   * customer in the DB.  This is what is returned when this
+   * component is used in another component or class.
    */
   return (
     <Container component="main" maxWidth="s">
@@ -126,7 +140,7 @@ export default function CustomersAddForm() {
         <Avatar className={classes.avatar}>
           <CreateIcon />
         </Avatar>
-        
+
         {/* On screen text denoting form title */}
         <Typography component="h1" variant="h5">
           Add A New Customer
@@ -238,6 +252,8 @@ export default function CustomersAddForm() {
           </Button>
         </form>
       </div>
+
+      {/* Displays the ShopStream Copyright */}
       <Box mt={5}>
         <Copyright />
       </Box>

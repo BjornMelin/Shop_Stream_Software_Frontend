@@ -1,3 +1,8 @@
+/**
+ * Inspection Add Form.
+ * Form which allows a user to enter input and submit a 
+ * new inspection.
+ */
 import React from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -15,7 +20,9 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import superagent from 'superagent';
 
 
-
+/**
+ * ShopStream Copyright 
+ */
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -29,6 +36,10 @@ function Copyright() {
   );
 }
 
+
+/**
+ * Styles and formatting for this pages components
+ */
 const useStyles = makeStyles(theme => ({
   '@global': {
     body: {
@@ -61,23 +72,17 @@ const useStyles = makeStyles(theme => ({
 
 
 
-
-
+/**
+ * Submit Inspection Functional Component.
+ * Called on from the InspectionSubmit.js page to submit a new inspection
+ */
 export default function InspectionSubmitForm() {
   const classes = useStyles();
 
-  // const [state, setState] = React.useState({
-  //   checkedQualGood: false,
-  //   checkedQualOkay: false,
-  //   checkedQualPoor: false,
-  // });
-
- 
-  // const handleChange = name => event => {
-  //   setState({ ...state, [name]: event.target.checked });
-  // };
-
-
+  /**
+   * Const which stores all values of inspection variables.
+   * Values of vars update as a user enters input into the form
+   */
   const values = {
     inspectDate: "",
     inspectDueDate: "",
@@ -90,15 +95,33 @@ export default function InspectionSubmitForm() {
 
   };
 
+  /**
+   * Handles what occurs when a user enters text into each text box
+   * in the form.  This function changes the corresponding inspection
+   * value to the value entered by the user.
+   * @param {event} e denotes an event, a user entering text
+   */
   function handleChange(e) {
     const { id, value } = e.target;
     values[id] = value;
   };
 
+  /**
+   * Function which handles submission of the form sending a 
+   * POST request with the forms contents to the app API.
+   * 
+   * Note: In the future we need to configure this so it sends 
+   * a response to the user if a new inspection already exists in the DB
+   * or there is an error in submitting the inspection.
+   * @param {event} e denotes an event, a submission of the form
+   */
   function handleSubmit(e) {
     e.preventDefault();
-    alert("SUCCESS: " + JSON.stringify(values));
-    // console.log(values);
+    alert("SUCCESS: " + JSON.stringify(values)); // print inspection data to the screen
+    /**
+     * POST request to the App API which adds a new inspection according to the 
+     * users input into the text fields.
+     */
     superagent.post('http://127.0.0.1:4000/api/postInspectData')
       .send({ inspectDate: values.inspectDate, inspectDueDate: values.inspectDueDate,
               inspectDesc: values.inspectDesc, jobNum: values.jobNum,
@@ -113,6 +136,11 @@ export default function InspectionSubmitForm() {
   };
 
 
+  /**
+   * Returns a form which allows a user to submit a new 
+   * inspection in the DB.  This is what is returned when this
+   * component is used in another component or class.
+   */
   return (
     <Container component="main" maxWidth="s">
       <CssBaseline />
@@ -120,15 +148,19 @@ export default function InspectionSubmitForm() {
         <Avatar className={classes.avatar}>
           <CreateIcon />
         </Avatar>
+
+        {/* On screen text denoting form title */}
         <Typography component="h1" variant="h5">
           Submit New Inspection
         </Typography>
+
+        {/* Form for submitting a new inspection */}
         <form className={classes.form} 
           noValidate 
           onSubmit={handleSubmit}>
-
-          {/* Row 1 Of Form Input */}
           <Grid container spacing={2}>
+
+            {/* Inspection Date text field */}
             <Grid item xs={12} sm={6}>
               <TextField
                 onChange={handleChange}
@@ -145,6 +177,8 @@ export default function InspectionSubmitForm() {
                 autoFocus
                 />
             </Grid>
+
+            {/* Inspection Due Date text field */}
             <Grid item xs={12} sm={6}>
               <TextField
                 onChange={handleChange}
@@ -161,6 +195,8 @@ export default function InspectionSubmitForm() {
                 autoFocus
               />
             </Grid>
+
+            {/* Inspection Description text field */}
             <Grid item xs={12} sm={24}>
               <TextField
                 onChange={handleChange}
@@ -179,7 +215,7 @@ export default function InspectionSubmitForm() {
               />
             </Grid>
 
-
+            {/* Job Number of inspection text field */}
             <Grid item xs={12} sm={3}>
               <TextField
                 onChange={handleChange}
@@ -196,8 +232,7 @@ export default function InspectionSubmitForm() {
                 />
             </Grid>
 
-
-            {/* Row 2 Of Form Input */}
+            {/* Quantity To Ship text field */}
             <Grid item xs={12} sm={3}>
               <TextField
                 onChange={handleChange}
@@ -214,7 +249,7 @@ export default function InspectionSubmitForm() {
               />
             </Grid>
 
-
+            {/* Material Condition checkbox titles */}
             <Grid item xs={12} sm={1} alignContent="flex-start">
             <Typography >
             <Box textAlign="left" fontSize={14}>
@@ -228,14 +263,11 @@ export default function InspectionSubmitForm() {
             </Typography>
             </Grid>
 
-
-
+            {/* Good Condition checkbox */}
             <Grid item xs={12} sm={1} alignContent="flex-start">
             <FormControlLabel
                 control={
                 <Checkbox
-                    // checked={state.checkedMaterial}
-                    // onChange={handleChange('checkedQualGood')}
                     onChange={handleChange}
                     value="checkedQualGood"
                     color="primary"
@@ -248,13 +280,11 @@ export default function InspectionSubmitForm() {
                 />
             </Grid>
 
-
+            {/* Okay Condition checkbox */}
             <Grid item xs={12} sm={1} alignContent="flex-start">
             <FormControlLabel
                 control={
                     <Checkbox
-                    // checked={state.checkedMaterial}
-                    // onChange={handleChange('checkedQualOkay')}
                     onChange={handleChange}
                     value="checkedQualOkay"
                     color="primary"
@@ -267,12 +297,11 @@ export default function InspectionSubmitForm() {
             />
             </Grid>
 
+            {/* Poor Condition checkbox */}
             <Grid item xs={12} sm={1} alignContent="flex-start">
             <FormControlLabel
                 control={
                     <Checkbox
-                    // checked={state.checkedMaterial}
-                    // onChange={handleChange('checkedQualPoor')}
                     onChange={handleChange}
                     value="checkedQualPoor"
                     color="primary"
@@ -284,10 +313,9 @@ export default function InspectionSubmitForm() {
                     label="Poor"
             />
             </Grid>
-        
-
-
           </Grid>
+
+          {/* Submit button for form which creates a new Inspection onSubmit */}
           <Button
             type="submit"
             fullWidth
@@ -300,6 +328,8 @@ export default function InspectionSubmitForm() {
           </Button>
         </form>
       </div>
+
+      {/* Displays the ShopStream Copyright */}
       <Box mt={5}>
         <Copyright />
       </Box>

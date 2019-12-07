@@ -1,3 +1,8 @@
+/**
+ * Create New Job Form.
+ * Form which allows a user to enter input and
+ * create a new job.
+ */
 import React from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -14,7 +19,9 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import superagent from 'superagent';
 
 
-
+/**
+ * ShopStream Copyright 
+ */
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -28,6 +35,10 @@ function Copyright() {
   );
 }
 
+
+/**
+ * Styles and formatting for this pages components
+ */
 const useStyles = makeStyles(theme => ({
   '@global': {
     body: {
@@ -60,8 +71,10 @@ const useStyles = makeStyles(theme => ({
 
 
 
-
-
+/**
+ * Create a new Job Functional Component.
+ * Called on from the JobsCreate.js page to create a new Job.
+ */
 export default function JobsCreateForm() {
   const classes = useStyles();
 
@@ -363,6 +376,7 @@ export default function JobsCreateForm() {
                 autoFocus
               />
             </Grid>
+
             <Grid item xs={12} sm={24}>
               <TextField
                 onChange={handleChange}
@@ -380,8 +394,6 @@ export default function JobsCreateForm() {
                 autoFocus
               />
             </Grid>
-
-            {/* Add MME Notes Section at the bottom */}
 
 
           </Grid>
