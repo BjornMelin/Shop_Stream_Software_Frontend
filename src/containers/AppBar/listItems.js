@@ -1,3 +1,11 @@
+/**
+ * Main Dashboard App Bar List Dropdown.
+ * Allows a user to select which page they want to view
+ * from a list of 7 main options.
+ * 
+ * Note: Need to make this page so that it will only show 
+ * certain buttons in the list based on a users permissions.
+ */
 import React from 'react';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -12,9 +20,11 @@ import RateReviewIcon from '@material-ui/icons/RateReview';
 import { Link } from "react-router-dom";
 
 
-// Need to make this page so that it will only show certain 
-// buttons in the list based on a users permissions.
-
+/**
+ * Const Main List Items Containing Main List Items For 
+ * App Bar Drawer Dropdown.  Each list item is a button which 
+ * when clicked will route you to the corresponding page.
+ */
 export const mainListItems = (
   <div>
     <ListItem button component={Link} to="/dashboard" id="dashButton">

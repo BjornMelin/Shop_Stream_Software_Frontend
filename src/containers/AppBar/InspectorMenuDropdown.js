@@ -3,8 +3,6 @@
  * Menu Which Opens From Drawer In App Bar.  
  * Displays Options For Inspector Navigation.
  */
-
-
 import React from 'react';
 import clsx from 'clsx';
 import { fade, makeStyles, useTheme } from '@material-ui/core/styles';
@@ -31,8 +29,15 @@ import { mainListItems } from './listItems';
 
 
 
+/**
+ * Const which denotes the width of drawers used on this page
+ */
 const drawerWidth = 240;
 
+
+/**
+ * Styles and formatting for this pages components
+ */
 const useStyles = makeStyles(theme => ({
     search: {
         position: 'relative',
@@ -69,7 +74,6 @@ const useStyles = makeStyles(theme => ({
           width: 200,
         },
       },
-
     sectionDesktop: {
     display: 'none',
     [theme.breakpoints.up('md')]: {
@@ -141,31 +145,67 @@ const useStyles = makeStyles(theme => ({
 
 
 
+/**
+ * Inspector Main Menu Universal App Bar & List Dropdown 
+ * Functional Component
+ */
 export default function InspectorMenuDropdown() {
-
   const classes = useStyles();
   const theme = useTheme();
+
+
+  /**
+   * Const values which store the state of drawers & menus on the
+   * page (open or closed)
+   */
   const [open, setOpen] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const isMenuOpen = Boolean(anchorEl);
 
+
+  /**
+   * Const which when called will open the main
+   * dashboard list options drawer
+   */
   const handleDrawerOpen = () => {
     setOpen(true);
   };
 
+
+  /**
+   * Const which when called will close the main 
+   * dashboard list options drawer.
+   */
   const handleDrawerClose = () => {
     setOpen(false);
   };
 
+
+  /**
+   * Const which is called when a user clicks on the use profile
+   * menu.  When called, the user profile menu will open.
+   * @param {e} event denotes a user opening the user profile menu
+   */
   const handleProfileMenuOpen = event => {
     setAnchorEl(event.currentTarget);
   };
 
+
+  /**
+   * Const which when called will close a menu
+   */
   const handleMenuClose = () => {
     setAnchorEl(null);
   };
 
+
+  // Menu ID for search
   const menuId = 'primary-search-account-menu';
+
+
+  /**
+   * This is the User Account Menu
+   */
   const renderMenu = (
     <Menu
       anchorEl={anchorEl}
@@ -176,14 +216,18 @@ export default function InspectorMenuDropdown() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
+      {/* User Profile & Account Menu Items */}
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
     </Menu>
   );
 
 
-
-
+  /**
+   * Returns The Main Menu & Appbar for ShopStrem w/ Dropdown List.
+   * This is what is returned when this component is used in 
+   * another component or class.
+   */
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -194,6 +238,8 @@ export default function InspectorMenuDropdown() {
         })}
       >
         <Toolbar>
+
+          {/* Main Dashboard Panels Dropdown */}
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -206,9 +252,13 @@ export default function InspectorMenuDropdown() {
           >
             <MenuIcon />
           </IconButton>
+
+          {/* ShopStream Name On App Bar */}
           <Typography className={classes.title} variant="h6" noWrap>
             ShopStream
           </Typography>
+
+          {/* Search Bar to search app - functionality to be added */}
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
@@ -224,14 +274,18 @@ export default function InspectorMenuDropdown() {
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-          <Button 
-            variant="outlined" 
-            color="inherit" 
-            id="logout"
-            href="/"
-          >
-            Logout
-          </Button>
+
+            {/* Logout Button */}
+            <Button 
+              variant="outlined" 
+              color="inherit" 
+              id="logout"
+              href="/"
+            >
+              Logout
+            </Button>
+
+            {/* Notifications Button */}
             <IconButton 
               aria-label="show 0 new notifications" 
               color="inherit">
@@ -239,6 +293,8 @@ export default function InspectorMenuDropdown() {
                 <NotificationsIcon />
               </Badge>
             </IconButton>
+
+            {/* User Acount Menu Button */}
             <IconButton
               edge="end"
               aria-label="account of current user"
@@ -276,6 +332,8 @@ export default function InspectorMenuDropdown() {
           </IconButton>
         </div>
         <Divider />
+
+        {/* Main List Of Dashboard Panel Options */}
         <List>{mainListItems}</List>
       </Drawer>
       {renderMenu}

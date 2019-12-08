@@ -9,6 +9,9 @@ import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
+import Link from '@material-ui/core/Link';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
 const API = require('axios');
 
 /**

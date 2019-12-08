@@ -6,6 +6,9 @@ import Dashboard from './containers/Dashboard/Dashboards/Dashboard';
 import CSRDashboard from './containers/Dashboard/Dashboards/CSRDashboard';
 import InspectorDashboard from './containers/Dashboard/Dashboards/InspectorDashboard';
 import OperatorDashboard from './containers/Dashboard/Dashboards/OperatorDashboard';
+// User Profile & Account Pages
+import UserProfile from './containers/user/UserProfile';
+import UserAccount from './containers/user/UserAccount';
 // Job Pages
 import Jobs from './containers/jobs/Jobs';
 import JobsEdit from './containers/jobs/JobsEdit';
@@ -80,6 +83,13 @@ export default function App() {
           </Route>
           <Route path="/operator-dashboard">
             <OperatorDashboard />
+          </Route>
+
+          <Route path="/user-profile">
+            <UserProfile />
+          </Route>
+          <Route path="/user-account">
+            <UserAccount />
           </Route>
 
 
