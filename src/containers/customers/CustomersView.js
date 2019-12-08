@@ -35,7 +35,7 @@ export default function CustomersView() {
      * unless a user is logged in and authenticated.
      */
     useEffect(() => {
-      //  GET call to the auth API which 
+      //  GET call to the auth API which checks for a users session token
       API.get('http://127.0.0.1:9000/api/authenticate', {
         headers: {
           token: window.sessionStorage.getItem('token')

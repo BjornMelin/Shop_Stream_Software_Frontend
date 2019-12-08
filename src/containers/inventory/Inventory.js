@@ -1,3 +1,7 @@
+/**
+ * Inventory Screen
+ * Displays inventory buttons for adding, viewing, and editing inventory.
+ */
 /* eslint-disable no-script-url */
 import React, {useEffect} from 'react';
 import MenuDropdown from '../AppBar/MenuDropdown';
@@ -7,6 +11,9 @@ import InventoryCardButtons from '../Buttons/InventoryCardButtons';
 const API = require('axios');
 
 
+/**
+ * Styles and formatting for this pages components
+ */
 const useStyles = makeStyles(theme => ({
     '@global': {
       body: {
@@ -23,7 +30,9 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-
+/**
+ * Inventory Page Functional Component.
+ */
 export default function Inventory() {
     const classes = useStyles();
 
@@ -34,7 +43,7 @@ export default function Inventory() {
      * unless a user is logged in and authenticated.
      */
     useEffect(() => {
-      //  GET call to the auth API which 
+      //  GET call to the auth API which checks for a users session token
       API.get('http://127.0.0.1:9000/api/authenticate', {
         headers: {
           token: window.sessionStorage.getItem('token')
@@ -51,7 +60,10 @@ export default function Inventory() {
     }, []);
 
 
-
+    /**
+     * Returns the main Inventory screen.
+     * Includes the main AppBar & Inventory Buttons
+     */
     return (
     <div className={classes.root}>
         <MenuDropdown />

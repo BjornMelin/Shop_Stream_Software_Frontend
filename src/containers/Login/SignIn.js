@@ -79,7 +79,17 @@ export default function SignIn() {
   }
 
 
+    /**
+     * This function signs a user into ShopStream upon submission
+     * of the signin form if their credentials are valid.  A GET request
+     * is sent to the Auth API to validate credentials then a token
+     * is assigned for the users session.
+     */
   function handleSubmit(event) {
+    /**
+     * GET call to the auth API which assigns a user a token and 
+     * authenticates their login information
+     */
     return API.get('http://127.0.0.1:9000/api/signIn', {
       params: {
         username: username,

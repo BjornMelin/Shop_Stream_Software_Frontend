@@ -1,3 +1,8 @@
+/**
+ * Admin User Management Screen
+ * Displays Admin User Management buttons for adding, 
+ * viewing, and editing Users.
+ */
 /* eslint-disable no-script-url */
 import React, {useEffect} from 'react';
 import MenuDropdown from '../AppBar/MenuDropdown'
@@ -7,6 +12,9 @@ import JobsCardButtons from '../Buttons/UserMgtButtons';
 const API = require('axios');
 
 
+/**
+ * Styles and formatting for this pages components
+ */
 const useStyles = makeStyles(theme => ({
     '@global': {
       body: {
@@ -24,6 +32,9 @@ const useStyles = makeStyles(theme => ({
 
 
 
+/**
+ * Admin User Management Page Functional Component.
+ */
 export default function AdminUserMgt() {
     const classes = useStyles();
 
@@ -34,7 +45,7 @@ export default function AdminUserMgt() {
      * unless a user is logged in and authenticated.
      */
     useEffect(() => {
-      //  GET call to the auth API which 
+      //  GET call to the auth API which checks for a users session token
       API.get('http://127.0.0.1:9000/api/authenticate', {
         headers: {
           token: window.sessionStorage.getItem('token')
@@ -51,7 +62,10 @@ export default function AdminUserMgt() {
     }, []);
 
 
-
+    /**
+     * Returns the main Admin User Management screen.
+     * Includes the main AppBar & Admin User Management Buttons
+     */
     return (
     <div className={classes.root}>
         <MenuDropdown />

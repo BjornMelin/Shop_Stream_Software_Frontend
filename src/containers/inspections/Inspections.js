@@ -1,3 +1,7 @@
+/**
+ * Inspections Screen
+ * Displays inspections buttons for adding, viewing, and editing inspections.
+ */
 /* eslint-disable no-script-url */
 import React, {useEffect} from 'react';
 import MenuDropdown from '../AppBar/MenuDropdown';
@@ -7,6 +11,10 @@ import InspectionsCardButtons from '../Buttons/InspectionsCardButtons';
 const API = require('axios');
 
 
+
+/**
+ * Styles and formatting for this pages components
+ */
 const useStyles = makeStyles(theme => ({
     '@global': {
       body: {
@@ -24,7 +32,9 @@ const useStyles = makeStyles(theme => ({
 
 
 
-
+/**
+ * Inspections Page Functional Component.
+ */
 export default function Inspections() {
     const classes = useStyles();
 
@@ -35,7 +45,7 @@ export default function Inspections() {
      * unless a user is logged in and authenticated.
      */
     useEffect(() => {
-      //  GET call to the auth API which 
+      //  GET call to the auth API which checks for a users session token
       API.get('http://127.0.0.1:9000/api/authenticate', {
         headers: {
           token: window.sessionStorage.getItem('token')
@@ -52,7 +62,10 @@ export default function Inspections() {
     }, []);
 
 
-
+    /**
+     * Returns the main Inspections screen.
+     * Includes the main AppBar & Inspections Buttons
+     */
     return (
     <div className={classes.root}>
         <MenuDropdown />
