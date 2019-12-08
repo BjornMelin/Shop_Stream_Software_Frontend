@@ -1,3 +1,8 @@
+/**
+ * View Part Setups Screen
+ * Displays the PartSetupGet.js DataGrid containing a list 
+ * of all part setups in the app database
+ */
 /* eslint-disable no-script-url */
 import React, {useEffect} from 'react';
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
@@ -7,7 +12,9 @@ import PartSetupGet from './PartSetupGet';
 const API = require('axios');
 
 
-
+/**
+ * Styles and formatting for this pages components
+ */
 const useStyles = makeStyles(theme => ({
     '@global': {
       body: {
@@ -24,6 +31,10 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
+
+/**
+ * View Part Setups Page Functional Component.
+ */
 export default function PartSetupView() {
     const classes = useStyles();
 
@@ -51,7 +62,11 @@ export default function PartSetupView() {
     }, []);
 
 
-
+    /**
+     * Returns the View Part Setups screen.
+     * Includes the main AppBar & PartSetupsGET DataGrid 
+     * listing all part setups in the database
+     */
     return (
     <div className={classes.root}>
         <MenuDropdown />

@@ -1,3 +1,8 @@
+/**
+ * View Inspections Screen
+ * Displays the InspectionsGet.js DataGrid containing a list 
+ * of all inspections in the app database
+ */
 /* eslint-disable no-script-url */
 import React, {useEffect} from 'react';
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
@@ -27,6 +32,10 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
+
+/**
+ * View Inspections Page Functional Component.
+ */
 export default function InspectionsView() {
     const classes = useStyles();
 
@@ -54,7 +63,11 @@ export default function InspectionsView() {
     }, []);
 
 
-
+    /**
+     * Returns the View Inspections screen.
+     * Includes the main AppBar & InspectionsGET DataGrid 
+     * listing all inspections in the database
+     */
     return (
     <div className={classes.root}>
         <MenuDropdown />

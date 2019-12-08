@@ -1,3 +1,8 @@
+/**
+ * View Inventory Screen
+ * Displays the InventoryGet.js DataGrid containing a list 
+ * of all Inventory in the app database
+ */
 /* eslint-disable no-script-url */
 import React, {useEffect} from 'react';
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
@@ -7,7 +12,9 @@ import InventoryGet from './InventoryGet';
 const API = require('axios');
 
 
-
+/**
+ * Styles and formatting for this pages components
+ */
 const useStyles = makeStyles(theme => ({
     '@global': {
       body: {
@@ -24,6 +31,10 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
+
+/**
+ * View Inventory Page Functional Component.
+ */
 export default function InventoryView() {
     const classes = useStyles();
 
@@ -51,7 +62,11 @@ export default function InventoryView() {
     }, []);
 
 
-
+    /**
+     * Returns the View Inventory screen.
+     * Includes the main AppBar & InventoryGET DataGrid 
+     * listing all inventory in the database
+     */
     return (
     <div className={classes.root}>
         <MenuDropdown />

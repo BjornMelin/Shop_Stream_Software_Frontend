@@ -1,3 +1,8 @@
+/**
+ * View Shifts Screen
+ * Displays the ShiftsGet.js DataGrid containing a list 
+ * of all shifts in the app database
+ */
 /* eslint-disable no-script-url */
 import React, {useEffect} from 'react';
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
@@ -7,7 +12,9 @@ import ShiftsGet from './ShiftsGet';
 const API = require('axios');
 
 
-
+/**
+ * Styles and formatting for this pages components
+ */
 const useStyles = makeStyles(theme => ({
     '@global': {
       body: {
@@ -24,6 +31,10 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
+
+/**
+ * View Shifts Page Functional Component.
+ */
 export default function ShiftsView() {
     const classes = useStyles();
 
@@ -51,7 +62,11 @@ export default function ShiftsView() {
     }, []);
 
 
-
+    /**
+     * Returns the View Shifts screen.
+     * Includes the main AppBar & ShiftsGET DataGrid 
+     * listing all shifts in the database
+     */
     return (
     <div className={classes.root}>
         <MenuDropdown />

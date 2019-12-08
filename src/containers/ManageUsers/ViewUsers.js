@@ -1,3 +1,8 @@
+/**
+ * View Users Screen
+ * Displays the GetUsers.js DataGrid containing a list 
+ * of all users in the app database
+ */
 /* eslint-disable no-script-url */
 import React, {useEffect} from 'react';
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
@@ -7,7 +12,9 @@ import GetUsers from './GetUsers';
 const API = require('axios');
 
 
-
+/**
+ * Styles and formatting for this pages components
+ */
 const useStyles = makeStyles(theme => ({
     '@global': {
       body: {
@@ -33,6 +40,10 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
+
+/**
+ * View Users Page Functional Component.
+ */
 export default function ViewUsers() {
     const classes = useStyles();
 
@@ -60,6 +71,11 @@ export default function ViewUsers() {
     }, []);
 
 
+    /**
+     * Returns the View Users screen.
+     * Includes the main AppBar & GETUsers DataGrid 
+     * listing all users in the database
+     */
     return (
     <div className={classes.root}>
         <MenuDropdown /> 

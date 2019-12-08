@@ -1,3 +1,8 @@
+/**
+ * View Jobs Screen
+ * Displays the JobsGet.js DataGrid containing a list 
+ * of all jobs in the app database
+ */
 /* eslint-disable no-script-url */
 import React, {useEffect} from 'react';
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
@@ -7,7 +12,9 @@ import JobsGet from './JobsGet';
 const API = require('axios');
 
 
-
+/**
+ * Styles and formatting for this pages components
+ */
 const useStyles = makeStyles(theme => ({
     '@global': {
       body: {
@@ -24,6 +31,10 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
+
+/**
+ * View Jobs Page Functional Component.
+ */
 export default function JobsView() {
     const classes = useStyles();
 
@@ -51,7 +62,11 @@ export default function JobsView() {
     }, []);
 
 
-
+    /**
+     * Returns the View Jobs screen.
+     * Includes the main AppBar & JobsGET DataGrid 
+     * listing all jobs in the database
+     */
     return (
     <div className={classes.root}>
         <MenuDropdown />
