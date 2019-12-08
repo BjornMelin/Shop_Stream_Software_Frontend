@@ -99,8 +99,15 @@ const useStyles = makeStyles(theme => ({
 export default function ShiftsCardButtons() {
   const classes = useStyles();
 
+
+  /**
+   * Returns buttons which allow a user to add a new 
+   * Shift, view all Shifts, and edit Shifts.
+   */
   return (
     <div className={classes.root}>
+
+          {/* Add Shift button */}
           <ButtonBase
               id="addShift"
               href='/shifts/add-shift'
@@ -121,6 +128,7 @@ export default function ShiftsCardButtons() {
               />
               <span className={classes.imageBackdrop} />
               <span className={classes.imageButton}>
+              {/* Add Shift button text label */}
               <Typography
                   component="span"
                   variant="subtitle1"
@@ -133,6 +141,7 @@ export default function ShiftsCardButtons() {
               </span>
           </ButtonBase>
 
+          {/* View Shifts button */}
           <ButtonBase
               id="viewShifts"
               href='/shifts/view-shifts'
@@ -153,6 +162,7 @@ export default function ShiftsCardButtons() {
               />
               <span className={classes.imageBackdrop} />
               <span className={classes.imageButton}>
+              {/* View Shifts button text label */}
               <Typography
                   component="span"
                   variant="subtitle1"
@@ -165,6 +175,7 @@ export default function ShiftsCardButtons() {
               </span>
           </ButtonBase>
 
+          {/* Edit Shifts button */}
           <ButtonBase
               id="editShifts"
               href='/shifts/edit-shifts'
@@ -185,6 +196,7 @@ export default function ShiftsCardButtons() {
               />
               <span className={classes.imageBackdrop} />
               <span className={classes.imageButton}>
+              {/* Edit Shifts button text label */}
               <Typography
                   component="span"
                   variant="subtitle1"

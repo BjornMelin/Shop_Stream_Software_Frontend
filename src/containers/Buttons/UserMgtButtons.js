@@ -98,8 +98,15 @@ const useStyles = makeStyles(theme => ({
 export default function UserMgtButtons() {
   const classes = useStyles();
 
+
+  /**
+   * Returns buttons which allow a user to create a new 
+   * User, view all Users, and edit Users.
+   */
   return (
     <div className={classes.root}>
+
+          {/* Add User button */}
           <ButtonBase
               id="addUser"
               href='/user-mgt/create-user'
@@ -120,6 +127,7 @@ export default function UserMgtButtons() {
               />
               <span className={classes.imageBackdrop} />
               <span className={classes.imageButton}>
+              {/* Add User button text */}
               <Typography
                   component="span"
                   variant="subtitle1"
@@ -132,6 +140,7 @@ export default function UserMgtButtons() {
               </span>
           </ButtonBase>
 
+          {/* View Users button */}
           <ButtonBase
               id="viewUsers"
               href='/user-mgt/view-users'
@@ -152,6 +161,7 @@ export default function UserMgtButtons() {
               />
               <span className={classes.imageBackdrop} />
               <span className={classes.imageButton}>
+              {/* View Users button text label */}
               <Typography
                   component="span"
                   variant="subtitle1"
@@ -164,6 +174,7 @@ export default function UserMgtButtons() {
               </span>
           </ButtonBase>
 
+          {/* Edit Users button */}
           <ButtonBase
               id="editUsers"
               href='/user-mgt/edit-users'
@@ -184,6 +195,7 @@ export default function UserMgtButtons() {
               />
               <span className={classes.imageBackdrop} />
               <span className={classes.imageButton}>
+              {/* Edit Users button text label */}
               <Typography
                   component="span"
                   variant="subtitle1"

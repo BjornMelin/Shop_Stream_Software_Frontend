@@ -98,8 +98,15 @@ const useStyles = makeStyles(theme => ({
 export default function InspectionsCardButtons() {
   const classes = useStyles();
 
+
+  /**
+   * Returns buttons which allow a user to submit a new 
+   * inspection, view all inspections, and edit inspections.
+   */
   return (
     <div className={classes.root}>
+
+          {/* Submit Inspection button */}
           <ButtonBase
               id="submitInsp"
               href="/inspections/submit-inspection"
@@ -120,6 +127,7 @@ export default function InspectionsCardButtons() {
               />
               <span className={classes.imageBackdrop} />
               <span className={classes.imageButton}>
+              {/* Submit Inspection button text label */}
               <Typography
                   component="span"
                   variant="subtitle1"
@@ -132,6 +140,7 @@ export default function InspectionsCardButtons() {
               </span>
           </ButtonBase>
 
+          {/* View Inspections button */}
           <ButtonBase
               id="viewInsp"
               href="/inspections/view-inspections"
@@ -152,6 +161,7 @@ export default function InspectionsCardButtons() {
               />
               <span className={classes.imageBackdrop} />
               <span className={classes.imageButton}>
+              {/* View Inspections button text label */}
               <Typography
                   component="span"
                   variant="subtitle1"
@@ -164,7 +174,7 @@ export default function InspectionsCardButtons() {
               </span>
           </ButtonBase>
 
-
+          {/* Update Inspection button */}
           <ButtonBase
               id="updateInsp"
               href="/inspections/edit-inspections"
@@ -185,6 +195,7 @@ export default function InspectionsCardButtons() {
               />
               <span className={classes.imageBackdrop} />
               <span className={classes.imageButton}>
+              {/* Update Inspection button text label */}
               <Typography
                   component="span"
                   variant="subtitle1"

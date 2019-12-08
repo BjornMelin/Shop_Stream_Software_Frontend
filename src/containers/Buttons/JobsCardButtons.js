@@ -99,8 +99,15 @@ const useStyles = makeStyles(theme => ({
 export default function JobsCardButtons() {
   const classes = useStyles();
 
+
+  /**
+   * Returns buttons which allow a user to create a new 
+   * Job, view all Jobs, and edit Jobs.
+   */
   return (
     <div className={classes.root}>
+
+          {/* Create Job button */}
           <ButtonBase
               id="createJob"
               href='/jobs/create-job'
@@ -121,6 +128,7 @@ export default function JobsCardButtons() {
               />
               <span className={classes.imageBackdrop} />
               <span className={classes.imageButton}>
+              {/* Create Job button text label */}
               <Typography
                   component="span"
                   variant="subtitle1"
@@ -133,6 +141,7 @@ export default function JobsCardButtons() {
               </span>
           </ButtonBase>
 
+          {/* View Jobs button */}
           <ButtonBase
               id="viewJobs"
               href='/jobs/view-jobs'
@@ -153,6 +162,7 @@ export default function JobsCardButtons() {
               />
               <span className={classes.imageBackdrop} />
               <span className={classes.imageButton}>
+              {/* View Jobs button text label */}
               <Typography
                   component="span"
                   variant="subtitle1"
@@ -165,6 +175,7 @@ export default function JobsCardButtons() {
               </span>
           </ButtonBase>
 
+          {/* Edit Jobs button */}
           <ButtonBase
               id="editJobs"
               href='/jobs/edit-jobs'
@@ -185,6 +196,7 @@ export default function JobsCardButtons() {
               />
               <span className={classes.imageBackdrop} />
               <span className={classes.imageButton}>
+              {/* Edit Jobs button text label */}
               <Typography
                   component="span"
                   variant="subtitle1"

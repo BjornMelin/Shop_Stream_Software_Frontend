@@ -100,10 +100,13 @@ export default function CustomersCardButtons() {
 
 
   /**
-   * 
+   * Returns buttons which allow a user to create a new 
+   * customer, view all customers, and edit customers.
    */
   return (
     <div className={classes.root}>
+
+          {/* Add Customer button */}
           <ButtonBase
               id="addCust"
               href="/customers/add-customer"
@@ -124,6 +127,7 @@ export default function CustomersCardButtons() {
               />
               <span className={classes.imageBackdrop} />
               <span className={classes.imageButton}>
+              {/* Add Customer button text label */}
               <Typography
                   component="span"
                   variant="subtitle1"
@@ -136,6 +140,7 @@ export default function CustomersCardButtons() {
               </span>
           </ButtonBase>
 
+          {/* View Customers button */}
           <ButtonBase
               id="viewCust"
               href="/customers/list-customers"
@@ -156,6 +161,7 @@ export default function CustomersCardButtons() {
               />
               <span className={classes.imageBackdrop} />
               <span className={classes.imageButton}>
+              {/* View Customers button text label */}
               <Typography
                   component="span"
                   variant="subtitle1"
@@ -168,6 +174,7 @@ export default function CustomersCardButtons() {
               </span>
           </ButtonBase>
 
+          {/* Update Customers button */}
           <ButtonBase
               id="updateCust"
               href="/customers/edit-customers"
@@ -188,6 +195,7 @@ export default function CustomersCardButtons() {
               />
               <span className={classes.imageBackdrop} />
               <span className={classes.imageButton}>
+              {/* Update Customers button text label */}
               <Typography
                   component="span"
                   variant="subtitle1"

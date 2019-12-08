@@ -98,8 +98,15 @@ const useStyles = makeStyles(theme => ({
 export default function PartSetupCardButtons() {
   const classes = useStyles();
 
+
+  /**
+   * Returns buttons which allow a user to create a new 
+   * Part Setup, view all Part Setups, and edit Part Setups.
+   */
   return (
     <div className={classes.root}>
+
+          {/* Add Part Setup button */}
           <ButtonBase
               id="addPart"
               href="/part-setup/new-part-setup"
@@ -120,6 +127,7 @@ export default function PartSetupCardButtons() {
               />
               <span className={classes.imageBackdrop} />
               <span className={classes.imageButton}>
+              {/* Add Part Setup button text label */}
               <Typography
                   component="span"
                   variant="subtitle1"
@@ -132,8 +140,7 @@ export default function PartSetupCardButtons() {
               </span>
           </ButtonBase>
 
-
-
+          {/* View Part Setups button */}
           <ButtonBase
               id="viewPartSetups"
               href="/part-setup/view-part-setups"
@@ -154,6 +161,7 @@ export default function PartSetupCardButtons() {
               />
               <span className={classes.imageBackdrop} />
               <span className={classes.imageButton}>
+              {/* View Part Setups button text label */}
               <Typography
                   component="span"
                   variant="subtitle1"
@@ -166,8 +174,7 @@ export default function PartSetupCardButtons() {
               </span>
           </ButtonBase>
 
-
-
+          {/* Edit Part Setups Button */}
           <ButtonBase
               id="editPartSetups"
               href="/part-setup/edit-part-setups"
@@ -188,6 +195,7 @@ export default function PartSetupCardButtons() {
               />
               <span className={classes.imageBackdrop} />
               <span className={classes.imageButton}>
+              {/* Edit Par Setups button text label */}
               <Typography
                   component="span"
                   variant="subtitle1"
@@ -199,7 +207,6 @@ export default function PartSetupCardButtons() {
               </Typography>
               </span>
           </ButtonBase>
-
     </div>
   );
 }

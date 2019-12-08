@@ -99,8 +99,15 @@ const useStyles = makeStyles(theme => ({
 export default function InventoryCardButtons() {
   const classes = useStyles();
 
+  
+  /**
+   * Returns buttons which allow a user to add new 
+   * inventory, view all inventory, and edit inventory.
+   */
   return (
     <div className={classes.root}>
+
+          {/* Add Inventory button */}
           <ButtonBase
               id="addInv"
               href="/inventory/add-inventory"
@@ -121,6 +128,7 @@ export default function InventoryCardButtons() {
               />
               <span className={classes.imageBackdrop} />
               <span className={classes.imageButton}>
+              {/* Add Inventory button text label */}
               <Typography
                   component="span"
                   variant="subtitle1"
@@ -133,6 +141,7 @@ export default function InventoryCardButtons() {
               </span>
           </ButtonBase>
 
+          {/* View Inventory button */}
           <ButtonBase
               id="viewInv"
               href="/inventory/view-inventory"
@@ -153,6 +162,7 @@ export default function InventoryCardButtons() {
               />
               <span className={classes.imageBackdrop} />
               <span className={classes.imageButton}>
+              {/* View Inventory button text label */}
               <Typography
                   component="span"
                   variant="subtitle1"
@@ -165,7 +175,7 @@ export default function InventoryCardButtons() {
               </span>
           </ButtonBase>
 
-
+          {/* Update Inventory button */}
           <ButtonBase
               id="updateInv"
               href="/inventory/update-inventory"
@@ -186,6 +196,7 @@ export default function InventoryCardButtons() {
               />
               <span className={classes.imageBackdrop} />
               <span className={classes.imageButton}>
+              {/* Update Inventory button text label */}
               <Typography
                   component="span"
                   variant="subtitle1"
