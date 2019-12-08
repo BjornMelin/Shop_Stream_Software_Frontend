@@ -1,3 +1,7 @@
+/**
+ * Inventory Page Buttons.
+ * Buttons which appear upon render of Inventory.js
+ */
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
@@ -6,7 +10,9 @@ import Image from '../images/karan-bhatia-ib7jwp7m0iA-unsplash.jpg'
 import Image1 from '../images/christopher-burns-8KfCR12oeUM-unsplash.jpg'
 
 
-
+/**
+ * Styles and formatting for this pages components
+ */
 const useStyles = makeStyles(theme => ({
     root: {
       display: 'flex',
@@ -86,108 +92,111 @@ const useStyles = makeStyles(theme => ({
   
 
 
+/**
+ * Inventory Buttons Functional Component.
+ * Contains an Add, View, and Edit Button
+ */
+export default function InventoryCardButtons() {
+  const classes = useStyles();
 
-  export default function InventoryCardButtons() {
-    const classes = useStyles();
-  
-    return (
-      <div className={classes.root}>
-            <ButtonBase
-                id="addInv"
-                href="/inventory/add-inventory"
-                focusRipple
-                key='Image'
-                className={classes.image}
-                focusVisibleClassName={classes.focusVisible}
-                style={{
-                width: '25%',
-                marginLeft: 75,
-                }}
-            >
-                <span
-                className={classes.imageSrc}
-                style={{
-                    backgroundImage: `url(${Image})`,
-                }}
-                />
-                <span className={classes.imageBackdrop} />
-                <span className={classes.imageButton}>
-                <Typography
-                    component="span"
-                    variant="subtitle1"
-                    color="inherit"
-                    className={classes.imageTitle}
-                >
-                    Add New Material/Tool
-                    <span className={classes.imageMarked} />
-                </Typography>
-                </span>
-            </ButtonBase>
+  return (
+    <div className={classes.root}>
+          <ButtonBase
+              id="addInv"
+              href="/inventory/add-inventory"
+              focusRipple
+              key='Image'
+              className={classes.image}
+              focusVisibleClassName={classes.focusVisible}
+              style={{
+              width: '25%',
+              marginLeft: 75,
+              }}
+          >
+              <span
+              className={classes.imageSrc}
+              style={{
+                  backgroundImage: `url(${Image})`,
+              }}
+              />
+              <span className={classes.imageBackdrop} />
+              <span className={classes.imageButton}>
+              <Typography
+                  component="span"
+                  variant="subtitle1"
+                  color="inherit"
+                  className={classes.imageTitle}
+              >
+                  Add New Material/Tool
+                  <span className={classes.imageMarked} />
+              </Typography>
+              </span>
+          </ButtonBase>
 
-            <ButtonBase
-                id="viewInv"
-                href="/inventory/view-inventory"
-                focusRipple
-                key='Image1'
-                className={classes.image}
-                focusVisibleClassName={classes.focusVisible}
-                style={{
-                width: '25%',
-                marginLeft: 75,
-                }}
-            >
-                <span
-                className={classes.imageSrc}
-                style={{
-                    backgroundImage: `url(${Image1})`,
-                }}
-                />
-                <span className={classes.imageBackdrop} />
-                <span className={classes.imageButton}>
-                <Typography
-                    component="span"
-                    variant="subtitle1"
-                    color="inherit"
-                    className={classes.imageTitle}
-                >
-                    View Material/Tool Inventory
-                    <span className={classes.imageMarked} />
-                </Typography>
-                </span>
-            </ButtonBase>
+          <ButtonBase
+              id="viewInv"
+              href="/inventory/view-inventory"
+              focusRipple
+              key='Image1'
+              className={classes.image}
+              focusVisibleClassName={classes.focusVisible}
+              style={{
+              width: '25%',
+              marginLeft: 75,
+              }}
+          >
+              <span
+              className={classes.imageSrc}
+              style={{
+                  backgroundImage: `url(${Image1})`,
+              }}
+              />
+              <span className={classes.imageBackdrop} />
+              <span className={classes.imageButton}>
+              <Typography
+                  component="span"
+                  variant="subtitle1"
+                  color="inherit"
+                  className={classes.imageTitle}
+              >
+                  View Material/Tool Inventory
+                  <span className={classes.imageMarked} />
+              </Typography>
+              </span>
+          </ButtonBase>
 
 
-            <ButtonBase
-                id="updateInv"
-                href="/inventory/update-inventory"
-                focusRipple
-                key='Image1'
-                className={classes.image}
-                focusVisibleClassName={classes.focusVisible}
-                style={{
-                width: '25%',
-                marginLeft: 75,
-                }}
-            >
-                <span
-                className={classes.imageSrc}
-                style={{
-                    backgroundImage: `url(${Image1})`,
-                }}
-                />
-                <span className={classes.imageBackdrop} />
-                <span className={classes.imageButton}>
-                <Typography
-                    component="span"
-                    variant="subtitle1"
-                    color="inherit"
-                    className={classes.imageTitle}
-                >
-                    Edit Material/Tool Inventory
-                    <span className={classes.imageMarked} />
-                </Typography>
-                </span>
-            </ButtonBase>
-      </div>
-    );
-  }
+          <ButtonBase
+              id="updateInv"
+              href="/inventory/update-inventory"
+              focusRipple
+              key='Image1'
+              className={classes.image}
+              focusVisibleClassName={classes.focusVisible}
+              style={{
+              width: '25%',
+              marginLeft: 75,
+              }}
+          >
+              <span
+              className={classes.imageSrc}
+              style={{
+                  backgroundImage: `url(${Image1})`,
+              }}
+              />
+              <span className={classes.imageBackdrop} />
+              <span className={classes.imageButton}>
+              <Typography
+                  component="span"
+                  variant="subtitle1"
+                  color="inherit"
+                  className={classes.imageTitle}
+              >
+                  Edit Material/Tool Inventory
+                  <span className={classes.imageMarked} />
+              </Typography>
+              </span>
+          </ButtonBase>
+    </div>
+  );
+}

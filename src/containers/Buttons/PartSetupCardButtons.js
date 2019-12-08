@@ -1,3 +1,7 @@
+/**
+ * Part Setups Page Buttons.
+ * Buttons which appear upon render of PartSetups.js
+ */
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
@@ -6,7 +10,9 @@ import Image from '../images/karan-bhatia-ib7jwp7m0iA-unsplash.jpg'
 import Image1 from '../images/christopher-burns-8KfCR12oeUM-unsplash.jpg'
 
 
-
+/**
+ * Styles and formatting for this pages components
+ */
 const useStyles = makeStyles(theme => ({
     root: {
       display: 'flex',
@@ -84,111 +90,116 @@ const useStyles = makeStyles(theme => ({
     },
   }));
   
-  export default function PartSetupCardButtons() {
-    const classes = useStyles();
-  
-    return (
-      <div className={classes.root}>
-            <ButtonBase
-                id="addPart"
-                href="/part-setup/new-part-setup"
-                focusRipple
-                key='Image'
-                className={classes.image}
-                focusVisibleClassName={classes.focusVisible}
-                style={{
-                width: '25%',
-                marginLeft: 75,
-                }}
-            >
-                <span
-                className={classes.imageSrc}
-                style={{
-                    backgroundImage: `url(${Image})`,
-                }}
-                />
-                <span className={classes.imageBackdrop} />
-                <span className={classes.imageButton}>
-                <Typography
-                    component="span"
-                    variant="subtitle1"
-                    color="inherit"
-                    className={classes.imageTitle}
-                >
-                    Setup New Part
-                    <span className={classes.imageMarked} />
-                </Typography>
-                </span>
-            </ButtonBase>
+
+/**
+ * Part Setups Buttons Functional Component.
+ * Contains an Add, View, and Edit Button
+ */
+export default function PartSetupCardButtons() {
+  const classes = useStyles();
+
+  return (
+    <div className={classes.root}>
+          <ButtonBase
+              id="addPart"
+              href="/part-setup/new-part-setup"
+              focusRipple
+              key='Image'
+              className={classes.image}
+              focusVisibleClassName={classes.focusVisible}
+              style={{
+              width: '25%',
+              marginLeft: 75,
+              }}
+          >
+              <span
+              className={classes.imageSrc}
+              style={{
+                  backgroundImage: `url(${Image})`,
+              }}
+              />
+              <span className={classes.imageBackdrop} />
+              <span className={classes.imageButton}>
+              <Typography
+                  component="span"
+                  variant="subtitle1"
+                  color="inherit"
+                  className={classes.imageTitle}
+              >
+                  Setup New Part
+                  <span className={classes.imageMarked} />
+              </Typography>
+              </span>
+          </ButtonBase>
 
 
 
-            <ButtonBase
-                id="viewPartSetups"
-                href="/part-setup/view-part-setups"
-                focusRipple
-                key='Image1'
-                className={classes.image}
-                focusVisibleClassName={classes.focusVisible}
-                style={{
-                width: '25%',
-                marginLeft: 75,
-                }}
-            >
-                <span
-                className={classes.imageSrc}
-                style={{
-                    backgroundImage: `url(${Image1})`,
-                }}
-                />
-                <span className={classes.imageBackdrop} />
-                <span className={classes.imageButton}>
-                <Typography
-                    component="span"
-                    variant="subtitle1"
-                    color="inherit"
-                    className={classes.imageTitle}
-                >
-                    View Part Setups
-                    <span className={classes.imageMarked} />
-                </Typography>
-                </span>
-            </ButtonBase>
+          <ButtonBase
+              id="viewPartSetups"
+              href="/part-setup/view-part-setups"
+              focusRipple
+              key='Image1'
+              className={classes.image}
+              focusVisibleClassName={classes.focusVisible}
+              style={{
+              width: '25%',
+              marginLeft: 75,
+              }}
+          >
+              <span
+              className={classes.imageSrc}
+              style={{
+                  backgroundImage: `url(${Image1})`,
+              }}
+              />
+              <span className={classes.imageBackdrop} />
+              <span className={classes.imageButton}>
+              <Typography
+                  component="span"
+                  variant="subtitle1"
+                  color="inherit"
+                  className={classes.imageTitle}
+              >
+                  View Part Setups
+                  <span className={classes.imageMarked} />
+              </Typography>
+              </span>
+          </ButtonBase>
 
 
 
-            <ButtonBase
-                id="editPartSetups"
-                href="/part-setup/edit-part-setups"
-                focusRipple
-                key='Image1'
-                className={classes.image}
-                focusVisibleClassName={classes.focusVisible}
-                style={{
-                width: '25%',
-                marginLeft: 75,
-                }}
-            >
-                <span
-                className={classes.imageSrc}
-                style={{
-                    backgroundImage: `url(${Image1})`,
-                }}
-                />
-                <span className={classes.imageBackdrop} />
-                <span className={classes.imageButton}>
-                <Typography
-                    component="span"
-                    variant="subtitle1"
-                    color="inherit"
-                    className={classes.imageTitle}
-                >
-                    Edit Part Setups
-                    <span className={classes.imageMarked} />
-                </Typography>
-                </span>
-            </ButtonBase>
+          <ButtonBase
+              id="editPartSetups"
+              href="/part-setup/edit-part-setups"
+              focusRipple
+              key='Image1'
+              className={classes.image}
+              focusVisibleClassName={classes.focusVisible}
+              style={{
+              width: '25%',
+              marginLeft: 75,
+              }}
+          >
+              <span
+              className={classes.imageSrc}
+              style={{
+                  backgroundImage: `url(${Image1})`,
+              }}
+              />
+              <span className={classes.imageBackdrop} />
+              <span className={classes.imageButton}>
+              <Typography
+                  component="span"
+                  variant="subtitle1"
+                  color="inherit"
+                  className={classes.imageTitle}
+              >
+                  Edit Part Setups
+                  <span className={classes.imageMarked} />
+              </Typography>
+              </span>
+          </ButtonBase>
 
-      </div>
-    );
-  }
+    </div>
+  );
+}

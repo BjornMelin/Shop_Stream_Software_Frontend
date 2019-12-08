@@ -1,3 +1,7 @@
+/**
+ * Customer Page Buttons.
+ * Buttons which appear upon render of Customers.js
+ */
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
@@ -7,7 +11,9 @@ import Image1 from '../images/christopher-burns-8KfCR12oeUM-unsplash.jpg'
 import Image2 from '../images/ant-rozetsky-SLIFI67jv5k-unsplash.jpg'
 
 
-
+/**
+ * Styles and formatting for this pages components
+ */
 const useStyles = makeStyles(theme => ({
     root: {
       display: 'flex',
@@ -21,7 +27,6 @@ const useStyles = makeStyles(theme => ({
     image: {
       position: 'relative',
       height: 200,
-
       [theme.breakpoints.down('xs')]: {
         width: '100% !important', // Overrides inline-style
         height: 100,
@@ -85,106 +90,115 @@ const useStyles = makeStyles(theme => ({
     },
   }));
   
-  export default function CustomersCardButtons() {
-    const classes = useStyles();
-  
-    return (
-      <div className={classes.root}>
-            <ButtonBase
-                id="addCust"
-                href="/customers/add-customer"
-                focusRipple
-                key='Image1'
-                className={classes.image}
-                focusVisibleClassName={classes.focusVisible}
-                style={{
-                width: '25%',
-                marginLeft: 75,
-                }}
-            >
-                <span
-                className={classes.imageSrc}
-                style={{
-                    backgroundImage: `url(${Image1})`,
-                }}
-                />
-                <span className={classes.imageBackdrop} />
-                <span className={classes.imageButton}>
-                <Typography
-                    component="span"
-                    variant="subtitle1"
-                    color="inherit"
-                    className={classes.imageTitle}
-                >
-                    Add New Customer
-                    <span className={classes.imageMarked} />
-                </Typography>
-                </span>
-            </ButtonBase>
 
-            <ButtonBase
-                id="viewCust"
-                href="/customers/list-customers"
-                focusRipple
-                key='Image'
-                className={classes.image}
-                focusVisibleClassName={classes.focusVisible}
-                style={{
-                width: '25%',
-                marginLeft: 75,
-                }}
-            >
-                <span
-                className={classes.imageSrc}
-                style={{
-                    backgroundImage: `url(${Image})`,
-                }}
-                />
-                <span className={classes.imageBackdrop} />
-                <span className={classes.imageButton}>
-                <Typography
-                    component="span"
-                    variant="subtitle1"
-                    color="inherit"
-                    className={classes.imageTitle}
-                >
-                    View Customers List
-                    <span className={classes.imageMarked} />
-                </Typography>
-                </span>
-            </ButtonBase>
+/**
+ * Customer Buttons Functional Component.
+ * Contains an Add, View, and Edit Button
+ */
+export default function CustomersCardButtons() {
+  const classes = useStyles();
 
-            <ButtonBase
-                id="updateCust"
-                href="/customers/edit-customers"
-                focusRipple
-                key='Image2'
-                className={classes.image}
-                focusVisibleClassName={classes.focusVisible}
-                style={{
-                width: '25%',
-                marginLeft: 75,
-                }}
-            >
-                <span
-                className={classes.imageSrc}
-                style={{
-                    backgroundImage: `url(${Image2})`,
-                }}
-                />
-                <span className={classes.imageBackdrop} />
-                <span className={classes.imageButton}>
-                <Typography
-                    component="span"
-                    variant="subtitle1"
-                    color="inherit"
-                    className={classes.imageTitle}
-                >
-                    Edit Customers
-                    <span className={classes.imageMarked} />
-                </Typography>
-                </span>
-            </ButtonBase>
-      </div>
-    );
-  }
+
+  /**
+   * 
+   */
+  return (
+    <div className={classes.root}>
+          <ButtonBase
+              id="addCust"
+              href="/customers/add-customer"
+              focusRipple
+              key='Image1'
+              className={classes.image}
+              focusVisibleClassName={classes.focusVisible}
+              style={{
+              width: '25%',
+              marginLeft: 75,
+              }}
+          >
+              <span
+              className={classes.imageSrc}
+              style={{
+                  backgroundImage: `url(${Image1})`,
+              }}
+              />
+              <span className={classes.imageBackdrop} />
+              <span className={classes.imageButton}>
+              <Typography
+                  component="span"
+                  variant="subtitle1"
+                  color="inherit"
+                  className={classes.imageTitle}
+              >
+                  Add New Customer
+                  <span className={classes.imageMarked} />
+              </Typography>
+              </span>
+          </ButtonBase>
+
+          <ButtonBase
+              id="viewCust"
+              href="/customers/list-customers"
+              focusRipple
+              key='Image'
+              className={classes.image}
+              focusVisibleClassName={classes.focusVisible}
+              style={{
+              width: '25%',
+              marginLeft: 75,
+              }}
+          >
+              <span
+              className={classes.imageSrc}
+              style={{
+                  backgroundImage: `url(${Image})`,
+              }}
+              />
+              <span className={classes.imageBackdrop} />
+              <span className={classes.imageButton}>
+              <Typography
+                  component="span"
+                  variant="subtitle1"
+                  color="inherit"
+                  className={classes.imageTitle}
+              >
+                  View Customers List
+                  <span className={classes.imageMarked} />
+              </Typography>
+              </span>
+          </ButtonBase>
+
+          <ButtonBase
+              id="updateCust"
+              href="/customers/edit-customers"
+              focusRipple
+              key='Image2'
+              className={classes.image}
+              focusVisibleClassName={classes.focusVisible}
+              style={{
+              width: '25%',
+              marginLeft: 75,
+              }}
+          >
+              <span
+              className={classes.imageSrc}
+              style={{
+                  backgroundImage: `url(${Image2})`,
+              }}
+              />
+              <span className={classes.imageBackdrop} />
+              <span className={classes.imageButton}>
+              <Typography
+                  component="span"
+                  variant="subtitle1"
+                  color="inherit"
+                  className={classes.imageTitle}
+              >
+                  Edit Customers
+                  <span className={classes.imageMarked} />
+              </Typography>
+              </span>
+          </ButtonBase>
+    </div>
+  );
+}

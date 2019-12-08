@@ -1,3 +1,7 @@
+/**
+ * Jobs Page Buttons.
+ * Buttons which appear upon render of Jobs.js
+ */
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
@@ -7,7 +11,9 @@ import Image1 from '../images/christopher-burns-8KfCR12oeUM-unsplash.jpg'
 import Image2 from '../images/ant-rozetsky-SLIFI67jv5k-unsplash.jpg'
 
 
-
+/**
+ * Styles and formatting for this pages components
+ */
 const useStyles = makeStyles(theme => ({
     root: {
       display: 'flex',
@@ -86,107 +92,110 @@ const useStyles = makeStyles(theme => ({
   }));
   
 
+/**
+ * Jobs Buttons Functional Component.
+ * Contains an Add, View, and Edit Button
+ */
+export default function JobsCardButtons() {
+  const classes = useStyles();
 
-  export default function JobsCardButtons() {
-    const classes = useStyles();
-  
-    return (
-      <div className={classes.root}>
-            <ButtonBase
-                id="createJob"
-                href='/jobs/create-job'
-                focusRipple
-                key='Image'
-                className={classes.image}
-                focusVisibleClassName={classes.focusVisible}
-                style={{
-                width: '25%',
-                marginLeft: 75,
-                }}
-            >
-                <span
-                className={classes.imageSrc}
-                style={{
-                    backgroundImage: `url(${Image})`,
-                }}
-                />
-                <span className={classes.imageBackdrop} />
-                <span className={classes.imageButton}>
-                <Typography
-                    component="span"
-                    variant="subtitle1"
-                    color="inherit"
-                    className={classes.imageTitle}
-                >
-                    Create Job
-                    <span className={classes.imageMarked} />
-                </Typography>
-                </span>
-            </ButtonBase>
+  return (
+    <div className={classes.root}>
+          <ButtonBase
+              id="createJob"
+              href='/jobs/create-job'
+              focusRipple
+              key='Image'
+              className={classes.image}
+              focusVisibleClassName={classes.focusVisible}
+              style={{
+              width: '25%',
+              marginLeft: 75,
+              }}
+          >
+              <span
+              className={classes.imageSrc}
+              style={{
+                  backgroundImage: `url(${Image})`,
+              }}
+              />
+              <span className={classes.imageBackdrop} />
+              <span className={classes.imageButton}>
+              <Typography
+                  component="span"
+                  variant="subtitle1"
+                  color="inherit"
+                  className={classes.imageTitle}
+              >
+                  Create Job
+                  <span className={classes.imageMarked} />
+              </Typography>
+              </span>
+          </ButtonBase>
 
-            <ButtonBase
-                id="viewJobs"
-                href='/jobs/view-jobs'
-                focusRipple
-                key='Image1'
-                className={classes.image}
-                focusVisibleClassName={classes.focusVisible}
-                style={{
-                width: '25%',
-                marginLeft: 75,
-                }}
-            >
-                <span
-                className={classes.imageSrc}
-                style={{
-                    backgroundImage: `url(${Image1})`,
-                }}
-                />
-                <span className={classes.imageBackdrop} />
-                <span className={classes.imageButton}>
-                <Typography
-                    component="span"
-                    variant="subtitle1"
-                    color="inherit"
-                    className={classes.imageTitle}
-                >
-                    View Jobs
-                    <span className={classes.imageMarked} />
-                </Typography>
-                </span>
-            </ButtonBase>
+          <ButtonBase
+              id="viewJobs"
+              href='/jobs/view-jobs'
+              focusRipple
+              key='Image1'
+              className={classes.image}
+              focusVisibleClassName={classes.focusVisible}
+              style={{
+              width: '25%',
+              marginLeft: 75,
+              }}
+          >
+              <span
+              className={classes.imageSrc}
+              style={{
+                  backgroundImage: `url(${Image1})`,
+              }}
+              />
+              <span className={classes.imageBackdrop} />
+              <span className={classes.imageButton}>
+              <Typography
+                  component="span"
+                  variant="subtitle1"
+                  color="inherit"
+                  className={classes.imageTitle}
+              >
+                  View Jobs
+                  <span className={classes.imageMarked} />
+              </Typography>
+              </span>
+          </ButtonBase>
 
-            <ButtonBase
-                id="editJobs"
-                href='/jobs/edit-jobs'
-                focusRipple
-                key='Image2'
-                className={classes.image}
-                focusVisibleClassName={classes.focusVisible}
-                style={{
-                width: '25%',
-                marginLeft: 75,
-                }}
-            >
-                <span
-                className={classes.imageSrc}
-                style={{
-                    backgroundImage: `url(${Image2})`,
-                }}
-                />
-                <span className={classes.imageBackdrop} />
-                <span className={classes.imageButton}>
-                <Typography
-                    component="span"
-                    variant="subtitle1"
-                    color="inherit"
-                    className={classes.imageTitle}
-                >
-                    Edit Jobs
-                    <span className={classes.imageMarked} />
-                </Typography>
-                </span>
-            </ButtonBase>
-      </div>
-    );
-  }
+          <ButtonBase
+              id="editJobs"
+              href='/jobs/edit-jobs'
+              focusRipple
+              key='Image2'
+              className={classes.image}
+              focusVisibleClassName={classes.focusVisible}
+              style={{
+              width: '25%',
+              marginLeft: 75,
+              }}
+          >
+              <span
+              className={classes.imageSrc}
+              style={{
+                  backgroundImage: `url(${Image2})`,
+              }}
+              />
+              <span className={classes.imageBackdrop} />
+              <span className={classes.imageButton}>
+              <Typography
+                  component="span"
+                  variant="subtitle1"
+                  color="inherit"
+                  className={classes.imageTitle}
+              >
+                  Edit Jobs
+                  <span className={classes.imageMarked} />
+              </Typography>
+              </span>
+          </ButtonBase>
+    </div>
+  );
+}

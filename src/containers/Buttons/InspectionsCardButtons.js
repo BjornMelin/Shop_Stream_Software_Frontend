@@ -1,3 +1,7 @@
+/**
+ * Inspections Page Buttons.
+ * Buttons which appear upon render of Inspections.js
+ */
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
@@ -6,7 +10,9 @@ import Image from '../images/karan-bhatia-ib7jwp7m0iA-unsplash.jpg'
 import Image1 from '../images/christopher-burns-8KfCR12oeUM-unsplash.jpg'
 
 
-
+/**
+ * Styles and formatting for this pages components
+ */
 const useStyles = makeStyles(theme => ({
     root: {
       display: 'flex',
@@ -20,7 +26,6 @@ const useStyles = makeStyles(theme => ({
     image: {
       position: 'relative',
       height: 200,
-
       [theme.breakpoints.down('xs')]: {
         width: '100% !important', // Overrides inline-style
         height: 100,
@@ -86,108 +91,111 @@ const useStyles = makeStyles(theme => ({
   
 
 
+/**
+ * Inspections Buttons Functional Component.
+ * Contains an Add, View, and Edit Button
+ */
+export default function InspectionsCardButtons() {
+  const classes = useStyles();
 
-  export default function InspectionsCardButtons() {
-    const classes = useStyles();
-  
-    return (
-      <div className={classes.root}>
-            <ButtonBase
-                id="submitInsp"
-                href="/inspections/submit-inspection"
-                focusRipple
-                key='Image'
-                className={classes.image}
-                focusVisibleClassName={classes.focusVisible}
-                style={{
-                width: '25%',
-                marginLeft: 75,
-                }}
-            >
-                <span
-                className={classes.imageSrc}
-                style={{
-                    backgroundImage: `url(${Image})`,
-                }}
-                />
-                <span className={classes.imageBackdrop} />
-                <span className={classes.imageButton}>
-                <Typography
-                    component="span"
-                    variant="subtitle1"
-                    color="inherit"
-                    className={classes.imageTitle}
-                >
-                    Submit New Inspection
-                    <span className={classes.imageMarked} />
-                </Typography>
-                </span>
-            </ButtonBase>
+  return (
+    <div className={classes.root}>
+          <ButtonBase
+              id="submitInsp"
+              href="/inspections/submit-inspection"
+              focusRipple
+              key='Image'
+              className={classes.image}
+              focusVisibleClassName={classes.focusVisible}
+              style={{
+              width: '25%',
+              marginLeft: 75,
+              }}
+          >
+              <span
+              className={classes.imageSrc}
+              style={{
+                  backgroundImage: `url(${Image})`,
+              }}
+              />
+              <span className={classes.imageBackdrop} />
+              <span className={classes.imageButton}>
+              <Typography
+                  component="span"
+                  variant="subtitle1"
+                  color="inherit"
+                  className={classes.imageTitle}
+              >
+                  Submit New Inspection
+                  <span className={classes.imageMarked} />
+              </Typography>
+              </span>
+          </ButtonBase>
 
-            <ButtonBase
-                id="viewInsp"
-                href="/inspections/view-inspections"
-                focusRipple
-                key='Image1'
-                className={classes.image}
-                focusVisibleClassName={classes.focusVisible}
-                style={{
-                width: '25%',
-                marginLeft: 75,
-                }}
-            >
-                <span
-                className={classes.imageSrc}
-                style={{
-                    backgroundImage: `url(${Image1})`,
-                }}
-                />
-                <span className={classes.imageBackdrop} />
-                <span className={classes.imageButton}>
-                <Typography
-                    component="span"
-                    variant="subtitle1"
-                    color="inherit"
-                    className={classes.imageTitle}
-                >
-                    View Inspections
-                    <span className={classes.imageMarked} />
-                </Typography>
-                </span>
-            </ButtonBase>
+          <ButtonBase
+              id="viewInsp"
+              href="/inspections/view-inspections"
+              focusRipple
+              key='Image1'
+              className={classes.image}
+              focusVisibleClassName={classes.focusVisible}
+              style={{
+              width: '25%',
+              marginLeft: 75,
+              }}
+          >
+              <span
+              className={classes.imageSrc}
+              style={{
+                  backgroundImage: `url(${Image1})`,
+              }}
+              />
+              <span className={classes.imageBackdrop} />
+              <span className={classes.imageButton}>
+              <Typography
+                  component="span"
+                  variant="subtitle1"
+                  color="inherit"
+                  className={classes.imageTitle}
+              >
+                  View Inspections
+                  <span className={classes.imageMarked} />
+              </Typography>
+              </span>
+          </ButtonBase>
 
 
-            <ButtonBase
-                id="updateInsp"
-                href="/inspections/edit-inspections"
-                focusRipple
-                key='Image1'
-                className={classes.image}
-                focusVisibleClassName={classes.focusVisible}
-                style={{
-                width: '25%',
-                marginLeft: 75,
-                }}
-            >
-                <span
-                className={classes.imageSrc}
-                style={{
-                    backgroundImage: `url(${Image1})`,
-                }}
-                />
-                <span className={classes.imageBackdrop} />
-                <span className={classes.imageButton}>
-                <Typography
-                    component="span"
-                    variant="subtitle1"
-                    color="inherit"
-                    className={classes.imageTitle}
-                >
-                    Edit Inspections
-                    <span className={classes.imageMarked} />
-                </Typography>
-                </span>
-            </ButtonBase>
-      </div>
-    );
-  }
+          <ButtonBase
+              id="updateInsp"
+              href="/inspections/edit-inspections"
+              focusRipple
+              key='Image1'
+              className={classes.image}
+              focusVisibleClassName={classes.focusVisible}
+              style={{
+              width: '25%',
+              marginLeft: 75,
+              }}
+          >
+              <span
+              className={classes.imageSrc}
+              style={{
+                  backgroundImage: `url(${Image1})`,
+              }}
+              />
+              <span className={classes.imageBackdrop} />
+              <span className={classes.imageButton}>
+              <Typography
+                  component="span"
+                  variant="subtitle1"
+                  color="inherit"
+                  className={classes.imageTitle}
+              >
+                  Edit Inspections
+                  <span className={classes.imageMarked} />
+              </Typography>
+              </span>
+          </ButtonBase>
+    </div>
+  );
+}
