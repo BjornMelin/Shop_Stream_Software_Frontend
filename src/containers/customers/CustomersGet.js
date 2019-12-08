@@ -44,7 +44,7 @@ export default function CustomersGet() {
 
 
     /**
-     * Const - an array containing all customers in the
+     * Const - an array to contain all customers in the
      * app database
      */
     const [customers, setCustomers] = useState([]);

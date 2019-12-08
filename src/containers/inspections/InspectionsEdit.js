@@ -7,6 +7,9 @@ const API = require('axios');
 
 
 
+/**
+ * Styles and formatting for this pages components
+ */
 const useStyles = makeStyles(theme => ({
     '@global': {
       body: {

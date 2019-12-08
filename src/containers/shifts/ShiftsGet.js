@@ -1,3 +1,8 @@
+/**
+ * GET Shifts DataGrid Component
+ * Generates and displays a table containing a list of 
+ * all shifts in the app database
+ */
 /* eslint-disable no-script-url */
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
@@ -9,7 +14,9 @@ import Container from '@material-ui/core/Container';
 
 
 
-
+/**
+ * Styles and formatting for this pages components
+ */
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
@@ -28,15 +35,23 @@ const useStyles = makeStyles(theme => ({
 
 
 
-
-
-
+/**
+ * GET Shifts Page Functional Component.
+ */
 export default function ShiftsGet() {
-
     const classes = useStyles();
 
+
+    /**
+     * Const - an array to contain all shifts in the
+     * app database
+     */
     const [shifts, setShifts] = useState([]);
 
+
+    /**
+     * Column names and formats for the DataGrid of Shifts
+     */
     const columns = [
       new ColumnModel('jobNum'),
       new ColumnModel('buttonToButtonTime'),
@@ -46,6 +61,12 @@ export default function ShiftsGet() {
     ];
 
 
+    /**
+     * Function which sends a GET request to the app database
+     * and returns all shifts within the database.  The function
+     * parses out the returned JSON files and stores each shift
+     * as a seperate shift object in an array
+     */
     useEffect(() => {
       superagent.get('http://127.0.0.1:4000/api/getShifts')
         .then((result) => {
@@ -64,10 +85,17 @@ export default function ShiftsGet() {
     }, [])
     
 
-
+    /**
+     * Returns the GET Shifts DataGrid.
+     * Includes a DataGrid consisting of a list of all shifts
+     * in the app database in a table/list format.  Data is exportable
+     * as a csv and also printable in table format.
+     */
     return (
       <Container component="main" maxWidth="s">
       <CssBaseline />
+
+      {/* DataGrid table consisting of all shifts from the app database */}
       <div className={classes.paper}>
         <DataGrid 
             columns={columns}

@@ -1,3 +1,8 @@
+/**
+ * GET Inventory DataGrid Component
+ * Generates and displays a table containing a list of 
+ * all inventory in the app database
+ */
 /* eslint-disable no-script-url */
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
@@ -9,7 +14,9 @@ import Container from '@material-ui/core/Container';
 
 
 
-
+/**
+ * Styles and formatting for this pages components
+ */
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
@@ -28,16 +35,22 @@ const useStyles = makeStyles(theme => ({
 
 
 
-
-
-
+/**
+ * GET Inventory Page Functional Component.
+ */
 export default function InventoryGet() {
-
     const classes = useStyles();
 
+    /**
+     * Const - an array to contain all inventory in the
+     * app database
+     */
     const [inventory, setInventory] = useState([]);
 
 
+    /**
+     * Column names and formats for the DataGrid of Inventory
+     */
     const columns = [
       new ColumnModel('materialName'),
       new ColumnModel('materialType'),
@@ -55,7 +68,12 @@ export default function InventoryGet() {
     ];
 
 
-
+    /**
+     * Function which sends a GET request to the app database
+     * and returns all inventory within the database.  The function
+     * parses out the returned JSON files and stores each inventory
+     * entry as a seperate inventory object in an array
+     */
     useEffect(() => {
       superagent.get('http://127.0.0.1:4000/api/getInventory')
         .then((result) => {
@@ -74,9 +92,17 @@ export default function InventoryGet() {
     }, [])
 
 
+    /**
+     * Returns the GET Inventory DataGrid.
+     * Includes a DataGrid consisting of a list of all Inventory
+     * in the app database in a table/list format.  Data is exportable
+     * as a csv and also printable in table format.
+     */
     return (
       <Container component="main" maxWidth="s">
       <CssBaseline />
+      
+      {/* DataGrid table consisting of all inventory from the app database */}
       <div className={classes.paper}>
         <DataGrid 
             columns={columns}

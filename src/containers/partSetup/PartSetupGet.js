@@ -1,3 +1,8 @@
+/**
+ * GET Part Setups DataGrid Component
+ * Generates and displays a table containing a list of 
+ * all part setups in the app database
+ */
 /* eslint-disable no-script-url */
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
@@ -9,7 +14,9 @@ import Container from '@material-ui/core/Container';
 
 
 
-
+/**
+ * Styles and formatting for this pages components
+ */
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
@@ -28,15 +35,23 @@ const useStyles = makeStyles(theme => ({
 
 
 
-
-
-
+/**
+ * GET Part Setups Page Functional Component.
+ */
 export default function PartSetupGet() {
-
     const classes = useStyles();
 
+
+    /**
+     * Const - an array to contain all part setups in the
+     * app database
+     */
     const [partSetups, setPartSetups] = useState([]);
 
+
+    /**
+     * Column names and formats for the DataGrid of part setups
+     */
     const columns = [
       new ColumnModel('buttonToButtonTime'),
       new ColumnModel('partDesc'),
@@ -49,6 +64,12 @@ export default function PartSetupGet() {
     ];
 
 
+    /**
+     * Function which sends a GET request to the app database
+     * and returns all part setups within the database.  The function
+     * parses out the returned JSON files and stores each part setup
+     * as a seperate part setup object in an array
+     */
     useEffect(() => {
       superagent.get('http://127.0.0.1:4000/api/getPartSetups')
         .then((result) => {
@@ -67,11 +88,17 @@ export default function PartSetupGet() {
     }, [])
 
 
-
+    /**
+     * Returns the GET Part Setups DataGrid.
+     * Includes a DataGrid consisting of a list of all part setups
+     * in the app database in a table/list format.  Data is exportable
+     * as a csv and also printable in table format.
+     */
     return (
       <Container component="main" maxWidth="s">
-
       <CssBaseline />
+
+      {/* DataGrid table consisting of all part setups from the app database */}
       <div className={classes.paper}>
         <DataGrid 
             columns={columns}

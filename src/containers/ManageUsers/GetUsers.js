@@ -1,3 +1,8 @@
+/**
+ * GET Users DataGrid Component
+ * Generates and displays a table containing a list of 
+ * all users in the app database
+ */
 /* eslint-disable no-script-url */
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
@@ -9,6 +14,9 @@ import Container from '@material-ui/core/Container';
 
 
 
+/**
+ * Styles and formatting for this pages components
+ */
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
@@ -27,16 +35,22 @@ const useStyles = makeStyles(theme => ({
 
 
 
-
+/**
+ * GET Users Page Functional Component.
+ */
 export default function GetUsers() {
-
     const classes = useStyles();
 
+    /**
+     * Const - an array to contain all Users in the
+     * app database
+     */
     const [users, setUsers] = useState([]);
 
-    // const users = [];
 
-
+    /**
+     * Column names and formats for the DataGrid of Users
+     */    
     const columns = [
       new ColumnModel('username'),
       new ColumnModel('permission'),
@@ -46,6 +60,12 @@ export default function GetUsers() {
     ];
 
 
+    /**
+     * Function which sends a GET request to the app database
+     * and returns all users within the database.  The function
+     * parses out the returned JSON files and stores each user
+     * as a seperate user object in an array
+     */
     useEffect(() => {
       superagent.get('http://127.0.0.1:9000/api/getUsers')
         .then((result) => {
@@ -64,9 +84,17 @@ export default function GetUsers() {
     }, [])
 
 
+    /**
+     * Returns the GET Users DataGrid.
+     * Includes a DataGrid consisting of a list of all users
+     * in the app database in a table/list format.  Data is exportable
+     * as a csv and also printable in table format.
+     */
     return (
       <Container component="main" maxWidth="s">
       <CssBaseline />
+
+      {/* DataGrid table consisting of all users from the app database */}
       <div className={classes.paper}>
         <DataGrid
             columns={columns}
@@ -77,21 +105,3 @@ export default function GetUsers() {
       </Container>
     )
 }
-      
-
-
-    
-    // async function getUsersData() {
-
-    //     const result = await superagent.get('http://127.0.0.1:9000/api/getUsers');
-
-    //     const data = JSON.parse(result.text);
-    //     var i;
-    //     for (i = 0; i < data.length; i++)
-    //     {
-    //       delete(data[i]._id);
-    //       delete(data[i].__v);
-    //       values.users.push((data[i]));
-    //     }
-            // console.log(values)
-    // }
