@@ -1,8 +1,10 @@
+/**
+ * Delete A Customer Component
+ * Allows A User To Delete A Customer
+ */
 /* eslint-disable no-script-url */
 import React from 'react';
-// import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
 import { makeStyles } from '@material-ui/core/styles';
-// import MenuDropdown from '../AppBar/MenuDropdown'
 import superagent from 'superagent';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
@@ -13,7 +15,9 @@ import Container from '@material-ui/core/Container';
 
 
 
-
+/**
+ * Styles and formatting for this pages components
+ */
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
@@ -34,7 +38,9 @@ const useStyles = makeStyles(theme => ({
 
 
 
-
+/**
+ * Delete Customers Page Functional Component.
+ */
 export default function CustomersDelete() {
 
     const classes = useStyles();
@@ -85,9 +91,11 @@ export default function CustomersDelete() {
     //   };
 
 
+    /**
+     * Returns the Delete Customers Component
+     */
     return (
       <Container component="main" maxWidth="s">
-
       <CssBaseline />
       <div className={classes.paper}>
         <Button     

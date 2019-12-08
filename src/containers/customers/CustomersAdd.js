@@ -1,3 +1,7 @@
+/**
+ * Add New Customer Screen
+ * Displays the CustomersAddForm.js allowing for new customer creation
+ */
 /* eslint-disable no-script-url */
 import React, {useEffect} from 'react';
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
@@ -8,6 +12,9 @@ const API = require('axios');
 
 
 
+/**
+ * Styles and formatting for this pages components
+ */
 const useStyles = makeStyles(theme => ({
     '@global': {
       body: {
@@ -24,6 +31,10 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
+
+/**
+ * Add Customers Page Functional Component.
+ */
 export default function CustomersAdd() {
     const classes = useStyles();
 
@@ -51,7 +62,10 @@ export default function CustomersAdd() {
     }, []);
 
 
-
+    /**
+     * Returns the Add New Customers screen.
+     * Includes the main AppBar & CustomerAddForm
+     */
     return (
     <div className={classes.root}>
         <MenuDropdown />

@@ -1,3 +1,8 @@
+/**
+ * View Customers Screen
+ * Displays the CustomersGet.js DataGrid containing a list 
+ * of all customers in the app database
+ */
 /* eslint-disable no-script-url */
 import React, {useEffect} from 'react';
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
@@ -8,6 +13,9 @@ const API = require('axios');
 
 
 
+/**
+ * Styles and formatting for this pages components
+ */
 const useStyles = makeStyles(theme => ({
   '@global': {
     body: {
@@ -24,6 +32,11 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
+
+
+/**
+ * View Customers Page Functional Component.
+ */
 export default function CustomersView() {
 
     const classes = useStyles();
@@ -53,7 +66,11 @@ export default function CustomersView() {
 
 
 
-
+    /**
+     * Returns the View Customers screen.
+     * Includes the main AppBar & CustomersGET DataGrid 
+     * listing all customers in the database
+     */
     return (
     <div className={classes.root}>
         <MenuDropdown />

@@ -1,3 +1,7 @@
+/**
+ * Edit Customers Screen
+ * Allows a user to edit customers
+ */
 /* eslint-disable no-script-url */
 import React, {useEffect} from 'react';
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
@@ -6,7 +10,9 @@ import MenuDropdown from '../AppBar/MenuDropdown';
 const API = require('axios');
 
 
-
+/**
+ * Styles and formatting for this pages components
+ */
 const useStyles = makeStyles(theme => ({
     '@global': {
       body: {
@@ -23,6 +29,11 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
+
+
+/**
+ * Edit Customers Page Functional Component.
+ */
 export default function CustomersEdit() {
     const classes = useStyles();
 
@@ -50,7 +61,10 @@ export default function CustomersEdit() {
     }, []);
 
 
-
+    /**
+     * Returns the Edit Customers screen.
+     * Includes the main AppBar 
+     */
     return (
     <div className={classes.root}>
         <MenuDropdown />
