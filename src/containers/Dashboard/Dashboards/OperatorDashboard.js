@@ -1,8 +1,6 @@
 /**
  * Operator Dashboard Screen.
  */
-
-
 /* eslint-disable no-script-url */
 import React, {useEffect} from 'react';
 import Image from '../../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
@@ -11,7 +9,9 @@ import OperatorMenuDropdown from '../../AppBar/OperatorMenuDropdown'
 const API = require('axios');
 
 
-
+/**
+ * Styles and formatting for this pages components
+ */
 const useStyles = makeStyles(theme => ({
     '@global': {
       body: {
@@ -28,6 +28,9 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
+/**
+ * Main Operator Dashboard Page Functional Component
+ */
 export default function OperatorDashboard() {
     const classes = useStyles();
 
@@ -38,7 +41,7 @@ export default function OperatorDashboard() {
      * unless a user is logged in and authenticated.
      */
     useEffect(() => {
-      //  GET call to the auth API which 
+      //  GET call to the auth API which checks for a users session token
       API.get('http://127.0.0.1:9000/api/authenticate', {
         headers: {
           token: window.sessionStorage.getItem('token')
@@ -55,6 +58,11 @@ export default function OperatorDashboard() {
     }, []);
     
 
+
+    /**
+     * Returns the main Operator dashboard screen.
+     * Includes the main Operator AppBar and Dashboard Panels
+     */
     return (
     <div className={classes.root}>
         <OperatorMenuDropdown />
