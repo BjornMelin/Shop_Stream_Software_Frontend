@@ -1,3 +1,7 @@
+/**
+ * Create New Job Screen
+ * Displays the JobsCreateForm.js allowing for new job creation
+ */
 /* eslint-disable no-script-url */
 import React, {useEffect} from 'react';
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
@@ -7,7 +11,9 @@ import JobsCreateForm from '../forms/AddItemForms/JobsCreateForm';
 const API = require('axios');
 
 
-
+/**
+ * Styles and formatting for this pages components
+ */
 const useStyles = makeStyles(theme => ({
     '@global': {
       body: {
@@ -24,6 +30,10 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
+
+/**
+ * Create Job Page Functional Component.
+ */
 export default function JobsCreate() {
     const classes = useStyles();
 
@@ -51,7 +61,10 @@ export default function JobsCreate() {
     }, []);
 
 
-
+    /**
+     * Returns the Create New Job screen.
+     * Includes the main AppBar & JobsCreateForm
+     */
     return (
     <div className={classes.root}>
         <MenuDropdown />

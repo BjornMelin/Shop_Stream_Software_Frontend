@@ -1,3 +1,8 @@
+/**
+ * Add New Shift Screen
+ * Displays the ShiftsAddForm.js allowing for a new shift
+ * to be added to the database
+ */
 /* eslint-disable no-script-url */
 import React, {useEffect} from 'react';
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
@@ -7,7 +12,9 @@ import ShiftsAddForm from '../forms/AddItemForms/ShiftsAddForm';
 const API = require('axios');
 
 
-
+/**
+ * Styles and formatting for this pages components
+ */
 const useStyles = makeStyles(theme => ({
     '@global': {
       body: {
@@ -24,6 +31,10 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
+
+/**
+ * Add Shift Page Functional Component.
+ */
 export default function ShiftsAdd() {
     const classes = useStyles();
 
@@ -51,7 +62,10 @@ export default function ShiftsAdd() {
     }, []);
 
 
-
+    /**
+     * Returns the Add New Shift screen.
+     * Includes the main AppBar & ShiftsAddForm
+     */
     return (
     <div className={classes.root}>
         <MenuDropdown />

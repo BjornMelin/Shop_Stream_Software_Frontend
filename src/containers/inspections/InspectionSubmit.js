@@ -1,3 +1,7 @@
+/**
+ * Submit New Inspection Screen
+ * Displays the InspectionSubmitForm.js allowing for inspection submission
+ */
 /* eslint-disable no-script-url */
 import React, {useEffect} from 'react';
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
@@ -27,6 +31,10 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
+
+/**
+ * Submit Inspection Page Functional Component.
+ */
 export default function InspectionSubmit() {
     const classes = useStyles();
 
@@ -54,7 +62,10 @@ export default function InspectionSubmit() {
     }, []);
 
 
-
+    /**
+     * Returns the Submit New Inspection screen.
+     * Includes the main AppBar & InspectionSubmitForm
+     */
     return (
     <div className={classes.root}>
         <MenuDropdown />

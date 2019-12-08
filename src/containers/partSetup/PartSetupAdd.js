@@ -1,3 +1,8 @@
+/**
+ * Add New Part Setup Screen
+ * Displays the PartSetupsAddForm.js allowing for creation
+ * of a new part setup.
+ */
 /* eslint-disable no-script-url */
 import React, {useEffect} from 'react';
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
@@ -7,7 +12,9 @@ import PartSetupAddForm from '../forms/AddItemForms/PartSetupAddForm';
 const API = require('axios');
 
 
-
+/**
+ * Styles and formatting for this pages components
+ */
 const useStyles = makeStyles(theme => ({
     '@global': {
       body: {
@@ -24,6 +31,10 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
+
+/**
+ * Add Part Setup Page Functional Component.
+ */
 export default function PartSetupAdd() {
     const classes = useStyles();
 
@@ -51,7 +62,10 @@ export default function PartSetupAdd() {
     }, []);
 
 
-
+    /**
+     * Returns the Add New Part Setup screen.
+     * Includes the main AppBar & PartSetupsAddForm
+     */
     return (
     <div className={classes.root}>
         <MenuDropdown />

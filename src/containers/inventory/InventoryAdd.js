@@ -1,3 +1,8 @@
+/**
+ * Add New Inventory Screen
+ * Displays the InventoryAddForm.js allowing for new 
+ * inventory additions to the database
+ */
 /* eslint-disable no-script-url */
 import React, {useEffect} from 'react';
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
@@ -7,7 +12,9 @@ import InventoryAddForm from '../forms/AddItemForms/InventoryAddForm';
 const API = require('axios');
 
 
-
+/**
+ * Styles and formatting for this pages components
+ */
 const useStyles = makeStyles(theme => ({
     '@global': {
       body: {
@@ -24,6 +31,10 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
+
+/**
+ * Add Inventory Page Functional Component.
+ */
 export default function InventoryAdd() {
     const classes = useStyles();
 
@@ -51,7 +62,10 @@ export default function InventoryAdd() {
     }, []);
 
 
-
+    /**
+     * Returns the Add New Inventory screen.
+     * Includes the main AppBar & InventoryAddForm
+     */
     return (
     <div className={classes.root}>
         <MenuDropdown />

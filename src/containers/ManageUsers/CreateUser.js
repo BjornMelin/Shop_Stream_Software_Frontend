@@ -1,3 +1,7 @@
+/**
+ * Create New User Screen
+ * Displays the UserMgtForm.js allowing for new user creation
+ */
 /* eslint-disable no-script-url */
 import React, {useEffect} from 'react';
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
@@ -7,7 +11,9 @@ import UserMgtForm from '../forms/AddItemForms/UserMgtForm';
 const API = require('axios');
 
 
-
+/**
+ * Styles and formatting for this pages components
+ */
 const useStyles = makeStyles(theme => ({
     '@global': {
       body: {
@@ -24,6 +30,10 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
+
+/**
+ * Create User Page Functional Component.
+ */
 export default function CreateUser() {
     const classes = useStyles();
 
@@ -51,7 +61,10 @@ export default function CreateUser() {
     }, []);
 
 
-
+    /**
+     * Returns the Create New User screen.
+     * Includes the main AppBar & UserMgtForm
+     */
     return (
     <div className={classes.root}>
         <MenuDropdown />
