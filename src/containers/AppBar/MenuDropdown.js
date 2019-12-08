@@ -20,12 +20,14 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import Button from '@material-ui/core/Button'
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
-import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import Badge from '@material-ui/core/Badge';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import { mainListItems } from './listItems';
+import { Link } from "react-router-dom";
+import ListItemText from '@material-ui/core/ListItemText';
+import ListItem from '@material-ui/core/ListItem';
 
 
 
@@ -217,8 +219,12 @@ export default function MenuDropdown() {
       onClose={handleMenuClose}
     >
       {/* User Profile & Account Menu Items */}
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <ListItem button component={Link} to="/user-profile" id="userProfileButton">
+      < ListItemText primary="Profile"/>
+      </ListItem>
+      <ListItem button component={Link} to="/user-account" id="userActButton">
+        <ListItemText primary="My Account"  />
+      </ListItem>
     </Menu>
   );
 
