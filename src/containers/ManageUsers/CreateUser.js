@@ -3,7 +3,7 @@ import React, {useEffect} from 'react';
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
 import { makeStyles } from '@material-ui/core/styles';
 import MenuDropdown from '../AppBar/MenuDropdown';
-import UserMgtForm from '../forms/UserMgtForm';
+import UserMgtForm from '../forms/AddItemForms/UserMgtForm';
 const API = require('axios');
 
 
