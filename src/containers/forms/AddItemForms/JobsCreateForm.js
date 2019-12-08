@@ -78,7 +78,10 @@ const useStyles = makeStyles(theme => ({
 export default function JobsCreateForm() {
   const classes = useStyles();
 
-
+  /**
+   * Const which stores all values of job variables.
+   * Values of vars update as a user enters input into the form
+   */
   const values = {
     orderDate: "",
     dueDate: "",
@@ -97,15 +100,30 @@ export default function JobsCreateForm() {
     mmeNotes: "",
   };
 
+
+  /**
+   * Handles what occurs when a user enters text into each text box
+   * in the form.  This function changes the corresponding job
+   * value to the value entered by the user.
+   * @param {event} e denotes an event, a user entering text
+   */
   function handleChange(e) {
     const { id, value } = e.target;
     values[id] = value;
   };
 
+  /**
+   * Function which handles submission of the form sending a 
+   * POST request with the forms contents to the app API.
+   * @param {event} e denotes an event, a submission of the form
+   */
   function handleSubmit(e) {
     e.preventDefault();
-    alert("SUCCESS: " + JSON.stringify(values));
-    // console.log(values);
+    alert("SUCCESS: " + JSON.stringify(values)); // print job data to the screen
+    /**
+     * POST request to the App API which adds a new job according to the 
+     * users input into the text fields.
+     */
     superagent.post('http://127.0.0.1:4000/api/postJobData')
       .send({ orderDate: values.orderDate, dueDate: values.dueDate, 
               poNum: values.poNum, jobNum: values.jobNum, partNum: values.partNum,
@@ -121,7 +139,11 @@ export default function JobsCreateForm() {
   };
 
 
-
+  /**
+   * Returns a form which allows a user to add new job
+   * in the DB.  This is what is returned when this
+   * component is used in another component or class.
+   */
   return (
     <Container component="main" maxWidth="s">
       <CssBaseline />
@@ -129,15 +151,19 @@ export default function JobsCreateForm() {
         <Avatar className={classes.avatar}>
           <CreateIcon />
         </Avatar>
+
+        {/* On screen text denoting form title */}
         <Typography component="h1" variant="h5">
           Create A New Job
         </Typography>
+
+        {/* Form for adding a new Job */}
         <form className={classes.form} 
           noValidate 
           onSubmit={handleSubmit}>
-
-          {/* Row 1 Of Form Input */}
           <Grid container spacing={2}>
+
+            {/* Order Date text field */}
             <Grid item xs={12} sm={6}>
               <TextField
                 onChange={handleChange}
@@ -154,6 +180,8 @@ export default function JobsCreateForm() {
                 autoFocus
                 />
             </Grid>
+
+            {/* Due Date text field */}
             <Grid item xs={12} sm={6}>
               <TextField
                 onChange={handleChange}
@@ -170,6 +198,8 @@ export default function JobsCreateForm() {
                 autoFocus
               />
             </Grid>
+
+            {/* PO Number text field */}
             <Grid item xs={12} sm={3}>
               <TextField
                 onChange={handleChange}
@@ -183,11 +213,10 @@ export default function JobsCreateForm() {
                   shrink: true,
                 }}
                 autoFocus
-                // onChange="event.target.value"
               />
             </Grid>
 
-
+            {/* Job Number text field */}
             <Grid item xs={12} sm={3}>
               <TextField
                 onChange={handleChange}
@@ -204,8 +233,7 @@ export default function JobsCreateForm() {
                 />
             </Grid>
 
-
-            {/* Row 2 Of Form Input */}
+            {/* Part Number text field */}
             <Grid item xs={12} sm={3}>
               <TextField
                 onChange={handleChange}
@@ -221,6 +249,8 @@ export default function JobsCreateForm() {
                 autoFocus
               />
             </Grid>
+
+            {/* Order Quantity text field */}
             <Grid item xs={12} sm={3}>
               <TextField
                 onChange={handleChange}
@@ -236,6 +266,8 @@ export default function JobsCreateForm() {
                 autoFocus
               />
             </Grid>
+
+            {/* Recieved Quantity text field */}
             <Grid item xs={12} sm={3}>
               <TextField
                 onChange={handleChange}
@@ -252,8 +284,7 @@ export default function JobsCreateForm() {
               />
             </Grid>
 
-
-            {/* Row 3 Of Form Input */}
+            {/* Remaining Quantity text field */}
             <Grid item xs={12} sm={3}>
               <TextField
                 onChange={handleChange}
@@ -269,6 +300,8 @@ export default function JobsCreateForm() {
                 autoFocus
               />
             </Grid>
+
+            {/* Cycle Time text field */}
             <Grid item xs={12} sm={3}>
               <TextField
                 onChange={handleChange}
@@ -284,6 +317,8 @@ export default function JobsCreateForm() {
                 autoFocus
               />
             </Grid>
+
+            {/* Run Hours text field */}
             <Grid item xs={12} sm={3}>
               <TextField
                 onChange={handleChange}
@@ -303,7 +338,7 @@ export default function JobsCreateForm() {
               />
             </Grid>
 
-
+            {/* Run Days text field */}
             <Grid item xs={12} sm={3}>
               <TextField
                 onChange={handleChange}
@@ -322,6 +357,8 @@ export default function JobsCreateForm() {
                 autoFocus
               />
             </Grid>
+
+            {/* Amount Total ($) text field */}
             <Grid item xs={12} sm={3}>
               <TextField
                 onChange={handleChange}
@@ -340,6 +377,8 @@ export default function JobsCreateForm() {
                 autoFocus
               />
             </Grid>
+
+            {/* Amount Per Hour ($) text field */}
             <Grid item xs={12} sm={3}>
               <TextField
                 onChange={handleChange}
@@ -358,6 +397,8 @@ export default function JobsCreateForm() {
                 autoFocus
               />
             </Grid>
+
+            {/* Amount Per Unit text field */}
             <Grid item xs={12} sm={3}>
               <TextField
                 onChange={handleChange}
@@ -377,6 +418,7 @@ export default function JobsCreateForm() {
               />
             </Grid>
 
+            {/* MME Notes text field */}
             <Grid item xs={12} sm={24}>
               <TextField
                 onChange={handleChange}
@@ -394,9 +436,9 @@ export default function JobsCreateForm() {
                 autoFocus
               />
             </Grid>
-
-
           </Grid>
+
+          {/* Submit button for form which creates a new Job onSubmit */}
           <Button
             type="submit"
             fullWidth
@@ -409,6 +451,8 @@ export default function JobsCreateForm() {
           </Button>
         </form>
       </div>
+
+      {/* Displays the ShopStream Copyright */}
       <Box mt={5}>
         <Copyright />
       </Box>

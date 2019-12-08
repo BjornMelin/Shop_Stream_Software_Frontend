@@ -72,19 +72,17 @@ const useStyles = makeStyles(theme => ({
 
 
 
-
+/**
+ * Create a new Part Setup Functional Component.
+ * Called on from the PartSetupAdd.js page to create a new Part Setup.
+ */
 export default function PartSetupAddForm() {
   const classes = useStyles();
 
-  // const [state, setState] = React.useState({
-  //   checkedScrap: false,
-  // });
-
-  // const handleChange = name => event => {
-  //   setState({ ...state, [name]: event.target.checked });
-  // };
-
-
+  /**
+   * Const which stores all values of Part Setup variables.
+   * Values of vars update as a user enters input into the form
+   */
   const values = {
     buttonToButtonTime: "",
     partDesc: "",
@@ -96,15 +94,31 @@ export default function PartSetupAddForm() {
     scrapTypes: "",
   };
 
+
+  /**
+   * Handles what occurs when a user enters text into each text box
+   * in the form.  This function changes the corresponding Part Setup
+   * value to the value entered by the user.
+   * @param {event} e denotes an event, a user entering text
+   */
   function handleChange(e) {
     const { id, value } = e.target;
     values[id] = value;
   };
 
+
+  /**
+   * Function which handles submission of the form sending a 
+   * POST request with the forms contents to the app API.
+   * @param {event} e denotes an event, a submission of the form
+   */
   function handleSubmit(e) {
     e.preventDefault();
-    alert("SUCCESS: " + JSON.stringify(values));
-    // console.log(values);
+    alert("SUCCESS: " + JSON.stringify(values)); // print part setup data to the screen
+    /**
+     * POST request to the App API which adds a new part setup according to the 
+     * users input into the text fields.
+     */
     superagent.post('http://127.0.0.1:4000/api/postPartSetupData')
       .send({ buttonToButtonTime: values.buttonToButtonTime,
               partDesc: values.partDesc, machineTime: values.machineTime,
@@ -118,6 +132,11 @@ export default function PartSetupAddForm() {
   };
 
 
+  /**
+   * Returns a form which allows a user to add new part setup
+   * in the DB.  This is what is returned when this
+   * component is used in another component or class.
+   */
   return (
     <Container component="main" maxWidth="s">
       <CssBaseline />
@@ -125,15 +144,19 @@ export default function PartSetupAddForm() {
         <Avatar className={classes.avatar}>
           <CreateIcon />
         </Avatar>
+
+        {/* On screen text denoting form title */}
         <Typography component="h1" variant="h5">
           Add A Part Setup
         </Typography>
+
+        {/* Form for adding a new Part Setup */}
         <form className={classes.form} 
           noValidate 
           onSubmit={handleSubmit}>
-
-          {/* Row 1 Of Form Input */}
           <Grid container spacing={2}>
+
+            {/* Button To Button Time text field */}
             <Grid item xs={12} sm={4}>
               <TextField
                 onChange={handleChange}
@@ -150,6 +173,7 @@ export default function PartSetupAddForm() {
                 />
             </Grid>
 
+            {/* Part Description text field */}
             <Grid item xs={12} sm={4}>
               <TextField
                 onChange={handleChange}
@@ -168,6 +192,7 @@ export default function PartSetupAddForm() {
               />
             </Grid>
 
+            {/* Machine Time text field */}
             <Grid item xs={12} sm={4}>
               <TextField
                 onChange={handleChange}
@@ -184,6 +209,7 @@ export default function PartSetupAddForm() {
               />
             </Grid>
 
+            {/* Tool Notes text field */}
             <Grid item xs={12} sm={4}>
               <TextField
                 onChange={handleChange}
@@ -202,6 +228,7 @@ export default function PartSetupAddForm() {
               />
             </Grid>
 
+            {/* Vice Notes text field */}
             <Grid item xs={12} sm={4}>
               <TextField
                 onChange={handleChange}
@@ -220,12 +247,11 @@ export default function PartSetupAddForm() {
               />
             </Grid>
 
-
+            {/* Is Scrap checkbox */}
             <Grid item xs={12} sm={3} alignContent="flex-start">
             <FormControlLabel
                 control={
                 <Checkbox
-                    // checked={state.checkedMaterial}
                     onChange={handleChange}
                     value="checkedScrap"
                     color="primary"
@@ -238,7 +264,7 @@ export default function PartSetupAddForm() {
             />
             </Grid>
 
-
+            {/* Scrap Quantity text field */}
             <Grid item xs={12} sm={4}>
               <TextField
                 onChange={handleChange}
@@ -254,7 +280,7 @@ export default function PartSetupAddForm() {
               />
             </Grid>
 
-
+            {/* Scrap Types text field */}
             <Grid item xs={12} sm={6}>
               <TextField
                 onChange={handleChange}
@@ -269,10 +295,9 @@ export default function PartSetupAddForm() {
                 autoFocus
               />
             </Grid>
-
-
           </Grid>
           
+          {/* Submit button for form which creates a new Part Setup onSubmit */}
           <Button
             type="submit"
             fullWidth
@@ -285,6 +310,8 @@ export default function PartSetupAddForm() {
           </Button>
         </form>
       </div>
+
+      {/* Displays the ShopStream Copyright */}
       <Box mt={5}>
         <Copyright />
       </Box>

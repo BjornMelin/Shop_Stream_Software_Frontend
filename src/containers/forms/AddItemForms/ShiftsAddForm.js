@@ -71,11 +71,17 @@ const useStyles = makeStyles(theme => ({
 
 
 
-
+/**
+ * Create a Shift Functional Component.
+ * Called on from the ShiftsAdd.js page to create a new Shift.
+ */
 export default function ShiftsAddForm() {
   const classes = useStyles();
 
-
+  /**
+   * Const which stores all values of Shift variables.
+   * Values of vars update as a user enters input into the form
+   */
   const values = {
     jobNum: "",
     buttonToButtonTime: "",
@@ -84,15 +90,31 @@ export default function ShiftsAddForm() {
     shiftNotes: "",
   };
 
+
+  /**
+   * Handles what occurs when a user enters text into each text box
+   * in the form.  This function changes the corresponding Shift
+   * value to the value entered by the user.
+   * @param {event} e denotes an event, a user entering text
+   */
   function handleChange(e) {
     const { id, value } = e.target;
     values[id] = value;
   };
 
+
+  /**
+   * Function which handles submission of the form sending a 
+   * POST request with the forms contents to the app API.
+   * @param {event} e denotes an event, a submission of the form
+   */
   function handleSubmit(e) {
     e.preventDefault();
-    alert("SUCCESS: " + JSON.stringify(values));
-    // console.log(values);
+    alert("SUCCESS: " + JSON.stringify(values)); // print part setup data to the screen
+    /**
+     * POST request to the App API which adds a new shift according to the 
+     * users input into the text fields.
+     */
     superagent.post('http://127.0.0.1:4000/api/postShiftData')
       .send({ jobNum: values.jobNum, buttonToButtonTime: values.buttonToButtonTime,
               partsSampled: values.partsSampled, orderDate: values.orderDate,
@@ -104,6 +126,11 @@ export default function ShiftsAddForm() {
   };
 
 
+  /**
+   * Returns a form which allows a user to add a new shift setup
+   * in the DB.  This is what is returned when this
+   * component is used in another component or class.
+   */
   return (
     <Container component="main" maxWidth="s">
         <CssBaseline />
@@ -111,15 +138,19 @@ export default function ShiftsAddForm() {
           <Avatar className={classes.avatar}>
             <CreateIcon />
           </Avatar>
+
+          {/* On screen text denoting form title */}
           <Typography component="h1" variant="h5">
             Add A Shift
           </Typography>
+
+          {/* Form for adding a new Part Setup */}
           <form className={classes.form} 
             noValidate 
             onSubmit={handleSubmit}>
-
-          {/* Row 1 Of Form Input */}
           <Grid container spacing={2}>
+
+            {/* Job Number text field */}
             <Grid item xs={12} sm={4}>
               <TextField
                 onChange={handleChange}
@@ -136,6 +167,7 @@ export default function ShiftsAddForm() {
                 />
             </Grid>
 
+            {/* Button To Button Time text field */}
             <Grid item xs={12} sm={4}>
               <TextField
                 onChange={handleChange}
@@ -152,6 +184,7 @@ export default function ShiftsAddForm() {
                 />
             </Grid>
 
+            {/* Parts Sampled text field */}
             <Grid item xs={12} sm={4}>
               <TextField
                 onChange={handleChange}
@@ -168,6 +201,7 @@ export default function ShiftsAddForm() {
               />
             </Grid>
 
+            {/* Order Date text field */}
             <Grid item xs={12} sm={6}>
               <TextField
                 onChange={handleChange}
@@ -185,6 +219,7 @@ export default function ShiftsAddForm() {
                 />
             </Grid>
 
+            {/* Shift Notes text field */}
             <Grid item xs={12} sm={4}>
               <TextField
                 onChange={handleChange}
@@ -202,9 +237,9 @@ export default function ShiftsAddForm() {
                 autoFocus
               />
             </Grid>
-
-
           </Grid>
+
+          {/* Submit button for form which creates a new Shift onSubmit */}
           <Button
             type="submit"
             fullWidth
@@ -217,6 +252,8 @@ export default function ShiftsAddForm() {
             </Button>
         </form>
       </div>
+
+      {/* Displays the ShopStream Copyright */}
       <Box mt={5}>
         <Copyright />
       </Box>
