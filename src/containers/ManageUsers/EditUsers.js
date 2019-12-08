@@ -1,3 +1,7 @@
+/**
+ * Edit Users Screen
+ * Allows an admin to edit users
+ */
 /* eslint-disable no-script-url */
 import React, {useEffect} from 'react';
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
@@ -6,7 +10,9 @@ import MenuDropdown from '../AppBar/MenuDropdown';
 const API = require('axios');
 
 
-
+/**
+ * Styles and formatting for this pages components
+ */
 const useStyles = makeStyles(theme => ({
     '@global': {
       body: {
@@ -23,6 +29,10 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
+
+/**
+ * Edit Users Page Functional Component.
+ */
 export default function EditUsers() {
     const classes = useStyles();
 
@@ -50,7 +60,10 @@ export default function EditUsers() {
     }, []);
 
 
-
+    /**
+     * Returns the Edit Users screen.
+     * Includes the main AppBar 
+     */
     return (
     <div className={classes.root}>
         <MenuDropdown />

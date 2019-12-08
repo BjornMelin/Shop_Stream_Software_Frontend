@@ -1,3 +1,7 @@
+/**
+ * Edit Inspections Screen
+ * Allows a user to edit inspections
+ */
 /* eslint-disable no-script-url */
 import React, {useEffect} from 'react';
 import Image from '../images/bill-oxford--fGqsewtsJY-unsplash.png'; 
@@ -26,6 +30,10 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
+
+/**
+ * Edit Inspections Page Functional Component.
+ */
 export default function InspectionEdit() {
     const classes = useStyles();
 
@@ -53,7 +61,10 @@ export default function InspectionEdit() {
     }, []);
 
 
-
+    /**
+     * Returns the Edit Inspections screen.
+     * Includes the main AppBar 
+     */
     return (
     <div className={classes.root}>
         <MenuDropdown />
