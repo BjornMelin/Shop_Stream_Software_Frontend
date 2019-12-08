@@ -1,3 +1,8 @@
+/**
+ * Main SignIn Page for ShopStream Application.
+ * Allows a user to sign in if their account is verified
+ * and is in the user authentication database.
+ */
 import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,7 +17,9 @@ import Image1 from '../images/shop_stream_logo.png';
 const API = require('axios');
 
 
-
+/**
+ * ShopStream Copyright 
+ */
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -26,6 +33,10 @@ function Copyright() {
   );
 }
 
+
+/**
+ * Styles and formatting for this pages components
+ */
 const useStyles = makeStyles(theme => ({
   '@global': {
     body: {
@@ -61,30 +72,47 @@ const useStyles = makeStyles(theme => ({
 
 
 
-
+/**
+ * User SignIn Functional Component
+ */
 export default function SignIn() {
   const classes = useStyles();
 
+  /**
+   * Const values which store the state of the users username
+   * & password on the form
+   */
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
 
-
+  /**
+   * Const which when called will set the username const state
+   * to the username entered in by the user
+   * @param {e} event denotes a user entered a username
+   */
   function handleUsernameChange(event) {
     setUsername(event.target.value);
   }
 
+
+  /**
+   * Const which when called will set the password const state
+   * to the password entered in by the user
+   * @param {e} event denotes a user entered a password
+   */
   function handlePasswordChange(event) {
     setPassword(event.target.value);
   }
 
 
-    /**
-     * This function signs a user into ShopStream upon submission
-     * of the signin form if their credentials are valid.  A GET request
-     * is sent to the Auth API to validate credentials then a token
-     * is assigned for the users session.
-     */
+  /**
+   * This function signs a user into ShopStream upon submission
+   * of the signin form if their credentials are valid.  A GET request
+   * is sent to the Auth API to validate credentials then a token
+   * is assigned for the users session.
+   * @param {e} event denotes a user clicked the signin button
+   */
   function handleSubmit(event) {
     /**
      * GET call to the auth API which assigns a user a token and 
@@ -109,16 +137,24 @@ export default function SignIn() {
   }
 
 
-
+  /**
+   * Returns the SignIn page with the main signin form.
+   */
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
       <img alt='' src={Image1} style={{ width: "250px" }} />
+
+        {/* On screen text denoting form title */}
         <Typography component="h1" variant="h6">
           Sign in
         </Typography>
+
+        {/* Form for Signing a user into ShopStream */}
         <form className={classes.form}>
+
+          {/* Username text field */}
           <TextField
             onChange={handleUsernameChange}
             variant="outlined"
@@ -126,12 +162,13 @@ export default function SignIn() {
             required
             fullWidth
             id="username"
-            //type="email"
             label="Username"
             name="username"
             autoComplete="username"
             autoFocus
           />
+
+          {/* Password text field */}
           <TextField
             onChange={handlePasswordChange}
             variant="outlined"
@@ -145,11 +182,15 @@ export default function SignIn() {
             autoComplete="current-password"
 
           />
+
+          {/* Remember Me checkbox */}
           {/* <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
             id="rememberUserCheck"
           /> */}
+
+          {/* Submit button for form which signs a user into Shopstream onSubmit */}
           <Button
             onClick={handleSubmit}
             fullWidth
@@ -160,6 +201,8 @@ export default function SignIn() {
           >
             Sign In
           </Button>
+
+          {/* Forgot Password button */}
           {/* <Grid container>
             <Grid item xs>
               <Link href="/forgotpassword" variant="body2">
@@ -169,6 +212,8 @@ export default function SignIn() {
           </Grid> */}
         </form>
       </div>
+
+      {/* Displays the ShopStream Copyright */}
       <Box mt={8}>
         <Copyright />
       </Box>

@@ -1,3 +1,6 @@
+/**
+ * Main App Function used as the root of the ShopStream App
+ */
 import React from 'react';
 // Login Page
 import SignIn from './containers/Login/SignIn';
@@ -44,8 +47,6 @@ import AdminUserMgt from './containers/ManageUsers/AdminUserMgt';
 import CreateUser from './containers/ManageUsers/CreateUser';
 import ViewUsers from './containers/ManageUsers/ViewUsers';
 import EditUsers from './containers/ManageUsers/EditUsers';
-
-
 import {
   BrowserRouter as Router,
   Switch,
@@ -53,8 +54,15 @@ import {
 
 
 
-
+/**
+ * App function.  Used to navigate throughout ShopStream
+ * & to store the links to each page in the app
+ */
 export default function App() {
+
+  /**
+   * Returns routes (links) to all pages within the ShopStream app
+   */
   return (
     <Router>
       <div>
@@ -66,12 +74,14 @@ export default function App() {
           of them to render at a time
         */}
         <Switch>
+
+          {/* Link to SignIn page */}
           <Route exact path="/">
             <SignIn />
           </Route>
 
 
-
+          {/* Links to Dashboard pages */}
           <Route path="/dashboard">
             <Dashboard />
           </Route>
@@ -93,7 +103,7 @@ export default function App() {
           </Route>
 
 
-
+          {/* Links to Jobs pages */}
           <Route exact path="/jobs" >
             <Jobs />
           </Route>
@@ -108,7 +118,7 @@ export default function App() {
           </Route>
 
 
-
+          {/* Links to Inventory pages */}
           <Route exact path="/inventory">
             <Inventory />
           </Route>
@@ -123,7 +133,7 @@ export default function App() {
           </Route>
 
 
-
+          {/* Links to Customer pages */}
           <Route exact path="/customers">
             <Customers />
           </Route>
@@ -138,7 +148,7 @@ export default function App() {
           </Route>
 
 
-
+          {/* Links to Inspection pages */}
           <Route exact path="/inspections">
             <Inspections />
           </Route>
@@ -153,7 +163,7 @@ export default function App() {
           </Route>
 
 
-
+          {/* Links to Shifts pages */}
           <Route exact path="/shifts">
             <Shifts />
           </Route>
@@ -168,7 +178,7 @@ export default function App() {
           </Route>
 
 
-
+          {/* Links to Part Setups pages */}
           <Route exact path="/part-setup">
             <PartSetup />
           </Route>
@@ -183,6 +193,7 @@ export default function App() {
           </Route>
 
 
+          {/* Links to User Management pages */}
           <Route exact path="/user-mgt">
             <AdminUserMgt />
           </Route>
@@ -195,8 +206,7 @@ export default function App() {
           <Route exact path="/user-mgt/edit-users">
             <EditUsers />
           </Route>
-
-      
+          
         </Switch>
       </div>
     </Router>

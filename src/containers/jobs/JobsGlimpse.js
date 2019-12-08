@@ -1,3 +1,7 @@
+/**
+ * Temporary hard coded Jobs Glimpse screen shown on the
+ * dashboard.  Will be removed once dashboard is reconfigured.
+ */
 /* eslint-disable no-script-url */
 import React from 'react';
 import Link from '@material-ui/core/Link';
@@ -15,6 +19,9 @@ function createData(id, date, name, shipTo, paymentMethod, amount) {
   return { id, date, name, shipTo, paymentMethod, amount };
 }
 
+/**
+ * Create table row data
+ */
 const rows = [
   createData(0, '16 Mar, 2019', 'Elvis Presley', 'Tupelo, MS', 'VISA ⠀•••• 3719', 312.44),
   createData(1, '16 Mar, 2019', 'Paul McCartney', 'London, UK', 'VISA ⠀•••• 2574', 866.99),
