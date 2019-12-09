@@ -200,6 +200,10 @@ export default function MenuDropdown() {
     setAnchorEl(null);
   };
 
+  function handleLogout(event) {
+    window.sessionStorage.setItem('token', null);
+  };
+
 
   // Menu ID for search
   const menuId = 'primary-search-account-menu';
@@ -287,6 +291,7 @@ export default function MenuDropdown() {
               color="inherit" 
               id="logout"
               href="/"
+              onClick={handleLogout}
             >
               Logout
             </Button>

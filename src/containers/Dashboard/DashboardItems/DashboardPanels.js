@@ -13,6 +13,8 @@ import Chart from './Chart';
 import Deposits from './Deposits';
 import JobsGlimpse from '../../jobs/JobsGlimpse';
 import Typography from '@material-ui/core/Typography';
+import Image1 from '../../images/shop_stream_logo.png'; 
+import Theme from '../../../theme';
 
 
 /**
@@ -71,28 +73,45 @@ export default function DashboardPanels() {
     return(
         <div >
         <Container maxWidth="md" className={classes.container}>
-          <Grid container spacing={3}>
+        <img alt='' src={Image1} style={{ width: "350px" }} />
+        <Paper className={fixedHeightPaper}>
+          <Typography>
+            Welcome to ShopStream!  
+          </Typography>
+          <Typography
+            marginTop={2}>
+            ShopStream is a job and workflow management system.  ShopStream provides a
+             solution for handling job tracking and workflow, inventory management, 
+            customer management, submitting and managing inspections, shifts, part setups,
+            and application users.  ShopStream users are able to seamlessly add to, view, and edit 
+            jobs, inventory, customers, inspections, shifts, partsetups, and users through ShopStreams 
+            six manin pages.  All relevant data from ShopStream is stored in a local database,
+            data within the applications database can be viewed and modified at any time through 
+            the panels within each of the six main pages of ShopStream. 
+          </Typography>
+          </Paper>
+          {/* <Grid container spacing={3}> */}
             {/* Chart */}
-            <Grid item xs={12} md={8} lg={9}>
+            {/* <Grid item xs={12} md={8} lg={9}>
               <Paper className={fixedHeightPaper}>
                 <Chart />
               </Paper>
-            </Grid>
+            </Grid> */}
             {/* Recent Deposits */}
-            <Grid item xs={12} md={4} lg={3}>
+            {/* <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper}>
                 <Deposits />
               </Paper>
-            </Grid>
+            </Grid> */}
             {/* Recent Orders */}
-            <Grid item xs={12}>
+            {/* <Grid item xs={12}>
               <Paper className={classes.paper}>
                 <JobsGlimpse />
               </Paper>
             </Grid>
-          </Grid>
+          </Grid> */}
         </Container>
-        <Copyright />
+        <Copyright/>
       </div>
     )
 };
