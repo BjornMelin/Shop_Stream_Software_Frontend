@@ -71,7 +71,7 @@ export const mainListItems = (
     </ListItem>
     <ListItem button component={Link} to="/user-mgt" id="adminUserMgtButton">
       <ListItemIcon>
-        <RateReviewIcon />
+        <PeopleIcon />
       </ListItemIcon>
       <ListItemText primary="User Management" />
     </ListItem>
