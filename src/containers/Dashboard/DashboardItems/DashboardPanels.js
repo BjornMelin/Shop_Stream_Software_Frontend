@@ -85,7 +85,7 @@ export default function DashboardPanels() {
             customer management, submitting and managing inspections, shifts, part setups,
             and application users.  ShopStream users are able to seamlessly add to, view, and edit 
             jobs, inventory, customers, inspections, shifts, partsetups, and users through ShopStreams 
-            six manin pages.  All relevant data from ShopStream is stored in a local database,
+            seven main pages.  All relevant data from ShopStream is stored in a local database,
             data within the applications database can be viewed and modified at any time through 
             the panels within each of the six main pages of ShopStream. 
           </Typography>
